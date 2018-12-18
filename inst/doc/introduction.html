@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="OJ Watson, Jeff Eaton" />
+
+<meta name="date" content="2018-11-12" />
+
+<title>How to use rdhs?</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">How to use rdhs?</h1>
+<h4 class="author"><em>OJ Watson, Jeff Eaton</em></h4>
+<h4 class="date"><em>2018-11-12</em></h4>
+
+
+
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>rdhs</code> is a package for management and analysis of <a href="www.dhsprogram.com">Demographic and Health Survey (DHS)</a> data. This includes functionality to:</p>
+<ol style="list-style-type: decimal">
+<li>Access standard indicator data (i.e. <a href="https://www.statcompiler.com/">DHS STATcompiler</a>) in R via the <a href="https://api.dhsprogram.com/">DHS API</a>.</li>
+<li>Identify surveys and datasets relevant to a particular analysis.</li>
+<li>Download survey datasets from the <a href="https://dhsprogram.com/data/available-datasets.cfm">DHS website</a>.</li>
+<li>Load datasets and associated metadata into R.</li>
+<li>Extract variables and combining datasets for pooled multi-survey analyses.</li>
+</ol>
+<p>This process is described below and should cover most functionality that will be needed for working with these datasets.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>0. Installation</h2>
+<p>Install rdhs from github with <code>devtools</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
+<span class="co"># devtools::install_github(&quot;ropensci/rdhs&quot;)</span>
+<span class="kw">library</span>(rdhs)</code></pre></div>
+<hr />
+<blockquote>
+<p>Before starting the tutorial, if you wish to download survey datasets from the DHS website, you will need to set up an account with the DHS website, which will enable you to request access to the datasets. Instructions on how to do this can be found <a href="https://dhsprogram.com/data/Access-Instructions.cfm">here</a>. The email, password, and project name that were used to create the account will then need to be provided to <code>rdhs</code> when attempting to download datasets. You can still interact with the DHS API in section 1-2 below without having an account with the DHS website, however, you will need to create an account if you wish to go through steps 3-5.</p>
+</blockquote>
+<hr />
+</div>
+<div id="access-standard-indicator-data-via-the-api" class="section level2">
+<h2>1. Access standard indicator data via the API</h2>
+<p>The DHS programme has published an API that gives access to a number of different data sets, which each represent one of the DHS API endpoints (e.g. <a href="https://api.dhsprogram.com/rest/dhs/tags" class="uri">https://api.dhsprogram.com/rest/dhs/tags</a>, or <a href="https://api.dhsprogram.com/rest/dhs/surveys" class="uri">https://api.dhsprogram.com/rest/dhs/surveys</a>). These data sets include the standard health indicators that are available within <a href="https://www.statcompiler.com/">DHS STATcompiler</a> as well as a series of meta data sets that describe the types of surveys that have been conducted as well as which raw dataset files are available from which surveys. Each of these data sets are described within the <a href="https://api.dhsprogram.com/">DHS API website</a>, and there are currently 12 different data sets available from the API. Each of these data sets can be accessed using anyone of <code>dhs_&lt;&gt;()</code> functions. All exported functions within <code>rdhs</code> that start <em>dhs_</em> interact with a different data set of the <a href="https://api.dhsprogram.com/">DHS API</a>. Their website gives great information about the different search terms and filters that can be used, and we have tried to include all of this within the documentation of each function. Each of these data sets</p>
+<p>One of those functions, <code>dhs_data()</code>, interacts with the the published set of standard health indicator data calculated by the DHS. This data set contains a set of health indicators that have been sample weighted to give country, subnational estimates that can be further refined by education and wealth brackets. To do this we use the <code>dhs_data()</code> function, which we can then either search for specific indicators, or by querying for indicators that have been tagged within specific areas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## what are the indicators
+indicators &lt;-<span class="st"> </span><span class="kw">dhs_indicators</span>()
+indicators[<span class="dv">1</span>,]</code></pre></div>
+<pre><code>##                                                                                                           Definition
+## 1 Age-specific fertility rate for the three years preceding the survey for age group 10-14 expressed per 1,000 women
+##   NumberScale IndicatorType MeasurementType IsQuickStat  ShortName
+## 1           0             I            Rate           0 ASFR 10-14
+##     IndicatorId    Level1 IndicatorTotalId          Level2 Level3
+## 1 FE_FRTR_W_A10 Fertility                  Fertility rates  Women
+##        SDRID IndicatorOldId TagIds DenominatorWeightedId
+## 1 FEFRTRWA10                                            
+##                                Label IndicatorOrder
+## 1 Age specific fertility rate: 10-14       11763005
+##                                                                     Denominator
+## 1 Per thousand women years exposed in the period 1-36 months prior to interview
+##   QuickStatOrder IndicatorSpecial1Id DenominatorUnweightedId
+## 1                                                           
+##   IndicatorSpecial2Id
+## 1</code></pre>
+<p>Each call to the DHS API returns a <code>data.frame</code> by default with all the results available by default.</p>
+<p>The DHS has a unique <em>IndicatorId</em> for each of the statistics it calculates. The definition and specific string for each indicator is included within the <em>IndicatorId</em> and <em>Definition</em> variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># grab the first 5 alphabetically</span>
+indicators[<span class="kw">order</span>(indicators<span class="op">$</span>IndicatorId),][<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;IndicatorId&quot;</span>, <span class="st">&quot;Definition&quot;</span>)]</code></pre></div>
+<pre><code>##        IndicatorId
+## 2031 AH_CIGA_M_UNW
+## 2026 AH_CIGA_W_10P
+## 2023 AH_CIGA_W_12C
+## 2024 AH_CIGA_W_35C
+## 2025 AH_CIGA_W_69C
+##                                                               Definition
+## 2031                     Number of men who smoke cigarettes (unweighted)
+## 2026 Percentage of women who smoked 10+ cigarettes in preceding 24 hours
+## 2023 Percentage of women who smoked 1-2 cigarettes in preceding 24 hours
+## 2024 Percentage of women who smoked 3-5 cigarettes in preceding 24 hours
+## 2025 Percentage of women who smoked 6-9 cigarettes in preceding 24 hours</code></pre>
+<p>Since there are quite a lot of indicators, it might be easier to first query by tags. The DHS tags their indicators by what areas of demography and health they relate to, e.g. anaemia, literacy, malaria parasitaemia are all specific tags. First let’s look at what the tags are, by interacting with the <code>dhs_tags()</code> function, before grabbing data that related to malaria parasitaemia in the DRC and Tanzania since 2010:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What are the tags</span>
+tags &lt;-<span class="st"> </span><span class="kw">dhs_tags</span>()
+
+<span class="co"># Let's say we want to view the tags that relate to malaria</span>
+tags[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, tags<span class="op">$</span>TagName), ]</code></pre></div>
+<pre><code>##    TagType                   TagName TagID TagOrder
+## 31       0       Malaria Parasitemia    36      540
+## 43       2 Select Malaria Indicators    79     1000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and now let's then grab this data by specifying the countryIds and the survey year starts</span>
+data &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">tagIds =</span> <span class="dv">36</span>,<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">breakdown=</span><span class="st">&quot;subnational&quot;</span>,<span class="dt">surveyYearStart =</span> <span class="dv">2010</span>)
+data[<span class="dv">1</span>,]</code></pre></div>
+<pre><code>##    DataId                           Indicator  SurveyId IsPreferred Value
+## 1 3376663 Malaria prevalence according to RDT CD2013DHS           1  17.1
+##        SDRID Precision        RegionId SurveyYearLabel SurveyType
+## 1 MLPMALCRDT         1 CDDHS2013503010         2013-14        DHS
+##   SurveyYear IndicatorOrder DHS_CountryCode CILow
+## 1       2013      125136010              CD      
+##                 CountryName IndicatorType CharacteristicId
+## 1 Congo Democratic Republic             I           503010
+##   CharacteristicCategory   IndicatorId CharacteristicOrder
+## 1                 Region ML_PMAL_C_RDT             1503010
+##   CharacteristicLabel ByVariableLabel DenominatorUnweighted
+## 1            Kinshasa                                   406
+##   DenominatorWeighted CIHigh IsTotal ByVariableId
+## 1                 532              0            0</code></pre>
+<p>Depending on your analysis this maybe more than enough detail. It is also worth mentioning that this data can also be accessed via <a href="https://www.statcompiler.com/">DHS STATcompiler</a> if you prefer a click and collect version. However, hopefully one can see that selecting a lot of different indicators for multiple countries and breakdowns should be a lot easier using the <code>rdhs</code> API interaction. For example we can very quickly find out the trends in antimalarial use in Africa, and see if perhaps antimalarial prescription has decreased after RDTs were introduced (assumed 2010).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make an api request</span>
+resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds =</span> <span class="st">&quot;ML_FEVT_C_AML&quot;</span>, <span class="dt">surveyYearStart =</span> <span class="dv">2010</span>,<span class="dt">breakdown =</span> <span class="st">&quot;subnational&quot;</span>)
+
+<span class="co"># filter it to 12 countries for space</span>
+countries  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Angola&quot;</span>,<span class="st">&quot;Ghana&quot;</span>,<span class="st">&quot;Kenya&quot;</span>,<span class="st">&quot;Liberia&quot;</span>,
+                <span class="st">&quot;Madagascar&quot;</span>,<span class="st">&quot;Mali&quot;</span>,<span class="st">&quot;Malawi&quot;</span>,<span class="st">&quot;Nigeria&quot;</span>,
+                <span class="st">&quot;Rwanda&quot;</span>,<span class="st">&quot;Sierra Leone&quot;</span>,<span class="st">&quot;Senegal&quot;</span>,<span class="st">&quot;Tanzania&quot;</span>)
+
+<span class="co"># and plot the results</span>
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<pre><code>## Warning: package 'ggplot2' was built under R version 3.5.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(resp[resp<span class="op">$</span>CountryName <span class="op">%in%</span><span class="st"> </span>countries,],
+       <span class="kw">aes</span>(<span class="dt">x=</span>SurveyYear,<span class="dt">y=</span>Value,<span class="dt">colour=</span>CountryName)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> .<span class="dv">5</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(resp<span class="op">$</span>Indicator[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>CountryName,<span class="dt">ncol =</span> <span class="dv">6</span>) </code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAGACAMAAABFpiBcAAACEFBMVEUAAAAAACsAAFUAK1UAK4AAVYAAVaoAtPAAujgAv8QAwIsaGhoaGjoaGloaOloaOnoaWnoaWpkrAAArACsrAFUrKwArK1UrK4ArVYArVaorgNQzMzM6Gho6Gjo6Glo6Oho6Olo6Ono6Wno6Wpk6erk9qc09rV89sJE9sLNNTU1NTWtNTYhNa2tNa6ZNiMRVAABVACtVAFVVKwBVKytVK4BVVQBVVStVVVVVVapVgIBVqqpVqv9aGhpaGjpaGlpaOhpaOjpaOnpaWhpaWjpaWlpaWplaenpamdlhnP9rTU1rTWtrTYhra4hra6ZrpuF3m9Z6Ohp6Ojp6Olp6Whp6Wnp6elp6mXp6uZl6udl8rgCAKwCAKyuAK1WAVQCAVYCAgCuAgFWAgNSAqoCA1KqA1P+ITU2ITWuITYiIa02Ia6aIpj2IxP+ZWhqZWjqZmVqZuXqZ2ZmZ2bmZ2dmma02ma2umiE2m4eGm4f+qVQCqVSuqqlWq1ICq1P+q/6qq/9Sq//+rnT21iNa3nwC5ejq5elq5uXq52Zm52dnCkT3EiE3E///HfP/KysrOzs7QecXShH/UgCvUgFXU1IDU/6rU/9TU///WeafW1tbZmVrZuXrZ2ZnZ2bnZ2dnejADhpmvh4abh///r6+v1ZOP4dm3/ZLD/qlX/xIj/1ID/1Kr/1NT/4ab//6r//8T//9T//+H///8gsF3lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nO2di38Vx3X4L4QIY9lNATX8otq0rgFbcV1sJ23qynGSNi2QNhjSOgXRh+vIv7SWHBxI65uffzavNjx8DbdNhRASNAKEWonL/oud585jZ2Zndmfvzt6d80Hc3bm7Z8/Ofu+Zx86Z6SRRogQsnboNiBLFJBHQKEFLBDRK0BIBjRK0RECjBC0R0ChBiyOgK/6kOpVBa2yUkQFIBHTIGhtlZAASAR2yxkYZGYBEQIessVFGBiAR0CFrbJSRAUgEdMgaG2VkABIBHbLGRhkZgERAh6yxUUYGIBHQIWtslJEBiA9Ab3/zhOY+l/aeyc0D1Xe3xsfHd5pPN6jUm7J8bKeTQoNGYhv8mD+k/i5X5dIz0Jz5p/mjl4/J2soYKV1AYZja1jJI+RUfgN767j5N1hUE9BbI0eVj+7wD6v7w9Ro52zKA2qpcevZ3Lq/c/vbe6gCVLmCdoWWQ8iseAF0+/tffubyy9Nxfjo+DvL39xvivffsE/ACUwQxZegala/NAoRA9o6XnLi/t/WN0LlZBr6BTmAso1kssw8rmD6HrFNDIe9Dv0juHin/7W0+fNty2AOjePzmxsvRddjTMvG8d4vdAVpI9UKpATwgSn6Jp8FpnzEaKF0ifB8yKpWdPrNz60r+NvgcFTxg+52f2gdu9vDIPPkAOzqM9kCGw/Ff+cPUq08OJTqJC3Mt59gqlP8W+CVh2aSdVfQv8v6+QRh5QdKOpYsSBXiencmnvTw6t/OsP2dEw18YP8XtPnSB7t988A9VDsm596Rc0Rw7lGSlegBl2CRgLiL20rwVFPLjXWzvxjxPn4/LxE/ADZAW5e7inzQNFtj53mUHAVIh7KksMRgJ/8VuwWosqzEzZ7e9c/uBEIY1SHXT+kKhYr5NTubT39PPLPzidHo0yD/+M6N5xah2p6DOeyLVyjBQvwGXmc5c/eHsnUD/6gC4fG4eFD3kwEC5y2/Tu53HZpMsD9bMHBdFTJ9KHPc9dQaswB9Bn9t1+Yx8qIseZalw9KaKRAxQiDgAVFOt1ciqBV/+rX/ypeIcYd7SHs5JqQjmS/njZ8WYjVReAW7ff/PDN03s/TJlVGxmAlAcUZdn8IZ0Hvf3GIdcintQVv0kfNlEh7iksyW0kwVoXcWuUo0uggVdIo+hBgcmiYr1OTiU44IO397GjiQfl90BWMk240gTzhuVInpHCBTjD5v/s+eXjb+9sQSv+EqTp1k76xOU6KAVDmwcKlVAB/I96ZaxC3FOclt/NdIlUkvGDppoKaeQB3ZneeapYr5NTCQ7Cd0mPxnVQfo9kwrMnYP0e/KHWzd7TLEfyjBQuwF3q1jiuhY48oMs/QD/pb/6QPHFQ0v36cb4Vf2kctUy1eaDiArY0aSdAqkLcU51m0Ej7QUEjCzeDiTJkfhGN0MTxcfS7BK14+IsSFWt1cioxL9zRoLoEP8geyUqyN8+34lmOmI2ULsBdCkH69JnRB1THQq44qbSTAhqXnvetMU+cVFplZXVGBiC+AYVNpqd0L5aUeVA6MzMqHc64lGOrfxvtVVpnZXVGBiACoJsHpzcPdrae0x9eQR74Vxm0xkYZGYAIgHbHkv7Wc/0x/eEV5IF/lUFrbJSRAQgPKHCgg5mxZM3gQivIA/8qg9bYKCMDEAnQzYOTEdBKNTbKyACEB3QwM7m2ZRYW9FpZXV2Ff1gstzRfmlUWuoqzkbmHMY0ljBSTmmRkVvqdTgcwopf//v/C7uZBRJPJ6ZlFqIOu7+qMJd1tC/rD7W84AjqCgA5mIBz9zrQWkPXdIr2g0Q0P9gRovtjfcAR0BAElzquv92FZQF/fsxABFbO1tGkZI4uerkpqkpGSgEZKuj2Y6YDiFgMJ/lvf/e6uTmcalMGdyfWJv+9s/X1YtPfHwCndSQwo/K4zmeAjJ+HeNFZjhFdsJHWIaGuh9jccAR09QDn3CLt74F8K6C7gVftbz8H99V1jGMnBDGh1T69PnIN7iG54BDqygw+HKkwOWfKgfcgyaMij0yKgEVAZ0InU16Eyew0DiQGdJp4UAjqNvS04Hn70Uc/Q/ywk3JHk8DVMnL5OK3czkWtrqwz2NxwBHUFAmQddg16PACl/4sP6Y/AfZGrzFQziGuoBoEei//q4xJ6MgBa8SgSUF+rqIHG5gK5PfDozjU/pj6EifsssfyQG1FS6ZwBNi3h9rcD+hiOgowco5QJwAjvMhSI+A+hg5nVQI0CADk69A86A565JHnTN2KeaARQ5YdC26qPTNo5MvXQtSR69N/XyryKgEdCE7weljSTozgYzDDtU9cQ1gT5sa2Onu9bBSK/vkgBFCo2U6ruZHv3fj5K7L//q8dm55O7vhQDonTt3cq7SpGffCCOz0qVvkkg3E+o8+qNXGHbdzhgBNG0rwdNA2QxO3fIj0KjnAUVqjF5UD+jG93+VPPrxNfAv2fjza/UDeucOIzQCOhwjSwnX5i8hqn5Q3EIiHhRxCjaT5DeBeLhiUUGA1nj9KI7SN7TN7SXrQUETDW/gyufDlymgUOx/kdGDttuDov54D6Io4tew5o3vfZQ8fOka86BQ7G/YO6CxDtooQH2JClBcxBPXGUwd1OIqzkZGQJsIaFfwoI/PHg2kFR8BbTugpJFEW/0Pp6a++lHsByUaI6D1SBxuZ2Nk0dNVSU0yMgARQz4Mo0qw2N9wBHT0AF1UixNwrqIYLGIS+xuOgNKtkydPhm+kHaCfK8WFN2cRB4vkdl3Z33AElGydPMkIDdbIZgAqvklSiv0NtwpQyUkKWxHQUhIbSTZG5pwuMyhsRUBLSQTUxsic042AxjpoKUkBZRFzsYjPGJlzuhlQ9bOvxMgnn3zS/XSDkZLU7kH7uSFMUZQC+KzbBChPQqlQf92Aspgk7eH2v8g2edAizqkKIxGgPo2UJAIaAW00oOlIzYwUH7ysDprTiv0NDwdQcYios5FDAXSIjaSh1UFv3LihAHTtGzp0PAFKg+b0Yn/DQwGUG8RcK6DGftD3R6ib6X5GOEAHp3709YVkfc/fIoZAq/sLX5tN8JTdEFAy2Y2jNKibSTFgORBATa343vutAXR9z0J3GnA4ica8dydRuGYX7cE5RkD5X8CRNgdQVchH8ID2eqMFKCvhuTKefg2nuBnDzhLw+Oo54FJn4QdAk5AJ9xyl2YAGUgfVANpDMoqAKuugMIIYFOcEUOBOIaBwj3zAuGP3WRgbDqh4gquRFy9etDMy586UgPYWRxhQVSseIpl0p3UelMwm5sZbkwBVBs2V8qAXLzJCHZ59FkYFoIDMJgCq6JYqDGgfzSEyRgDN1EFR+u68mW4y0hxA/ddBiwHK0agFFJFJAR3iYBHXbiau47Q0oIO/gd5x85V3CaCg+f7FU3wrvt/pfOE152a84V3847NBxSQ1BtAeEQToSf67qgF17qj3CahCfMwtYvCgV+dg6HEwczNV0IovVAc1A0r9ZsrmSdm9OudkMwHNnXTJUgyTh/34Gv0IIy7efz9osUaSvg7KFewpmsOsg7q/6vRZB61G5GVoWBG/8f1/hkV8MHMzqaTcfE2oiHc/LTt0CZHIgsgom3gPAVrYRjepdjBT7YAOZibxtPdob+PIHKQzmLmZcor9As7JXx30fSBSsZ76UthK4nU756S9By2Rk43woBBN3CsA94jrDGduJsXWlSs1A0p7khCgHJxcYd/rKZ+99T2GBGgAYcf9dDHZR/8U+txM4NlfGX4/6MmT1F0yH4mKccwmayRFD+pD5OW4AZ00+PgqKuIDmpsJPHEuDT38UoByjSRdc4lpNAAqeM4MoEF31DcMUFAJTbpp58Cj98Kao/7OlSuycypXxAukqn0p06gBNIXzfd40XtEQu5lGPiYpX+xv2DugdwCgVwIAFDaJJM/5ftpIUlwl5H7QpnUz5Yt9to4soNiDCsU6AlR7lfa+SfIh3KvO6bBnFlEBWrIOyjac6qCpcM2gIMKORxpQO7HPVu+AquqgXBdOkWdf/FUn3yBqcFx8wwANffrFbA9OHd1MrA6KzEApgQA66nXQ0Kdf5AG9wySTrbamFQSU2bFIEhoLqGcPuoZXcvezQBKRJk2/eEctmWy1Na0soGKpb5sBzjkZIqCgOZAFFC8RP1kdoGE3kiQ+PbTiSwHKJ7UH0Kx7+JyLSYIF8PqehfWJ30cBxjjOmIYhF4s6dm0k1SqK18BXSi0+V2gwE7JDTECAlrDDm7iOZnKczMkMaOo4SeAxiTMW95zMg9LmVnxRD5oxMhQPOrRW/JUrfBlPvkVBc2iDBH0kKM5Y3HPDLTGNB1UKfyf3798vk8EqlaaTlP2gdQCqH7BslQGORroV8S+8MJxWvKoOSmYP2TKbItnlwpALRh0bxoMqhbsTNK9EiQxWqHQHtJbRTNnxoAEB+oI4EqAaD6psxeM6KJmlgcUZi3tOcELRjwdVCncnIQBa+3jQTFIIgPaEMQFDAxRFGcP/6NQNOM5Y3HOCE4p+PKhSuDuJgAYMqFT3kbZSKj33g8IqIp0pLI0zFvdc2ERiGA+qEv5O6qqD0rS6upkUMErjQYz34mikG6BQ0t+w7iSGZcNedUrjQVVin60VASqm1fKq0wEdVZJzTroCiiGl4wRGCtB8sc/WSgD1PHmYr7mZwvGgoIhnjEplfQTULYPNKhVJocTFZ40Mrg7KQ7rYy5xUVR20CmnQMjTeAR25jnq+kZQympb1xsI+fEBVAqe9CSYmKZS5mRoC6CKDVB7bUhzQmsOOM3J3ai4Z4bmZRhBQxBvfEycW9qS0b2QRD0V61bnxF/84F87cTAEDGk4jKeUt7Spmzaa0sG9sI0l61fn4Z/9ydi6guZlU0zCVmZqp6NxM4UpmcNLi4gtQFhepI0VFMmJWfYJZ6gZUetV59ygs3oOem6mWGZadjazDg9IjuGppWtgjaFFx3zAPKr7qRLOK8B4UZ0JQgIZSxIcMKGslLaY1UgotKv4NRkpSN6Diq867U1COGuqgih42xZbujWiiUlkXoIru7NEAlDWISLtJ6MdnvrQZgMqvOqEHNczNJM6VpNnSjilRqhwqoFxH/egCyh9KXy6lkBJAkXtVGSlJ7YDKktMPmpmGSLVVKaDe1klqB6CrpAtKUdjTVj9xuWoeggM0K8INm95RDAlQ8QSjRtNVVG+sRxPQVW6FHKG0Z91SUIf66eeskwSHIw9mxtyIypMSIR8s/NaYh1XWQSOgBQBdZU+OG1niBuj58+eVgFrM/eEoYj9oLv3K29Q+XiTeAFW8iy8JKK2D6u+AaRwpQBNS1qM6qPhC1AzoxYwIgJKoD7w0Eg43hsvL7lkoGHOclJtZhJvpQ5+H3op41ZukcoCmrfg2AroKb5s2koSWvakOagb0U+w/u5Owt5KEG6+B/yeLxhwn5eZmEuZK0mVHBDRYQFdXuVY8K+w5IyVZ5Ep4rown367v/g048Q0Mm+PCjTe/vvBz1C1UJOY4keqgpmikbLbev3GDA1QXYNAAQA2VFKaxCYAWiYvnWvEEUQtA1XXQXZObByfJwM00dG5w6kdfXygac5yUaSTdB4De4ADVted91UEjoPmAup6OXS7fircEVNeKh3GbxFWmwXLfmEyKxhwnmcEieYdzN5cFVNmeD9+Dmpp5TOMIA8qvzdyzKuL13UzwNWS6wHHKbNGY48S5kcQJAjR/7CoCtIhlGSk1ckklZDRT9YNu8+SJJ56o58LcaCab8cdW/aDbFkAZv2U29aBoFeSCMcdJqUYSAK8neVCFJwq4ox57UGNHGdNYoQd9Aort6V6NFEYzlfWgGln/Sh5URhHroLnVBOE2EXsSoJkBJBHQegFVtZvYltTqrwDQfsklj8vMD7rYu08YFSfnFjMh3DdJCFCd51/Nf/ZNAFTZ86T2oFjM/aAFPGhJKf0u/j7zo5r2vDlbI6BhAYqT1E+/kYBKjKa+tCGAno+AqpLUT79p6yRxBXvKaPb1Z7hF/OrF85TPeruZGJ9DBlQxP6gR0NDCjrMi3KZY88SMSkvFBN1IshjuwjRWCajL6Y5G+gW05iKe9INaTr+oWLdIqI+StBs3wgWUedCL7QS0SUV84gFQiuj9ZgAKaqCI0It89NyIAWruZmoUoP10bibDqFDhNhWAwi3CaFMATQeOGYw0XNPStMJGlgXUeLoC0JBDPqRXnRtHpqbyY5KygIplfdiAYjR758/XCmiFjSR3QHkjJakbUFFgMPzG9z7Sz80kDbdTFvaBA0p7QusFNJBXnQojJakdUGG43UNI5dU5bVy8ajSTuIUZDRtQ0ko6X2cdNAJqEHNMEvCi2rmZlKOZZCGNpkpvobCgOii283ydkzQhQGu5MjeayUbqBjQz3A5O2qCdmynfg6Zlvel3X6sHPU/6meou4g8cqMeDel2Omww1gh9deVhc8fVlTcPtHr13NDHMzaQjTwL0RgRUSMoaCQE90NPOMBBiEf/+++/rAIWSAbS4GGKSNo6ANrxhflDzMjSN6WYKB9AeP4LBWC2tDdCTGVF70G+gKGMSf/zl17Z+jJdJLBB6rB9uh/nUz82Uv5BXcwCtu5GUAprGx3INpyYCiiM+aPwxCkgqGHqs72bCs9vNaftBrVaaCx3QcIbbAWEVozxAxY7TIQLKSniujFcAOg2LeTH+GH5XIPS4+GARy6UQgwY0oBH1PKVAQLNJD6jUL1XcyCrqoPADRsJ3p8X444Khx5Uvxx3waCYuqjOEIl6A9MABlKbWWD+g+a14OJm8EH9cMPS4+HLctlshdzNRQOt+1ZlWQTlK03ppdl6h8AEdS0gdlMUfFww9Lr4c98gAulo7oNKoBqnAz0464A1Qv/2gqPwdI614GCsnxh8XCz0uvhy35Vb4RXwAgCaZ3uMD2Wopm2TWH6A5RkpS95skx+W4RwbQ1ZrroOIWbSTBIl7jS7kWVLsArWI57iYAGuAEtk8cSOugxiZ+uwDNF/sbjoCWAhR3dbKCXaA0AupTgh3MxK80F97cTCyNjQ0TOkyHayK2JHxA7X+R6Vb4rXggwY0Hld4k9bK+dBhGStK0sOPRKeLrjUmyABRKbCRZiP0NR0B9A7qarsQVAdWK/Q1HQEsBqh1u5xdQnx311YjQUf8P6APNOKoR+6eSbjWiDlpvXPwTblGd/gBtWEwSmgI/6VrPzTQ6HlR7GNNYJaAup0MJ8118NSKNZprsG/vpI6BFjCwEqK6IJ9+1E9Bk82DOoHz7pxIBLQWoupGU/bKkkc2qgyaQUPNqiPZPJQLaBEBzjJSk5vlB07mZYh1UNtJwTUvTXI00Auot5MMroOu7oHPrCvSUX1w2v5tJPzeT3VYjWvENA3RYRkrCAD1w4EAW0N3/ZyHZ/NrEkAHVz81U7NblbI2AKrcCBfSJjHCATvzBbLL+DRZgDAplOEKZ2/vaLN1bwwU1GdKM0mB4crbsFgFFUzCKy83p4+IjoBUCOpy4eM+A/r/p5N/fZQHGMDqjM83vbZklezBcqT+GHOzatl/iNBienBUB0D6GWiBUOzdT84UbzRTFRha5Ep4r48m36xMff2XwNx+nAcYQQlLE071TdN1jyGnCT0ZCwpOzkjvDsnZupuhBK/WgDlepzkgdoOo66MSnf/fLP2QBxnhrmu7tWcCA4uBjUKrDsn0PDt5gx7sDqp+bqfGAal9wZox0uzPzYSMBqLIVP3Hu5+9MsgBj4kH5vVOzXPAxCfjE3JGwTzOgyiJ+hOugtT77RhjpCugamqaBBhjjOii/R2Zx2D0LI4fBH6wBgJoBTrMAVNVI0s7NFAGNgMqAEjpJgPFgBn2QPdBg/yIo4slel2/F4zQbQFVSth80AtoSQPOlyCyh1cckRRkZKQMocKfmcUgayS3io0ShUvtgEVUjKUoUKnUDarHSXJQ2SwQ0StBSe9hxLOKjmKRuDxobSVGMUj+gUaIYpG5ALeqgK/6kOpVBa2yUkZJEQP2oDFpjo4yUpAHrxVeQB/5VBq2xUUZKEogHNUkFeeBfZdAaG2WkJHUDaiEV5IF/lUFrbJSRkkRA/agMWmOjjJTELexYMXbJ61KISqkgD/yrDFpjo4yUhAH6wgsvZAGVwo6LL8HNSwR0yBobZaQki58/mZHPtWHH63QLjZvfPZusbfuP6EGD19goIyXJA1QMO2YrHPcnkz4gtj9ZuojPfdVpuKelZ3aC/+efPkP3954B//LzQKHokOF0k061xqVnxoE8bTBlZWX52CEHjSu338hTmF48Yy5TSbSY7siYgwYjl4/Bex7/0mV3+3iVkixyJTxXxpNv5bBjtsLx+p6Fn78zNjilCTsyiuNgEdOtPvs7l1duf3svB6hNtqoAhc/e6tGoVcr6kKZLxoflBujtNw7lKRQvrlRpo6UooLan5qiUJKcOqgw7hlubr37y6scTn+hC343i703S0t4/ObGy9F2QLdBlHSrhQff+ZGfqQYGX+bVvn4Af0Nf89reePp1eQKsyo+8M+v+nAMKlZ0+s3PrSZWLhc3+J9MBrfOuQUqtB4+1vpmYxPfCnRUxOc0Gnkmoht0nvD/ydSU2hpzPV2euZb5u/03ngVHeKSUvq7FQ/fbewY26F4+7rXxmcemesbCu+LKA/ObTyrz/cewY+OYxXUUDPzKd8z+9bufXUCfhxaScq/JfSC2hVKp8UcFWXgBLwJC7toxY+sw/Siq4xfkipVa1x+Rjxe9SsVA/YIyazXNAZSbWQ26T3B/6YKfR0TjX8eQnXy/sVcXe6snz8hJikyU7103cLO+YCkNc6uBZabxG/9/Tzyz84je/09pulAL39ncv4dKCHZipWSbMSfqFTKet7hlTHlp67/MHbO4E6ZuEKvQYu4jNadTbeGh8HPxvRLLJHTOauoVWJtbBTufsjptC7ZaqJy2Un5RbxvGLwGxWTNNmpfvpuYcdcADKCdOu58v2gpRpJe3/6V7/4U3TD87DyXwZQkJHEBz93GQEKmhPgWab5PK9uo+ifFPTC4Cl8+ObpvR++yVmYPiPgs1VaDbcNaguiWXQPm8xdw6QSaOFOTQGlplB+2PdAtXi9HED5O4U/0RXVzWduXP30m/0mCdzqB2/vQxlHC+jigC4f/6HgQfEPPH0yqrpd5tkLT+oSfALzf/b88vG3d64wCzkPqtSq1ngLFqyAacmsN1NnhH5Tmmp4qpJqYadSjpgpooOTPCj1eobbFu8U/W7EJE12qp9+4wG9hX7k6NafPaF8Ooo8UCnCTXmxDoorTCvsAlqVKn3Lx3bCIhXXQpmFtAII6qBKrWqNqP0NS1jBLLJHTOauoVFJtbBTU0eXmsLVQanqzPVMty3eKSrgxSRNdqqffu2Awn5/8xTgCtC4DCF3e2kctorLAQpdHnYm479+HDWXcW1thV1Aq1KpDzYKUBseutLUQuyujyF1Kq0aG2HpiioNgll4j5rMrqFTSbSwU1lVkZqC6887OdVPn5GvZ24bcnf6IawTjO8Tbl6TneqnXzeggxnzCgpJPW+SjJirVJazy4dGk8nBGGmhUpK6AQ1wPCh8I/KUojA3qixtWimNeSYHYaSlSknqDju2mPG+gjzwrzJojY0yUpK6PajFlA0V5IF/lUFrbJSRkjRgnaQK8sC/yqA1NspISWr3oPlSQR74Vxm0xkYZKUndgOau1BknsC1kZJzAtoQIHhROMmos4SOgRYyMgJaQbBE/mPG6VmcENAJaRmRA1zrGYt7+hiOgEVAfIhfx2xaMh9vfsC9At2/fbn0VZyNHDdAHDx54NVIS57BjD4Gdjm+S7G/YE6DbtzNCI6A5Rj54wAitFtAXX3wxC+gQwo67wXnQCGhQgO7IyOemsGPPHhRdZVdYddAIaIMAzYQdVwBowmoRG0emXrpW+0JesQ7qYOSw6qAvvsiX8eRbRdixb0DJeFAc8wFXkL378q8en52LSyEWPV2V1CQjJcmpg2bDjr03kvh4JLTM8Y+vxcVkq3n2jTBSEuew42qKeCLEg7LluH8TSNnLRWmyFAo7LimGwSK48vnw5dFdLz56UM8eVA47rhTQje99lDx86RrzoG7ZGgGtAdBaO+qrET2gxHXGOmhSC6D37t1zNnJ4HfX1ACqGfBAP+vjs0diKL3q6KsnOyHv3UkKrBFRxfMCASq86H05NffWj2vtBI6AVAsqd0ARAk37Oi84IaCEjhwaoqg6qqpY2FVAalhTHg8pGFj1dlWRppLEOyr7MA1TpVAsDWvdqx/li/1QioOUANV2Fc6+CkQoazYA2rA5qIfbZWiWgqvfzEdA2ANrvdKaNFVH7bK0QUOUIpwhoAUAbVgdNutt+eXDaOEOTfbZGQKsDVFcHHXVANw9Ow54m0/wi9tkaAQ3Cg45YKz5AQBX1zQioBlD3V50Nq4P2YRFvnKN+6IJgtEhrlSBAa7hu7YDCoGPzHPX2v3tPHlTpLdveitf2g6pLcYOihnnQfLHP1ioB1Z3gbGRDAdUW8dljh9hIWt8F35TrBtkVHXkXOqAxJskF0KrfJKVM7t+/XwEobLz4CTZmIjaScmuf9tnqC1DVVtuL+Pr6Qbdn5HM+qnMs9aCbBztf+Nos/IDLI335ta0fp+HIbiI2kjp5CuyztUIP2vpWvEM/qOduJjOg57ppNHx3MlnbMgs/+mOo8GdrH9vDCUUu4rudDtCrFfts9QSoCsZWAGoaLFL7m6T9+/kynnwLEfz6Almk89VzyeDULESSrHvM1j62RROLIS5eJfZPJQJaClDjcLvaAVXXQWE00iSJTNqzgACF4+NQIF3CwpFt0cSi8KBBzQ8aAa0SUK/dTBDBwal3BQ+K/SUBlK597CTiu3hz+e707COg1QFaXx00D1DUlBfroGvbFgigdO1jJ2ni7HZtANRXHdR8FRWgKEX99C0AhStmk1b8F0+hVvyWWepB6drHThJ6P2hrATVd5d716gaL4CT103d7k1TF9IvCeNDHZ0MImovdTNmk6/aAOjeS/C18qYMAABIgSURBVAAKVzvIqS1aimE86NU5GBsf4ORhrQBUX8T3euED6k/0w+3gjA3ko86JG1rqQfWNpF4EFAO68f1/hkV8zZOHtXW4nW5EHQqjRIAqvkRwZdP0V1GcoNKRXrxmQMXxoBtH5iCdNU8e1tZGksaD9pA4eFC/jaTaw4758aDEddY8eVgElPtysUcArfBNUshFvCiP/mlYk4fpBichUX3ZhtFM2UZSr0cAvafvB705uoCSCignV1ERX/3kYVqHCKW1A5YzgPYIoPfumQC92SJAH703nEUUIqD5RTx2nYsET30d9ObNm70er8h9sEjhN0nVCCvi+zbrxds/lSoBbUERLwBKqp69RZRqaiQhQBGiI+dBk9rexTsD2rJGEm0a9QieFoACREcRUAuxfyoR0FKAkjporyc2jVgzXmUkB2hvEX8dAXV9PnK25gDa1jdJq4zGxbRllPpSG0BxST9CdVArsX8q9oAau5na6kFhS+i62DRKfWnP1IrnAe0VGLBc3IPiZeDMI+bFWeZtJARATSdFQLmynUBnHg/6gAMUiNc3SSmTb731VhZQPB7UOEt3BNTNyAYAeo+rey726JcmQDGjaXVg0XAVZ0APZ0QGdH3iUwAhHDgPh9LjZY/3/C2KFoahyK9NOwYfq9bqjEFzspFFT1clWRp5D/HJt4x63JeGOihBlAIKC33tVSoAFHjQ/mTSBwj2J+myx7tQ4AeK/+hMOwYfi8vQGGYGrVBMY5PaOpoJjczALSPFkAzd3GEAUHgo8aNw8yYU7YAOdFhuEjOJK+G5Mp58i90bAHF9z8LP3xkbnEIDllnUMQqkw0W8Q/Bx7Ae1MbLo6aokSyNRWAfynrTmyZf/urmZ0oKdFvUIUNkBV1cHhYFyAL9PXv144pNXuWWP0ymbutOOwcf6hbwioPXWQfmmkepLlZEP0kY8OIv40UzXKKfIazcTArAP0eu+/pXBqXfGErbsMedBHYOPhTqoaepa12cfAS0N6HUdV9bdTARRsWuUv56uD0r99C0ARdXEtQ6uhbJljxMaityZdgw+5gaL1PUufnX7/v2ZnEs3WtpRz7qZdO5VYWQGUFDEs3Y9TeIUqTxoOUAT2CJCbXhIUbrsMZ7VYQa14t2Cj4PoZkprThHQDKA692oLaNquZw175pS9AlqNKBpJw5+jnss5uT2ggLG3f39rANVo1HQzoRI7C+hN1maSsjkCaviSUykCKvzGJUDRd+0B1NFIjjcJ0LQ++kDI5kYBysaDDn2dJBWg5HM/BZRPawGgsKPe2Uj5xbsAKI9oms3gS1ljwINFapubyQQolEza6AN67951TVy8wUjFyJAHN8Vq6QOhsKf4chqLDxapRsJqJEVAGaCm2e10RipGhnBVz8VMUc/5V/qeP1hAUUyS1M0Ep70ZxtxMBkB7jE+Ytj0V1VWcjRw1QA1X5/NU9Z5JrJaqYak/Ll6Su1NzyRDmZtouMKgAdLtCVFdxNrJFgK6KfiD7mikt9QP1oAnqqxcqoRt/8Y9zQ5ibafv2bCkuektOYhFvMlJdxHNJfDaL1dEmAIomzWMl/OOf/cvZuSHMzYQATcsLJZZikYIArcKSgEQ3N1P6rSrZanASn5PcsCcqCFDNZWsHFMlghhB69ygs3qufmwkCavCWsZFk+lIwUtWKzyaxTlLiL4XXTEF70ATNzkSKeTSrCO9Bodg/FZc6aAbL2IqvFNBVGmqveM8UNKCgiGcRJXenoBwdRh00xdLczZS06k1SAUCdlkLkAOXroyEDmumohx50GHMzqRtJKaBtHW7nDmj2WD2gQMRuJsLozXDfJMGxzkJM3nD6Qc2AKmBsPaAOy3EbAV2V+kExopyRkuQACvvR7YbKFx2wnKDAEtP7TvunYg+ovh8UHlnfcLvDhw+HCqj9r8gMKOoJFXLeEtALFy5kAEUFsDnqOKWsOKBJDUshagDFR9YGKIpZZBpHElBufB7rxTcB+llGPhcHLKPVOfESxyzYGAJFlj8mgcgFASVhx4ZFue2fSrki3ghjBNQboHhLANRYBzUBOpgh3pMucZwGG4M9svQcDUQuBiiAPG/BePunkm7t2LHDlK0qQLlD2wqocaU5B0DNc9SnW45vki5c4Mv49Ps1tDiSuMQx2SOLdyLMXi0KqIXYPxW6tWMHI9QKUPHQ+gAdjTqovZEugCrroEjWd0tLHNM9vPwxF4hsKQEAytdBM9mqhFFRL60AUH/PXkiyM3L4gK66AKpqxa+hge7daWmJ41fTdeLR+tzTJYp4C7G/Ybr14ou5gKbDbBTZWqMHbQOgUgW1FKCoFQ9LdGGJY7JH6qBcILKlVAsouGFrQNXZ2lZAh1MH5ZpQJKnMmyRYmqOZRYQljvFeQpY/ZoHIluIIqJOg0TEI0PwDdV8hGC3SokDJDkRSDHAyf1vhaKZCyx9XN7sdLrd3WNRBVxUzBBq9ZQvqoIWMdBgskvlWLPXVT78EoIWXP3ac3U6dS4qeJNQg30HFkK0ala0v4msDlDdSkrrfxReN6swwyPnOHTZ10AioHyNVNJr7QRX0VuNBC4uP2e1EQHk6LRtJEVBPRqpoNJ2u8KA4Sf306wa06Ox2HKDohQSjMwKaTarSyBEHNBN2nBXlbRJAyasgSifpO4p10HqLeK+AhhZ2nBXlbaKaZo8r2jGq7FtTtrYJ0M8++ywsQL0uQ1ON+AH0RQQoV7Rb5JBR5UgCikb/hAVo9rCwAe13OtPGIafKm0OAEjqzs/hGDzo0QJ3roE0DtLvtlwenjb2hyptLuzu5gj39NtZBhwioByNDBpQsGU/b8htHpqasYpK4imf22+YC6n+4XdV10HYBCoPhN773kc3cTLSNpPq2sYBKA5YRXA6naw/zaqQEqHMR37BGUh8W8ZsH8bD6h5DKq3NWcfGK9SN4/2rK1gKAln0XD12jNkkDKC6eNUaGAmjl3Ux1AwrH7AshScCLWs3NVF1fWAWjmXjy9ElSGgK0+DWHI+ahS3YnmHTYhR2bBi25D2gydjPBSRuqn5upgiJe4RAl16hNImmgSHiLr4NGD5rwgF6/fj0DqE3YcTlA5Xfxj947mgxjbibvgGZ547dyAeXiT5iNI1kHdQb0XkY+z4Qdk1HK0Jd++bWtH4O/c+kCxxRQFoucDVDWAyqNZto4MgcprXxuJv91UGdAmcuVAsT9AhrcmyTn8aAmQGnYMYnzQJHH0+iPLXBMAeVikeGi3UKAsh5Q0T9jPocwN5M7oLoTigMKt6TQfBFQH0V8eG+Sio4HvX6dL+PT73HYMYs1plEfUHDwHNnjYpGJy2UnGQAVB4vg2e3mhjFHfe2A8li2CdDC40FVdVAkOCJOjDxO2ALHFFD2/eCUFKBsANRC7LPVE6DK4rwcoHw3kwLLcoCaagIj/qqThh2zWGMWNzctFvFcLDLnQZWLyHsBVNfVaZOteYC6ZHCq8fBbb8m80UMFBlVYpltCK96yDmrkeMRfddKwYxZrTAFlCxxzdVAai5wJUNYAWmK1Y+3LIptsrQRQ1cI2qi0GI0f0YU5cn32bAU1I2DGLNU6L+HSBYxyWOZawWOSt5+QAZQ2gUPq46W8I/FDeXPMBBXy+dVglTGNbPGjIMUlFF5MdOqD5rzqtAVVRSaEt8qrTyHETBosIOSlJUwEddh3UYrBIHqB6LjV10Ea8SRp1D0qL+CHPDzo8QE3uMtOqaimgDRgsMvQpwCsGVFm5zC//ixXx9QI66iPqmyL5g5kWF5VYasISlcIDqh7N5Dy+qeoBUc6jmRx1NABQ+19khR5Ue0Kq0Vy5tOsHlT3ohQsXenjUK7mm0qma7qX5b5LqDDsu0Q8aHKA5WLIKp3agtaIOigHlFF240HhAnQeLRA/qqFsHqMig7BqBc5TOPqwZQJramF09AInELD8Fb5beRgDa8DqofbaGCqjlgGXRSC2gGkH+NXW51ATscp1zshygqnZTIwFFEXMjU8QrASVHFgRUUcRfcMO2cg/qtFan9G3wgNqJfbYGBih3qC2gh3P6QamvzPrp2gDNHuEMaKyDStlaBaDSaCbpUEtAUVqqUQeobEaa1Es9LtsIDlBVK57PSUlqB9TrFOB1Aso66hWHKgAtFHasApRLoxvM0VZeBx11QAtPAR4ooJpDVYDqDks1amiUT2KHpVtyknNODrmILwoonIUeSP5ism6RnT6mAA8P0MNvuYUdK7fy6qBtBvTmzZsKD1poGY8cyZ8CvN6YpEKAahvlWDQNIoORBYr40QT0QUaygJIFjXEscReNTxaS0PjkXeYxH2pAlQPtbOZmahig2atY9oOKR4wooMZWvAWgdEFjEkuMFkAUkkgAp6W7zX3VWXNcfAR0yIBa9YPevMmX8SKgCCYu5Lg/KSWJgXPWgOrEam6m0ORwZqal3OPzzvgsOxJJkcTSEI3CRi3zO5kHOCm+NZ1gWQdNFzRGf3sWpCR0VNfYWcRJLqA1z81UyIO6m5ZbB3U2UuFB6wj5GOqbJFzEswWNwR9agltMQiHw085FPGnE0/lLUql5bqYhAVrk2eecnukQrcdI47t4zwt5Iea4BY3BHyrgxSSK6m6rlREZoLAKC6Urut4m1kGDAFR3WJOMLAIot6Dx+sQnqGUzySchOtM4ZAdAu2PyBpKa52aKgDYI0CqEH81EtqTOpgb2gzbh2TfCSEnCBFQWVUveMk3XCWB5qG1aOYP8G+mgMTwjeakV0MEMjTbOmSQ3AurjKiVPbyGgOCg+4UlVSwTUx1VKnt5GQJMumrlp82DOeJQIqI+rlDy9lYDi4aDZ+cWiRKlPGjlxQ5T2SAQ0StASAY0StDgCCheYBfLSNTHtqx/hd6LSwX8uHjb3+OwU1+mvV2mpUafSxUg7jSWMdNAYnpEBiBugcPQylIfcrcA0+D6Uz4RH701NSZkFD7s6hwef5Ki01KhTaWmkg8YSRjpoDM/IEMQNUHqjwg2j7au/J/xKH7330jXxVwq+fvwzxY9ZodJSo06lrZH2GksY6aAxPCNDED8eFMjd3xXLoUfvvfxfQgr4iT48ShZRNqu01ahRaW+krcYyRtprDM/IEMSxDkrKh5fEHDwKP+6+JP38No6IKVfRqZk8UKi01ahR6WCkpcYyRtprDM/IACS24qMELRHQKEFLBDRK0BIBjRK0OHYzKbrlLNNUhzkcaptWziD/RjpoDM/IEMTRg8Je34JpqsMcDrVNK2eQfyMdNIZnZADiWsSzCGTnNNVhDofappUzyL+RDhrDM7J+iXXQKEFLBDRK0OJnNJNNmuowh0Nt08oZ5N9IB43hGRmAeHsXn5emOszhUNu0cgb5N9JBY3hGhiC+RjPlpqkOczjUNq2cQf6NdNAYnpEhSPSg0YOOkAfVjMGxSlMd5nCobVo5g/wb6aAxPCMDkNiKjxK0RECjBC3u3UyZICzLNNVhDofappUzyL+RDhrDMzIAcW8kyUFYlmmqwxwOtU0rZ5B/Ix00hmdkCFKkm0kK67JLU8Zv2R9qm1bOIP9GOmgMz8gQpFA3kxCEZZmmid+yPdQ2rZxB/o100BiekSGIczdTNgjLMk0Xv2V5qG1aOYP8G+mgMTwjA5DYio8StERAowQtEdAoQUsENErQEgGNErREQKMELS0HtG89K/9gBq2Csr5rLPfQKB6l3YCipXfWOlaLRuK1TLs5a6BE8SytBnQwg9C0hA7SvL7LCuYo3qTlgNI1y9Da0GjF6L/vbPkNmApwHMx0OgBKtLhufyzZPDiGt0k6XrZnMoHnmFePjFJcWg0oKN07GNEUUFjFhGtBAnYHM3gbrl2KfO3alnfhYTQdrW4KOI7V0iql3YDiVtIYD+g03gF/aFFdQCEEEa2EDjwnxJmm/w+sGNBzolQkbQc0wYs/poBiFzkJPSRkF5XhoHjvIyeJ14FO06ED7mzB50SpSCKgDEz6maxt+0/MKPl+4lPcmiKAkvTNg1tm2TlRqpFWA0rQygC6+cq7oEhfox2kg5nXJ1AjCANK09cgqGvRg1YrrQYUL/AMGz2bByfBZwpbF9ZLBzOAQERjv4ObQRhQmg6/Wt8VAa1W2g0ork/Clg/sMvqjVyhsuO8edichb0mbQRjQNL0LPn50cDoCWqW0HFA7WZ+I3Zx1SQTUQvqT+cdEqUYioLmyviu+f69PIqBRgpYIaJSgJQIaJWiJgEYJWiKgUYKWCGiUoCUCGiVo+V9CQEnjhGk/BAAAAABJRU5ErkJggg==" style="display: block; margin: auto;" /></p>
+<p>If we incorrectly entered a filter query (very possible), <code>rdhs</code> will let us know our request was invalid:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make an api request</span>
+resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds=</span><span class="st">&quot;ML_FEVT_C_AMasfafasfL&quot;</span>,
+                 <span class="dt">surveyYearStart=</span><span class="dv">202231231306</span>,
+                 <span class="dt">breakdown=</span><span class="st">&quot;subParTyping&quot;</span>)</code></pre></div>
+<pre><code>## Error in handle_api_response(resp, TRUE): 
+##    -&gt; DHS API Request Failed [500] 
+##    -&gt; Error Type: dhs_internal_server_error</code></pre>
+</div>
+<div id="identify-surveys-relevant-for-further-analysis" class="section level2">
+<h2>2. Identify surveys relevant for further analysis</h2>
+<p>You may, however, wish to do more nuanced analysis than the API allows. The following 4 sections detail a very basic example of how to quickly identify, download and extract datasets you are interested in.</p>
+<p>Let’s say we want to get all DHS survey data from the Democratic Republic of Congo and Tanzania in the last 5 years (since 2013), which covers the use of rapid diagnostic tests (RDTs) for malaria. To begin we’ll interact with the DHS API to identify our datasets.</p>
+<p>To start our extraction we’ll query the <em>surveyCharacteristics</em> data set using <code>dhs_survey_characteristics()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## make a call with no arguments
+sc &lt;-<span class="st"> </span><span class="kw">dhs_survey_characteristics</span>()
+sc[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, sc<span class="op">$</span>SurveyCharacteristicName), ]</code></pre></div>
+<pre><code>##    SurveyCharacteristicID SurveyCharacteristicName
+## 57                     96            Malaria - DBS
+## 58                     90     Malaria - Microscopy
+## 59                     89            Malaria - RDT
+## 60                     57          Malaria module 
+## 61                      8 Malaria/bednet questions</code></pre>
+<p>There are 87 different survey characteristics, with one specific survey characteristic for Malaria RDTs. We’ll use this to then find the surveys that include this characteristic. We can also at this point filter for our desired countries and years. The DHS API allows for countries to be filtered using by their <em>countryIds</em>, which is one of the arguments in <code>dhs_surveys()</code>. To have a look at what each countries countryId is we can use another of the API functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## what are the countryIds
+ids &lt;-<span class="st"> </span><span class="kw">dhs_countries</span>(<span class="dt">returnFields=</span><span class="kw">c</span>(<span class="st">&quot;CountryName&quot;</span>, <span class="st">&quot;DHS_CountryCode&quot;</span>))
+<span class="kw">str</span>(ids)</code></pre></div>
+<pre><code>## 'data.frame':    91 obs. of  2 variables:
+##  $ DHS_CountryCode: chr  &quot;AF&quot; &quot;AL&quot; &quot;AO&quot; &quot;AM&quot; ...
+##  $ CountryName    : chr  &quot;Afghanistan&quot; &quot;Albania&quot; &quot;Angola&quot; &quot;Armenia&quot; ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lets find all the surveys that fit our search criteria</span>
+survs &lt;-<span class="st"> </span><span class="kw">dhs_surveys</span>(<span class="dt">surveyCharacteristicIds =</span> <span class="dv">89</span>,
+                     <span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),
+                     <span class="dt">surveyType =</span> <span class="st">&quot;DHS&quot;</span>,
+                     <span class="dt">surveyYearStart =</span> <span class="dv">2013</span>)
+
+<span class="co"># and lastly use this to find the datasets we will want to download and let's download the flat files (.dat) datasets (have a look in the dhs_datasets documentation for all argument options, and fileformat abbreviations etc.)</span>
+datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> survs<span class="op">$</span>SurveyId, 
+                         <span class="dt">fileFormat =</span> <span class="st">&quot;flat&quot;</span>)
+<span class="kw">str</span>(datasets)</code></pre></div>
+<pre><code>## 'data.frame':    19 obs. of  13 variables:
+##  $ FileFormat          : chr  &quot;Flat ASCII data (.dat)&quot; &quot;Flat ASCII data (.dat)&quot; &quot;Flat ASCII data (.dat)&quot; &quot;Flat ASCII data (.dat)&quot; ...
+##  $ FileSize            : int  198561 7030083 3226262 8028957 11426382 4794941 1569680 6595349 63022 996906 ...
+##  $ DatasetType         : chr  &quot;HIV Datasets&quot; &quot;Survey Datasets&quot; &quot;Survey Datasets&quot; &quot;Survey Datasets&quot; ...
+##  $ SurveyNum           : int  421 421 421 421 421 421 421 421 421 421 ...
+##  $ SurveyId            : chr  &quot;CD2013DHS&quot; &quot;CD2013DHS&quot; &quot;CD2013DHS&quot; &quot;CD2013DHS&quot; ...
+##  $ FileType            : chr  &quot;HIV Test Results Recode&quot; &quot;Births Recode&quot; &quot;Couples' Recode&quot; &quot;Household Recode&quot; ...
+##  $ FileDateLastModified: chr  &quot;November, 14 2014 12:48:34&quot; &quot;November, 17 2014 15:42:54&quot; &quot;November, 17 2014 15:43:04&quot; &quot;September, 19 2016 09:57:20&quot; ...
+##  $ SurveyYearLabel     : chr  &quot;2013-14&quot; &quot;2013-14&quot; &quot;2013-14&quot; &quot;2013-14&quot; ...
+##  $ SurveyType          : chr  &quot;DHS&quot; &quot;DHS&quot; &quot;DHS&quot; &quot;DHS&quot; ...
+##  $ SurveyYear          : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ DHS_CountryCode     : chr  &quot;CD&quot; &quot;CD&quot; &quot;CD&quot; &quot;CD&quot; ...
+##  $ FileName            : chr  &quot;CDAR61FL.ZIP&quot; &quot;CDBR61FL.ZIP&quot; &quot;CDCR61FL.ZIP&quot; &quot;CDHR61FL.ZIP&quot; ...
+##  $ CountryName         : chr  &quot;Congo Democratic Republic&quot; &quot;Congo Democratic Republic&quot; &quot;Congo Democratic Republic&quot; &quot;Congo Democratic Republic&quot; ...</code></pre>
+<p>Lastly, we recommended to download either the spss (.sav), <code>fileFormat = &quot;SV&quot;</code>, or the flat file (.dat), <code>fileFormat = &quot;FL&quot;</code> datasets. The flat is quicker, but there are still one or two datasets that don’t read correctly, whereas the .sav files are slower to read in but so far no datasets have been found that don’t read in correctly.</p>
+<p>We can now use this to download our datasets for further analysis.</p>
+</div>
+<div id="download-survey-datasets" class="section level2">
+<h2>3. Download survey datasets</h2>
+<p>We can now go ahead and download our datasets. To be able to download survey datasets from the DHS website, you will need to set up an account with them to enable you to request access to the datasets. Instructions on how to do this can be found <a href="https://dhsprogram.com/data/Access-Instructions.cfm">here</a>. The email, password, and project name that were used to create the account will then need to be provided to <code>rdhs</code> when attempting to download datasets.</p>
+<p>Once we have created an account, we need to set up our credentials using the function <code>set_rdhs_config()</code>. This will require providing as arguments your <code>email</code> and <code>project</code> for which you want to download datasets from. You will then be prompted for your password.</p>
+<p>You can also specify a directory for datasets and API calls to be cached to using <code>cache_path</code>. If you do not provide an argument for <code>cache_path</code> you will be prompted to provide permission to <code>rdhs</code> to save your datasets and API calls within your user cache directory for your operating system. This is to comply with CRAN’s requests for permission to be granted before writing to system files. If you do not grant permission, these will be written within your R temporary directory (as we saw above when we first used one of the functions to query the API). Similarly if you do not also provide an argument for <code>config_path</code>, this will be saved within your temp directory unless permission is granted. Your config files will always be called “rdhs.json”, so that <code>rdhs</code> can find them easily.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## set up your credentials
+<span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;rdhs.tester@gmail.com&quot;</span>,
+                <span class="dt">project =</span> <span class="st">&quot;Testing Malaria Investigations&quot;</span>)</code></pre></div>
+<pre><code>## Writing your configuration to:
+##    -&gt; C:\Users\Oliver\AppData\Local\Oliver\rdhs\Cache/rdhs.json</code></pre>
+<p>Because you may have more than one project set up with the DHS website, you may want to have a separate directory for each set of datasets, and thus you will need to set up a different config file. To do this you need to set up a local config file. This can be achieved by setting the <code>global</code> param to <code>FALSE</code> (i.e. not global). You will also now need to provide the <code>config_path</code> argument, which MUST be <strong>“rdhs.json”</strong>. In order to comply with CRAN, you have to type this in (rather than have it as the default option).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## set up your credentials
+<span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;rdhs.tester@gmail.com&quot;</span>,
+                <span class="dt">project =</span> <span class="st">&quot;Testing Malaria Investigations&quot;</span>,
+                <span class="dt">config_path =</span> <span class="st">&quot;rdhs.json&quot;</span>,
+                <span class="dt">cache_path =</span> <span class="st">&quot;project_one&quot;</span>,
+                <span class="dt">global =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## Writing your configuration to:
+##    -&gt; rdhs.json</code></pre>
+<p>You may, however, not have different projects with the DHS website, in which case you may prefer to set up one global config file. If you do not want this to be saved in your user cache directory, you can set <code>global</code> to <code>TRUE</code> (the default) and this will save it in your R default launch directory. This MUST be <strong>~/.rdhs.json</strong>. (There is not really any difference between saving it at <code>~/.rdhs.json</code> vs the user cache directory, but you might want to have it somewhere easy to find etc).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## set up your credentials
+<span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;rdhs.tester@gmail.com&quot;</span>,
+                <span class="dt">project =</span> <span class="st">&quot;Testing Malaria Investigations&quot;</span>,
+                <span class="dt">config_path =</span> <span class="st">&quot;~/.rdhs.json&quot;</span>,
+                <span class="dt">global =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Writing your configuration to:
+##    -&gt; ~/.rdhs.json</code></pre>
+<p>After you have used <code>set_rdhs_config</code>, <code>rdhs</code> will try and find your config file when you next use <code>rdhs</code> in a different R session. It will do so by first looking locally for “rdhs.json”, then globally for “~/.rdhs.json”, then into your user cache directory, before lastly creating one in your temp directory. This is what was happening when you first used one of the API functions, and as such the config that is created to query the API initially will not be able to download datasets.</p>
+<p>Lastly, if you wish to return a <code>data.table</code> from your API requests, rather than a <code>data.frame</code> then you can change the default behaviour using the <code>data_frame</code> argument. You could also use this to convert them to <code>tibbles</code> and so on:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## set up your credentials
+<span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;rdhs.tester@gmail.com&quot;</span>,
+                <span class="dt">project =</span> <span class="st">&quot;Testing Malaria Investigations&quot;</span>,
+                <span class="dt">config_path =</span> <span class="st">&quot;~/.rdhs.json&quot;</span>,
+                <span class="dt">data_frame =</span> <span class="st">&quot;data.table::as.data.table&quot;</span>,
+                <span class="dt">global =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Writing your configuration to:
+##    -&gt; ~/.rdhs.json</code></pre>
+<p>To see what config that is being used by <code>rdhs</code> at any point, then use <code>get_rdhs_config()</code> to view the config settings.</p>
+<hr />
+<p>Before we download our datasets, it is worth mentioning that once you have set up your login credentials, your API calls will be cached for your within the cache directory used. This will allow those working remotely or without a good internet connection to be able to still return previous API requests. If you do not, API requests will still be cached within the temp directory, so will be quick to be returned a second time, but they will then be deleted when you start a new R session.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the first time we call this function, rdhs will make the API request</span>
+microbenchmark<span class="op">::</span><span class="kw">microbenchmark</span>(<span class="kw">dhs_surveys</span>(<span class="dt">surveyYear =</span> <span class="dv">1992</span>),<span class="dt">times =</span> <span class="dv">1</span>)</code></pre></div>
+<pre><code>## Unit: milliseconds
+##                            expr      min       lq     mean   median
+##  dhs_surveys(surveyYear = 1992) 4.934442 4.934442 4.934442 4.934442
+##        uq      max neval
+##  4.934442 4.934442     1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># with it cached it will be returned much quicker</span>
+microbenchmark<span class="op">::</span><span class="kw">microbenchmark</span>(<span class="kw">dhs_surveys</span>(<span class="dt">surveyYear =</span> <span class="dv">1992</span>), <span class="dt">times =</span> <span class="dv">1</span>)</code></pre></div>
+<pre><code>## Unit: milliseconds
+##                            expr      min       lq     mean   median
+##  dhs_surveys(surveyYear = 1992) 2.308836 2.308836 2.308836 2.308836
+##        uq      max neval
+##  2.308836 2.308836     1</code></pre>
+<p>Now back to our dataset downloads. If we have a look back at our datasets object, we’ll see there are 19 datasets listed. However, not all of them will be relevant to our malaria RDT questions. One approach is to head to the DHS website and have a look at the <a href="https://dhsprogram.com/publications/publication-dhsg4-dhs-questionnaires-and-manuals.cfm">DHS Recodes</a>, and look at the recodes that relate to the surveys. The other alternative is to download all the surveys and then query the variables within them. This is what we’ll demonstrate here as it also demonstrates more of the package’s functionality:</p>
+<p>So first we will download all these datasets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># download datasets</span>
+downloads &lt;-<span class="st"> </span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName)</code></pre></div>
+<p>The function returns a list with a file path to where the downloaded datasets have been saved to. By default the files will download quietly, i.e. no progress is shown. However, if you want to see the progress then you can control this by setting this in your config using the <code>verbose_download</code> argument.</p>
+</div>
+<div id="load-datasets-and-associated-metadata-into-r." class="section level2">
+<h2>4. Load datasets and associated metadata into R.</h2>
+<p>We can now examine what it is we have actually downloaded, by reading in one of these datasets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read in our dataset</span>
+cdpr &lt;-<span class="st"> </span><span class="kw">readRDS</span>(downloads<span class="op">$</span>CDPR61FL)</code></pre></div>
+<p>The dataset returned here contains all the survey questions within the dataset. The dataset is by default stored as a <em>labelled</em> class from the <a href="https://github.com/tidyverse/haven">haven package</a>. This class preserves the original semantics and can easily be coerced to factors with <code>haven::as_factor()</code>. Special missing values are also preserved. For more info on the <em>labelled</em> class have a look at their github.</p>
+<p>So if we have a look at what is returned for the variable <em>hv024</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(cdpr<span class="op">$</span>hv024)</code></pre></div>
+<pre><code>## &lt;Labelled integer&gt;
+## [1] 4 4 4 4 4 4
+## 
+## Labels:
+##  value            label
+##      1         kinshasa
+##      2         bandundu
+##      3        bas-congo
+##      4         equateur
+##      5 kasai-occidental
+##      6   kasai-oriental
+##      7          katanga
+##      8          maniema
+##      9        nord-kivu
+##     10        orientale
+##     11         sud-kivu</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and then the dataset</span>
+<span class="kw">class</span>(cdpr<span class="op">$</span>hv024)</code></pre></div>
+<pre><code>## [1] &quot;labelled&quot;</code></pre>
+<p>If we want to get the data dictionary for this dataset, we can use the function <code>get_variable_labels</code>, which will return what question each of the variables in our dataset refer to:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let's look at the variable_names</span>
+<span class="kw">head</span>(<span class="kw">get_variable_labels</span>(cdpr))</code></pre></div>
+<pre><code>##   variable                                                  description
+## 1     hhid                                          Case Identification
+## 2    hvidx                                                  Line number
+## 3    hv000                                       Country code and phase
+## 4    hv001                                               Cluster number
+## 5    hv002                                             Household number
+## 6    hv003 Respondent's line number (answering Household questionnaire)</code></pre>
+<p>For many of the survey responses this will give enough information for us to understand what the data is. However, for some questions it may be less clear exactly what the question means and how it may differ to other similar questions. If this is the case, then the DHS website publishes a lot of infrmation about the survey protocols and the surveys. We strongly advise for people to have a look through the <a href="https://www.dhsprogram.com/data/Using-Datasets-for-Analysis.cfm">DHS website’s documentation about using their datasets for analysis section</a>, as well as the <a href="https://www.dhsprogram.com/publications/publication-dhsg4-dhs-questionnaires-and-manuals.cfm">recode files</a> to understand how the surveys are carried out.</p>
+<hr />
+<p>Above we saw that the default behaviour for the function <code>get_datasets</code> was to download the datasets, read them in, and save the resultant data.frame as a .rds object within the cache directory. You can control this behaviour using the <code>download_option</code> argument as such:</p>
+<ul>
+<li><code>get_datasets(download_option = &quot;zip&quot;)</code> - Just the downloaded zip will be saved</li>
+<li><code>get_datasets(download_option = &quot;rds&quot;)</code> - Just the read in rds will be saved</li>
+<li><code>get_datasets(download_option = &quot;both&quot;)</code> - The zip is downloaded and saved as well as the read in rds</li>
+</ul>
+<p>The other main reason for reading the dataset in straight away as the default option is that <code>rdhs</code> will also create a table of all the survey variables and their labels (definitions) and cache them for you, which then allows us to quickly query for particular search terms or survey variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rapid diagnostic test search</span>
+questions &lt;-<span class="st"> </span><span class="kw">search_variable_labels</span>(datasets<span class="op">$</span>FileName, <span class="dt">search_terms =</span> <span class="st">&quot;malaria rapid test&quot;</span>)
+
+<span class="kw">table</span>(questions<span class="op">$</span>dataset_filename)</code></pre></div>
+<pre><code>## 
+## CDHR61FL CDPR61FL TZHR7AFL TZPR7AFL 
+##       24        1       48        1</code></pre>
+<p>What we see from the questions is that the question “Result of malaria rapid test” appears in a few different datasets. This is because the household member recode datasets (CDPR61SV, TZPR7HSV) stores information about the children in a household, with one row per child, whereas the household recode (CDHR61SV, TZHR7HSV) stores information about the household, and thus flattens the information from each child into different subvariables (hml35$01/02 etc). As such it is easier to extract this information from the household member recodes.</p>
+</div>
+<div id="extract-variables-and-combining-datasets-for-pooled-multi-survey-analyses." class="section level2">
+<h2>5. Extract variables and combining datasets for pooled multi-survey analyses.</h2>
+<p>To extract our data we pass our questions object to the function <code>extract_dhs</code>, which will create a list with each dataset and its extracted data as a <code>data.frame</code>. We also have the option to add any geographic data available, which will download the geographic data files for you and add this data to you resultant extract:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let's just use the PR files thus</span>
+datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> survs<span class="op">$</span>SurveyId, <span class="dt">fileFormat =</span> <span class="st">&quot;FL&quot;</span>, <span class="dt">fileType =</span> <span class="st">&quot;PR&quot;</span>)
+downloads &lt;-<span class="st"> </span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName)
+
+<span class="co"># and grab the questions from this again along with also questions detailing the province</span>
+questions &lt;-<span class="st"> </span><span class="kw">search_variable_labels</span>(datasets<span class="op">$</span>FileName, <span class="dt">search_terms =</span> <span class="kw">c</span>(<span class="st">&quot;malaria rapid test&quot;</span>))
+
+<span class="co"># and now extract the data</span>
+extract &lt;-<span class="st"> </span><span class="kw">extract_dhs</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># what does our extract look like</span>
+<span class="kw">str</span>(extract)</code></pre></div>
+<pre><code>## List of 2
+##  $ CDPR61FL:Classes 'dhs_dataset' and 'data.frame':  95949 obs. of  2 variables:
+##   ..$ hml35   : 'labelled' int [1:95949] NA NA NA NA NA NA NA 1 0 NA ...
+##   .. ..- attr(*, &quot;label&quot;)= chr &quot;Result of malaria rapid test&quot;
+##   .. ..- attr(*, &quot;labels&quot;)= Named int [1:3] 0 1 9
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;negative&quot; &quot;positive&quot; &quot;missing&quot;
+##   ..$ SurveyId: chr [1:95949] &quot;CD2013DHS&quot; &quot;CD2013DHS&quot; &quot;CD2013DHS&quot; &quot;CD2013DHS&quot; ...
+##  $ TZPR7AFL:Classes 'dhs_dataset' and 'data.frame':  64880 obs. of  2 variables:
+##   ..$ hml35   : 'labelled' int [1:64880] NA NA NA NA NA NA NA 0 NA NA ...
+##   .. ..- attr(*, &quot;label&quot;)= chr &quot;Result of malaria rapid test&quot;
+##   .. ..- attr(*, &quot;labels&quot;)= Named int [1:3] 0 1 9
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;negative&quot; &quot;positive&quot; &quot;missing&quot;
+##   ..$ SurveyId: chr [1:64880] &quot;TZ2015DHS&quot; &quot;TZ2015DHS&quot; &quot;TZ2015DHS&quot; &quot;TZ2015DHS&quot; ...</code></pre>
+<p>The resultant extract is a list, with a new element for each different dataset that you have extracted. The responses from the dataset are by default stored as a <em>labelled</em> class from the <a href="https://github.com/tidyverse/haven">haven package</a>.</p>
+<p>We can also query our datasets for the survey question variables. In the example above the survey variable label was <em>Result of malaria rapid test</em> and the variable was <em>hml35</em>. So if you knew the survey variables that you wanted (either by looking at the Recode file or by looking through the <em>variable_names</em> included in the datasets) then we could search against these. So let’s grab the regions using <em>hv024</em> using the client function <code>search_variables()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and grab the questions from this now utilising the survey variables</span>
+questions &lt;-<span class="st"> </span><span class="kw">search_variables</span>(datasets<span class="op">$</span>FileName, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv024&quot;</span>,<span class="st">&quot;hml35&quot;</span>))
+
+<span class="co"># and now extract the data</span>
+extract2 &lt;-<span class="st"> </span><span class="kw">extract_dhs</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># quick check </span>
+<span class="kw">head</span>(extract2<span class="op">$</span>CDPR61FL)</code></pre></div>
+<pre><code>##   hv024 hml35  SurveyId
+## 1     4    NA CD2013DHS
+## 2     4    NA CD2013DHS
+## 3     4    NA CD2013DHS
+## 4     4    NA CD2013DHS
+## 5     4    NA CD2013DHS
+## 6     4    NA CD2013DHS</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(extract2<span class="op">$</span>TZPR7HFL)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and just to prove that hml35 did actually read in okay (there are just lots of NA)</span>
+<span class="kw">table</span>(extract2<span class="op">$</span>CDPR61FL<span class="op">$</span>hml35,<span class="dt">useNA =</span> <span class="st">&quot;always&quot;</span>)</code></pre></div>
+<pre><code>## 
+##     0     1     9  &lt;NA&gt; 
+##  5260  2959     8 87722</code></pre>
+<p>We can now combine our two dataframes for further analysis using the <code>rdhs</code> package function <code>rbind_labelled()</code>. This function works specifically with our lists of labelled data.frames:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first let's bind our first extraction, without the hv024</span>
+extract_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract)
+
+<span class="kw">head</span>(extract_bound)</code></pre></div>
+<pre><code>##            hml35  SurveyId  DATASET
+## CDPR61FL.1    NA CD2013DHS CDPR61FL
+## CDPR61FL.2    NA CD2013DHS CDPR61FL
+## CDPR61FL.3    NA CD2013DHS CDPR61FL
+## CDPR61FL.4    NA CD2013DHS CDPR61FL
+## CDPR61FL.5    NA CD2013DHS CDPR61FL
+## CDPR61FL.6    NA CD2013DHS CDPR61FL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now let's try our second extraction</span>
+extract2_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2)</code></pre></div>
+<pre><code>## Warning in rbind_labelled(extract2): Some variables have non-matching value labels: hv024.
+## Inheriting labels from first data frame with labels.</code></pre>
+<p>This hasn’t quite done what we might want in the second instance. The <em>hv024</em> variable stores the regions for these 2 countries, which will not be the same and thus the labels will be different between the two of them. Without specifying any additional arguments <code>rbind_labelled()</code> will simply use the first data.frames labelling as the default, which will mean that some of the Tanzanian provinces will have been encoded as DRC provinces - not good! (This is a similar problem in nature to say trying to add new character strings to a factored data.frame).</p>
+<p>There are a few work arounds. Firstly, we can specify a <em>labels</em> argument to the function which will detail how we should handle different variables. <em>labels</em> is a names list that specifies how to handle each variable. If we simply want to keep all the labels then we us the string “concatenate”:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lets try concatenating the hv024</span>
+better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2, <span class="dt">labels =</span> <span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>))
+
+<span class="kw">head</span>(better_bound<span class="op">$</span>hv024)</code></pre></div>
+<pre><code>## &lt;Labelled integer&gt;
+## [1] 6 6 6 6 6 6
+## 
+## Labels:
+##  value            label
+##      1           arusha
+##      2         bandundu
+##      3        bas-congo
+##      4    dar es salaam
+##      5           dodoma
+##      6         equateur
+##      7            geita
+##      8           iringa
+##      9           kagera
+##     10 kasai-occidental
+##     11   kasai-oriental
+##     12  kaskazini pemba
+##     13 kaskazini unguja
+##     14          katanga
+##     15           katavi
+##     16           kigoma
+##     17      kilimanjaro
+##     18         kinshasa
+##     19     kusini pemba
+##     20    kusini unguja
+##     21            lindi
+##     22          maniema
+##     23          manyara
+##     24             mara
+##     25            mbeya
+##     26  mjini magharibi
+##     27         morogoro
+##     28           mtwara
+##     29           mwanza
+##     30           njombe
+##     31        nord-kivu
+##     32        orientale
+##     33            pwani
+##     34            rukwa
+##     35           ruvuma
+##     36        shinyanga
+##     37           simiyu
+##     38          singida
+##     39         sud-kivu
+##     40           tabora
+##     41            tanga</code></pre>
+<p>We could also specify new labels for a variable. For example, imagine the two datasets encoded their RDT responses differently, with the first one as <code>c(&quot;No&quot;,&quot;Yes&quot;)</code> and the other as <code>c(&quot;Negative&quot;,&quot;Positive&quot;)</code>. These would be for our purposes the same response, and so we could either leave it and all our results would use the <code>c(&quot;No&quot;,&quot;Yes&quot;)</code> labelling. But we may want to use the latter as it’s more informative/correct, or we may want to be crystal clear and use <code>c(&quot;NegativeTest&quot;,&quot;PositiveTest&quot;)</code>. we can do that like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lets try concatenating the hv024 and providing new labels</span>
+better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(
+  extract2,
+  <span class="dt">labels =</span> <span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>,
+                <span class="st">&quot;hml35&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;NegativeTest&quot;</span>=<span class="dv">0</span>, <span class="st">&quot;PositiveTest&quot;</span>=<span class="dv">1</span>))
+)
+
+<span class="co"># and our new label</span>
+<span class="kw">head</span>(better_bound<span class="op">$</span>hml35)</code></pre></div>
+<pre><code>## &lt;Labelled integer&gt;
+## [1] NA NA NA NA NA NA
+## 
+## Labels:
+##  value        label
+##      0 NegativeTest
+##      1 PositiveTest</code></pre>
+<p>The other option is to not use the labelled class at all. We can control this when we download our datasets, using the argument <code>reformat=TRUE</code>. This will ensure that no factors or labels are used and it is just the raw data. When this option is set the object returned by <code>get_datasets()</code> no longer has any labelled classes or factors. However, we can still recover the variable table for a dataset using <code>get_variable_labels()</code>, which will take any dataset output by <code>get_datasets()</code> and return a data.frame describing the survey question variables and definitions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># download the datasets with the reformat arguments</span>
+downloads &lt;-<span class="st"> </span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName, <span class="dt">reformat=</span><span class="ot">TRUE</span>)
+
+<span class="co"># grab the questions but specifying the reformat argument</span>
+questions &lt;-<span class="st"> </span><span class="kw">search_variables</span>(datasets<span class="op">$</span>FileName, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv024&quot;</span>, <span class="st">&quot;hml35&quot;</span>),
+                                     <span class="dt">reformat=</span><span class="ot">TRUE</span>)
+
+<span class="co"># and now extract the data</span>
+extract3 &lt;-<span class="st"> </span><span class="kw">extract_dhs</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># group our results</span>
+bound_no_labels &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract3)
+
+<span class="co"># what does our hv024 look like now</span>
+<span class="kw">class</span>(bound_no_labels<span class="op">$</span>hv024[<span class="dv">1</span>])</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>The <em>hv024</em> column is now just characters, which is possibly the best option depending on your downstream analysis/preferences. It’s for this reason that the geographic data that is added is never turned into factors or labels.</p>
+<p>Lastly, we can now use our extract dataset to carry out some regression analysis, to investigate the relationship between malaria prevalence and the quality of wall materials. To do this we will need to first grab the sample weights and stratification from the surveys, along with the extra variables and we will then check the RDT prevalence calculated using the raw data versus the API:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># grab the additional variable hv023 and hv024 which have the strata and weights respectively, and hc1 which is the age</span>
+questions &lt;-<span class="st"> </span><span class="kw">search_variables</span>(datasets<span class="op">$</span>FileName,<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv005&quot;</span>,<span class="st">&quot;hv021&quot;</span>,<span class="st">&quot;hv022&quot;</span>,<span class="st">&quot;hv023&quot;</span>,<span class="st">&quot;hv024&quot;</span>,
+                                                              <span class="st">&quot;hv025&quot;</span>,<span class="st">&quot;hv214&quot;</span>,<span class="st">&quot;hml20&quot;</span>, <span class="st">&quot;hc1&quot;</span>,<span class="st">&quot;hml35&quot;</span>))
+extraction &lt;-<span class="st"> </span><span class="kw">extract_dhs</span>(questions,<span class="ot">TRUE</span>)
+
+<span class="co"># now concatenate the provinces as before and remove missing responses</span>
+dat &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extraction,<span class="dt">labels=</span><span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>,<span class="st">&quot;hv214&quot;</span>=<span class="st">&quot;concatenate&quot;</span>))
+dat &lt;-<span class="st"> </span>dat[<span class="op">-</span><span class="kw">which</span>(dat<span class="op">$</span>hml35<span class="op">==</span><span class="dv">9</span>),] <span class="co"># remove missing responses</span>
+
+<span class="co"># and we are going to compare our extract to the API malaria prevalence by RDT, which is for those between 6 and 59 months</span>
+dat &lt;-<span class="st"> </span>dat[<span class="op">-</span><span class="kw">which</span>(<span class="op">!</span>dat<span class="op">$</span>hc1<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>dat<span class="op">$</span>hc1<span class="op">&lt;=</span><span class="dv">60</span>),]
+
+<span class="co"># create a denominator response for hml35</span>
+dat<span class="op">$</span>hml35denom &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="op">!</span><span class="kw">is.na</span>(dat<span class="op">$</span>hml35))
+dat<span class="op">$</span>bricks &lt;-<span class="st"> </span>dat<span class="op">$</span>hv214 <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">18</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">10</span>)
+dat<span class="op">$</span>net &lt;-<span class="st"> </span><span class="kw">as.logical</span>(dat<span class="op">$</span>hml20)
+
+<span class="co"># specify the strata and sample weights</span>
+dat<span class="op">$</span>strata &lt;-<span class="st"> </span><span class="kw">paste0</span>(dat<span class="op">$</span>hv023,dat<span class="op">$</span>DATASET)
+dat<span class="op">$</span>hv005 &lt;-<span class="st"> </span>dat<span class="op">$</span>hv005<span class="op">/</span><span class="fl">1e6</span>
+
+<span class="co"># construct a survey design using the survey pacakge</span>
+<span class="kw">library</span>(survey)
+
+<span class="co"># construct the sample design and calculate the mean and totals </span>
+des &lt;-<span class="st">  </span>survey<span class="op">::</span><span class="kw">svydesign</span>(<span class="op">~</span>CLUSTER<span class="op">+</span>DATASET,<span class="dt">data=</span>dat,<span class="dt">weight=</span><span class="op">~</span>hv005)
+results &lt;-<span class="st"> </span><span class="kw">cbind</span>(survey<span class="op">::</span><span class="kw">svyby</span>(<span class="op">~</span>hml35,<span class="dt">by=</span><span class="op">~</span>DHSREGNA<span class="op">+</span>DATASET, des, survey<span class="op">::</span>svyciprop,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),
+                 survey<span class="op">::</span><span class="kw">svyby</span>(<span class="op">~</span>hml35denom,<span class="dt">by=</span><span class="op">~</span>DHSREGNA<span class="op">+</span>DATASET, des, survey<span class="op">::</span>svytotal,<span class="dt">na.rm=</span><span class="ot">TRUE</span>))
+results &lt;-<span class="st"> </span>results[<span class="kw">order</span>(results<span class="op">$</span>DATASET),]
+
+<span class="co"># grab the same data from the API </span>
+dhs_api_data &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">indicatorIds =</span> <span class="st">&quot;ML_PMAL_C_RDT&quot;</span>,<span class="dt">breakdown =</span> <span class="st">&quot;subnational&quot;</span>,<span class="dt">surveyYearStart =</span> <span class="dv">2013</span>, <span class="dt">surveyYearEnd =</span> <span class="dv">2016</span>)
+dhs_api_data &lt;-<span class="st"> </span><span class="kw">cbind</span>(dhs_api_data<span class="op">$</span>Value,dhs_api_data<span class="op">$</span>DenominatorWeighted,dhs_api_data<span class="op">$</span>CharacteristicLabel, dhs_api_data<span class="op">$</span>SurveyId)
+api &lt;-<span class="st"> </span>dhs_api_data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.</span><span class="ch">\\</span><span class="st">.&quot;</span>,dhs_api_data[,<span class="dv">3</span>]),] <span class="co"># remove subregions included in Tanzania</span>
+api &lt;-<span class="st"> </span>api[<span class="kw">order</span>(<span class="kw">apply</span>(api[,<span class="dv">4</span><span class="op">:</span><span class="dv">3</span>],<span class="dv">1</span>,paste,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>)),]
+
+<span class="co"># bind the results and remove duplicate Region Columns</span>
+comparison &lt;-<span class="st"> </span><span class="kw">cbind</span>(results[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>)],api[])
+<span class="kw">names</span>(comparison) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Region&quot;</span>,<span class="st">&quot;Survey_RDT_Prev&quot;</span>,<span class="st">&quot;Survey_RDT_Denom&quot;</span>,<span class="st">&quot;API_RDT_Prev&quot;</span>,<span class="st">&quot;API_RDT_Denom&quot;</span>,<span class="st">&quot;API_Regions&quot;</span>,<span class="st">&quot;SurveyID&quot;</span>)
+<span class="kw">head</span>(comparison[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>)])</code></pre></div>
+<pre><code>##                                     Region Survey_RDT_Prev API_RDT_Prev
+## Bandundu.CDPR61FL                 Bandundu       0.2038607         20.2
+## Bas-Congo.CDPR61FL               Bas-Congo       0.4761599         47.1
+## Equateur.CDPR61FL                 Equateur       0.2732268         27.4
+## Kasai-Occidental.CDPR61FL Kasai-Occidental       0.4507341         44.5
+## Kasai-Oriental.CDPR61FL     Kasai-Oriental       0.4923113         49.4
+## Katanga.CDPR61FL                   Katanga       0.3989890         38.9
+##                           Survey_RDT_Denom API_RDT_Denom  SurveyID
+## Bandundu.CDPR61FL                1415.6056          1414 CD2013DHS
+## Bas-Congo.CDPR61FL                342.6473           347 CD2013DHS
+## Equateur.CDPR61FL                1267.4746          1236 CD2013DHS
+## Kasai-Occidental.CDPR61FL         604.6050           612 CD2013DHS
+## Kasai-Oriental.CDPR61FL           892.6006           894 CD2013DHS
+## Katanga.CDPR61FL                  861.2030           844 CD2013DHS</code></pre>
+<p>It’s a little off, with the mean values differing due to maybe the specific cut off they used in terms of which ages were included within between 5 and 69. The variance could also be off due to the specific stratification the DHS Program will have used, as well as potentially how they have grouped the primary sampling units. We are hoping to get this information from the DHS for each survey so we can make this process more streamline for the end user.</p>
+<p>And lastly we will construct a logistic regression to investigate the relationship between a positive malaria RDT and whether the main walls of an individual’s house were made of bricks or similar, while adjusting for urban/rural (<code>hv025</code>) and fixed effects for each survey.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># contsruct our glm using svyglm and specify quasibinomial to handle the na in hml35</span>
+<span class="kw">summary</span>(<span class="kw">svyglm</span>(hml35 <span class="op">~</span><span class="st"> </span>DATASET <span class="op">+</span><span class="st"> </span>hv025 <span class="op">+</span><span class="st"> </span>net <span class="op">+</span><span class="st"> </span>bricks, des, <span class="dt">family=</span><span class="st">&quot;quasibinomial&quot;</span>))</code></pre></div>
+<pre><code>## 
+## Call:
+## svyglm(formula = hml35 ~ DATASET + hv025 + net + bricks, des, 
+##     family = &quot;quasibinomial&quot;)
+## 
+## Survey design:
+## survey::svydesign(~CLUSTER + DATASET, data = dat, weight = ~hv005)
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     -1.65528    0.23267  -7.114 3.20e-12 ***
+## DATASETTZPR7AFL -0.95553    0.12901  -7.406 4.39e-13 ***
+## hv025            0.52558    0.13009   4.040 6.03e-05 ***
+## netTRUE          0.06529    0.07163   0.911    0.362    
+## bricksTRUE      -0.72109    0.13517  -5.335 1.36e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for quasibinomial family taken to be 0.9563804)
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<p>What we can see is that a significant negative gradient was associated with walls being made of bricks or similarly good materials in comparison to malaria positivity rates by RDT. What is also interesting is that whether the individual slept under a long lasting insecticidal net (<em>hml20</em> that we converted to net) was not significant.</p>
+<hr />
+</div>
+<div id="summary-and-further-thoughts" class="section level2">
+<h2>Summary and further thoughts</h2>
+<p>Hopefully the above tutorial has shown how the <code>rdhs</code> package can facilitate both querying the DHS API and hopefully make downloading and interacting with the raw datasets a smoother, more reproducible process. It is worth bearing in mind though, that creating a harmonised dataset is not always as easy as the example above - a lot of the time survey variables differ across years and surveys, which is hopefully when the <code>survey_questions</code> functionality will make it easier to first filter down to those that include the relevant questions before having to decide which survey questions are valid.</p>
+<p>Any suggestions or comments/corrections/errors/ideas please let me know either in the issues or send me an email at “<a href="mailto:o.watson15@imperial.ac.uk">o.watson15@imperial.ac.uk</a>”. And if there is any further functionality that you think you would be useful, then also let me know. :)</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
