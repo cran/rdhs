@@ -20,41 +20,67 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
 </style>
 <script>
@@ -81,7 +107,189 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 </head>
 
@@ -114,18 +322,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="installation" class="section level2">
 <h2>0. Installation</h2>
 <p>Install rdhs from github with <code>devtools</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
-<span class="co"># devtools::install_github(&quot;ropensci/rdhs&quot;)</span>
-
-<span class="kw">library</span>(rdhs)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages(&quot;devtools&quot;)</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># devtools::install_github(&quot;ropensci/rdhs&quot;)</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(rdhs)</a></code></pre></div>
 </div>
 <div id="access-standard-indicator-data-via-the-api" class="section level2">
 <h2>1. Access standard indicator data via the API</h2>
 <p>The DHS API has many <em>endpoints</em> that can be accessed using anyone of <code>dhs_&lt;endpoint&gt;()</code> functions. All exported functions within <code>rdhs</code> that start <em>dhs_</em> interact with a different with a different endpoint of the <a href="https://api.dhsprogram.com/">DHS API</a>. Their website gives great information about the different search terms and filters that can be used, and we have tried to include all of this within the documentation of each function.</p>
 <p>One of those endpoints, <code>dhs_data()</code>, interacts with the the published set of standard health indicator data calculated by the DHS. This endpoint allows use to retrieve a set of health indicators that have been sample weighted to give country, subnational estimates that can be further refined by education and wealth brackets. To do this we use the <code>dhs_data()</code> endpoint, which we can then either search for specific indicators, or by querying for indicators that have been tagged within specific areas.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## what are the indicators
-indicators &lt;-<span class="st"> </span><span class="kw">dhs_indicators</span>()
-indicators[<span class="dv">1</span>,]</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">## what are the indicators</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">indicators &lt;-<span class="st"> </span><span class="kw">dhs_indicators</span>()</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">indicators[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##                                                                                                           Definition
 ## 1 Age-specific fertility rate for the three years preceding the survey for age group 10-14 expressed per 1,000 women
 ##   NumberScale IndicatorType MeasurementType IsQuickStat  ShortName
@@ -144,8 +352,8 @@ indicators[<span class="dv">1</span>,]</code></pre></div>
 ## 1</code></pre>
 <p>Each call to a DHS endpoint returns a <code>data.frame</code> by default with all the results available by default.</p>
 <p>The DHS has a unique <em>IndicatorId</em> for each of the statistics it calculates. The definition and specific string for each indicator is included within the <em>IndicatorId</em> and <em>Definition</em> variable:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># grab the first 5 alphabetically</span>
-indicators[<span class="kw">order</span>(indicators<span class="op">$</span>IndicatorId),][<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;IndicatorId&quot;</span>, <span class="st">&quot;Definition&quot;</span>)]</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># grab the first 5 alphabetically</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">indicators[<span class="kw">order</span>(indicators<span class="op">$</span>IndicatorId),][<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;IndicatorId&quot;</span>, <span class="st">&quot;Definition&quot;</span>)]</a></code></pre></div>
 <pre><code>##        IndicatorId
 ## 2031 AH_CIGA_M_UNW
 ## 2026 AH_CIGA_W_10P
@@ -159,17 +367,17 @@ indicators[<span class="kw">order</span>(indicators<span class="op">$</span>Indi
 ## 2024 Percentage of women who smoked 3-5 cigarettes in preceding 24 hours
 ## 2025 Percentage of women who smoked 6-9 cigarettes in preceding 24 hours</code></pre>
 <p>Since there are quite a lot of indicators, it might be easier to first query by tags. The DHS tags their indicators by what areas of demography and health they relate to, e.g. anaemia, literacy, malaria parasitaemia are all specific tags. First let’s look at what the tags are, by interacting with the <code>dhs_tags()</code> endpoint, before grabbing data that related to malaria parasitaemia in the DRC and Tanzania since 2010:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What are the tags</span>
-tags &lt;-<span class="st"> </span><span class="kw">dhs_tags</span>()
-
-<span class="co"># Let's say we want to view the tags that relate to malaria</span>
-tags[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, tags<span class="op">$</span>TagName), ]</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># What are the tags</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">tags &lt;-<span class="st"> </span><span class="kw">dhs_tags</span>()</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># Let's say we want to view the tags that relate to malaria</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">tags[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, tags<span class="op">$</span>TagName), ]</a></code></pre></div>
 <pre><code>##    TagType                   TagName TagID TagOrder
 ## 31       0       Malaria Parasitemia    36      540
 ## 43       2 Select Malaria Indicators    79     1000</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and now let's then grab this data by specifying the countryIds and the survey year starts</span>
-data &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">tagIds =</span> <span class="dv">36</span>,<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">breakdown=</span><span class="st">&quot;subnational&quot;</span>,<span class="dt">surveyYearStart =</span> <span class="dv">2010</span>)
-data[<span class="dv">1</span>,]</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># and now let's then grab this data by specifying the countryIds and the survey year starts</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">tagIds =</span> <span class="dv">36</span>,<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">breakdown=</span><span class="st">&quot;subnational&quot;</span>,<span class="dt">surveyYearStart =</span> <span class="dv">2010</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">data[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>##   DataId                           Indicator  SurveyId IsPreferred Value
 ## 1 941297 Malaria prevalence according to RDT CD2013DHS           1  17.1
 ##        SDRID Precision        RegionId SurveyYearLabel SurveyType
@@ -185,29 +393,29 @@ data[<span class="dv">1</span>,]</code></pre></div>
 ##   DenominatorWeighted CIHigh IsTotal ByVariableId
 ## 1                 532              0            0</code></pre>
 <p>Depending on your analysis this maybe more than enough detail. It is also worth mentioning that this data can also be accessed via <a href="https://www.statcompiler.com/">DHS STATcompiler</a> if you prefer a click and collect version. However, hopefully one can see that selecting a lot of different indicators for multiple countries and breakdowns should be a lot easier using the <code>rdhs</code> API interaction. For example we can very quickly find out the trends in antimalarial use in Africa, and see if perhaps antimalarial prescription has decreased after RDTs were introduced (assumed 2010).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make an api request</span>
-resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds =</span> <span class="st">&quot;ML_FEVT_C_AML&quot;</span>, <span class="dt">surveyYearStart =</span> <span class="dv">2010</span>,<span class="dt">breakdown =</span> <span class="st">&quot;subnational&quot;</span>)
-
-<span class="co"># filter it to 12 countries for space</span>
-countries  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Angola&quot;</span>,<span class="st">&quot;Ghana&quot;</span>,<span class="st">&quot;Kenya&quot;</span>,<span class="st">&quot;Liberia&quot;</span>,
-                <span class="st">&quot;Madagascar&quot;</span>,<span class="st">&quot;Mali&quot;</span>,<span class="st">&quot;Malawi&quot;</span>,<span class="st">&quot;Nigeria&quot;</span>,
-                <span class="st">&quot;Rwanda&quot;</span>,<span class="st">&quot;Sierra Leone&quot;</span>,<span class="st">&quot;Senegal&quot;</span>,<span class="st">&quot;Tanzania&quot;</span>)
-
-<span class="co"># and plot the results</span>
-<span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(resp[resp<span class="op">$</span>CountryName <span class="op">%in%</span><span class="st"> </span>countries,],
-       <span class="kw">aes</span>(<span class="dt">x=</span>SurveyYear,<span class="dt">y=</span>Value,<span class="dt">colour=</span>CountryName)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> .<span class="dv">5</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">ylab</span>(resp<span class="op">$</span>Indicator[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>CountryName,<span class="dt">ncol =</span> <span class="dv">6</span>) </code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Make an api request</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds =</span> <span class="st">&quot;ML_FEVT_C_AML&quot;</span>, <span class="dt">surveyYearStart =</span> <span class="dv">2010</span>,<span class="dt">breakdown =</span> <span class="st">&quot;subnational&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co"># filter it to 12 countries for space</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">countries  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Angola&quot;</span>,<span class="st">&quot;Ghana&quot;</span>,<span class="st">&quot;Kenya&quot;</span>,<span class="st">&quot;Liberia&quot;</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">                <span class="st">&quot;Madagascar&quot;</span>,<span class="st">&quot;Mali&quot;</span>,<span class="st">&quot;Malawi&quot;</span>,<span class="st">&quot;Nigeria&quot;</span>,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">                <span class="st">&quot;Rwanda&quot;</span>,<span class="st">&quot;Sierra Leone&quot;</span>,<span class="st">&quot;Senegal&quot;</span>,<span class="st">&quot;Tanzania&quot;</span>)</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co"># and plot the results</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="kw">ggplot</span>(resp[resp<span class="op">$</span>CountryName <span class="op">%in%</span><span class="st"> </span>countries,],</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">       <span class="kw">aes</span>(<span class="dt">x=</span>SurveyYear,<span class="dt">y=</span>Value,<span class="dt">colour=</span>CountryName)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16"><span class="st">  </span><span class="kw">ylab</span>(resp<span class="op">$</span>Indicator[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-17" data-line-number="17"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>CountryName,<span class="dt">ncol =</span> <span class="dv">6</span>) </a></code></pre></div>
 <p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
 <p>If we incorrectly entered a filter query (very possible), <code>rdhs</code> will let us know our request was invalid:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make an api request</span>
-resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds=</span><span class="st">&quot;ML_FEVT_C_AMasfafasfL&quot;</span>,
-                 <span class="dt">surveyYearStart=</span><span class="dv">202231231306</span>,
-                 <span class="dt">breakdown=</span><span class="st">&quot;subParTyping&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Make an api request</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds=</span><span class="st">&quot;ML_FEVT_C_AMasfafasfL&quot;</span>,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">                 <span class="dt">surveyYearStart=</span><span class="dv">202231231306</span>,</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">                 <span class="dt">breakdown=</span><span class="st">&quot;subParTyping&quot;</span>)</a></code></pre></div>
 <pre><code>## Error in handle_api_response(resp, TRUE): 
 ##    -&gt; DHS API Request Failed [500] 
 ##    -&gt; Error Type: dhs_internal_server_error</code></pre>
@@ -217,9 +425,9 @@ resp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class=
 <p>You may, however, wish to do more nuanced analysis than the API allows. The following 4 section detail a very basic example of how to quickly identify, download and extract datasets you are interested in.</p>
 <p>Let’s say we want to get all the survey data from the Democratic Republic of Congo and Tanzania in the last 5 years (since 2013), which covers the use of rapid diagnostic tests (RDTs) for malaria. To begin we’ll interact with the DHS API to identify our datasets.</p>
 <p>To start our extraction we’ll query the <em>surveyCharacteristics</em> endpoint using <code>dhs_surveyCharacteristics()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## make a call with no arguments
-sc &lt;-<span class="st"> </span><span class="kw">dhs_survey_characteristics</span>()
-sc[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, sc<span class="op">$</span>SurveyCharacteristicName), ]</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">## make a call with no arguments</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">sc &lt;-<span class="st"> </span><span class="kw">dhs_survey_characteristics</span>()</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">sc[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, sc<span class="op">$</span>SurveyCharacteristicName), ]</a></code></pre></div>
 <pre><code>##    SurveyCharacteristicID SurveyCharacteristicName
 ## 57                     96            Malaria - DBS
 ## 58                     90     Malaria - Microscopy
@@ -227,18 +435,18 @@ sc[<span class="kw">grepl</span>(<span class="st">&quot;Malaria&quot;</span>, sc
 ## 60                     57          Malaria module 
 ## 61                      8 Malaria/bednet questions</code></pre>
 <p>There are 87 different survey characteristics, with one specific survey characteristic for Malaria RDTs. We’ll use this to then find the surveys that include this characteristic. We can also at this point filter for our desired countries and years. The DHS API allows for countries to be filtered using by their <em>countryIds</em>, which is one of the arguments in <code>dhs_surveys()</code>. To have a look at what each countries countryId is we can use another of the API endpoints first:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## what are the countryIds
-ids &lt;-<span class="st"> </span><span class="kw">dhs_countries</span>(<span class="dt">returnFields=</span><span class="kw">c</span>(<span class="st">&quot;CountryName&quot;</span>, <span class="st">&quot;DHS_CountryCode&quot;</span>))
-<span class="kw">str</span>(ids)</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">## what are the countryIds</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">ids &lt;-<span class="st"> </span><span class="kw">dhs_countries</span>(<span class="dt">returnFields=</span><span class="kw">c</span>(<span class="st">&quot;CountryName&quot;</span>, <span class="st">&quot;DHS_CountryCode&quot;</span>))</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw">str</span>(ids)</a></code></pre></div>
 <pre><code>## 'data.frame':    91 obs. of  2 variables:
 ##  $ DHS_CountryCode: chr  &quot;AF&quot; &quot;AL&quot; &quot;AO&quot; &quot;AM&quot; ...
 ##  $ CountryName    : chr  &quot;Afghanistan&quot; &quot;Albania&quot; &quot;Angola&quot; &quot;Armenia&quot; ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lets find all the surveys that fit our search criteria</span>
-survs &lt;-<span class="st"> </span><span class="kw">dhs_surveys</span>(<span class="dt">surveyCharacteristicIds =</span> <span class="dv">89</span>,<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">surveyYearStart =</span> <span class="dv">2013</span>)
-
-<span class="co"># and lastly use this to find the datasets we will want to download and let's download the flat files (.dat) datasets (have a look in the dhs_datasets documentation for all argument options, and fileformat abbreviations etc.)</span>
-datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> survs<span class="op">$</span>SurveyId, <span class="dt">fileFormat =</span> <span class="st">&quot;flat&quot;</span>)
-<span class="kw">str</span>(datasets)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># lets find all the surveys that fit our search criteria</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">survs &lt;-<span class="st"> </span><span class="kw">dhs_surveys</span>(<span class="dt">surveyCharacteristicIds =</span> <span class="dv">89</span>,<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">surveyYearStart =</span> <span class="dv">2013</span>)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co"># and lastly use this to find the datasets we will want to download and let's download the flat files (.dat) datasets (have a look in the dhs_datasets documentation for all argument options, and fileformat abbreviations etc.)</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> survs<span class="op">$</span>SurveyId, <span class="dt">fileFormat =</span> <span class="st">&quot;flat&quot;</span>)</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="kw">str</span>(datasets)</a></code></pre></div>
 <pre><code>## 'data.frame':    19 obs. of  13 variables:
 ##  $ FileFormat          : chr  &quot;Flat ASCII data (.dat)&quot; &quot;Flat ASCII data (.dat)&quot; &quot;Flat ASCII data (.dat)&quot; &quot;Flat ASCII data (.dat)&quot; ...
 ##  $ FileSize            : int  198561 7030083 3226262 8028957 11426382 4794941 1569680 6595349 63022 996906 ...
@@ -261,13 +469,13 @@ datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<spa
 <p>We can now go ahead and download our datasets. To do this we need to first create a <code>client</code>. The client is an R6 class (similar to R’s built in reference classes and make caching survey and API queries more reproducible) and will be used to log in to your DHS account, download datasets for you, and help query those datasets for the question you are interested in. The client will also cache all of these processes, which really helps increase the reproducibility of your analysis.</p>
 <p>In order to set up our credentials we use the function <code>set_rdhs_config()</code>. This will require providing as arguments your <code>email</code> and <code>project</code> for which you want to download datasets from. You will then be prompted for your password.</p>
 <p>You can also specify a directory for datasets and API calls to be cached to using <code>cache_path</code>. If you do not provide an argument for <code>cache_path</code> you will be prompted to provide permission to <code>rdhs</code> to save your datasets and API calls within your user cache directory for your operating system. This is to comply with CRAN’s requests for permission to be granted before writing to system files. If you do not grant permission, these will be written within your R temporary directory (as we saw above when we first used one of the functions to query the API). Similarly if you do not also provide an argument for <code>config_path</code>, this will be saved within your temp directory unless permission is granted. Your config files will always be called “rdhs.json”, so that <code>rdhs</code> can find them easily.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## create a client
-## set up your credentials
-config &lt;-<span class="st"> </span><span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;rdhs.tester@gmail.com&quot;</span>,
-                <span class="dt">project =</span> <span class="st">&quot;Testing Malaria Investigations&quot;</span>)
-
-client &lt;-<span class="st"> </span><span class="kw">client_dhs</span>(config)
-client</code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">## create a client</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co">## set up your credentials</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">config &lt;-<span class="st"> </span><span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;rdhs.tester@gmail.com&quot;</span>,</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">                <span class="dt">project =</span> <span class="st">&quot;Testing Malaria Investigations&quot;</span>)</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">client &lt;-<span class="st"> </span><span class="kw">client_dhs</span>(config)</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">client</a></code></pre></div>
 <pre><code>## &lt;client_dhs&gt;
 ##   Public:
 ##     available_datasets: function (clear_cache_first = FALSE) 
@@ -301,18 +509,18 @@ client</code></pre></div>
 <hr />
 <p>Now back to our dataset downloads. If we have a look back at our datasets object, we’ll see there are 19 datasets listed. However, not all of them will be relevant to our malaria RDT questions. One approach is to head to the DHS website and have a look at the <a href="https://dhsprogram.com/publications/publication-dhsg4-dhs-questionnaires-and-manuals.cfm">DHS Recodes</a>, and look at the recodes that relate to the surveys. The other alternative is to download all the surveys and then query the variables within them. This is what we’ll demonstrate here as it also demonstrates more of the package’s functionality:</p>
 <p>So first we will download all these datasets:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># download datasets</span>
-downloads &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName)</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># download datasets</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">downloads &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName)</a></code></pre></div>
 <p>The function returns a list with a file path to where the downloaded datasets have been saved to. By default the files will download quietly, i.e. no progress is shown. However, if you want to see the progress then you can control this by setting this in your config using the <code>verbose_download</code> argument.</p>
 </div>
 <div id="load-datasets-and-associated-metadata-into-r." class="section level2">
 <h2>4. Load datasets and associated metadata into R.</h2>
 <p>We can now examine what it is we have actually downloaded, by reading in one of these datasets:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read in our dataset</span>
-cdpr &lt;-<span class="st"> </span><span class="kw">readRDS</span>(downloads<span class="op">$</span>CDPR61FL)</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># read in our dataset</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">cdpr &lt;-<span class="st"> </span><span class="kw">readRDS</span>(downloads<span class="op">$</span>CDPR61FL)</a></code></pre></div>
 <p>The dataset returned here contains all the survey questions within the dataset, and what their survey variables are:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let's look at the variable_names</span>
-<span class="kw">head</span>(<span class="kw">get_variable_labels</span>(cdpr))</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># let's look at the variable_names</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">head</span>(<span class="kw">get_variable_labels</span>(cdpr))</a></code></pre></div>
 <pre><code>##   variable                                                  description
 ## 1     hhid                                          Case Identification
 ## 2    hvidx                                                  Line number
@@ -320,8 +528,8 @@ cdpr &lt;-<span class="st"> </span><span class="kw">readRDS</span>(downloads<spa
 ## 4    hv001                                               Cluster number
 ## 5    hv002                                             Household number
 ## 6    hv003 Respondent's line number (answering Household questionnaire)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and then the dataset</span>
-<span class="kw">class</span>(cdpr<span class="op">$</span>hv024)</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># and then the dataset</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">class</span>(cdpr<span class="op">$</span>hv024)</a></code></pre></div>
 <pre><code>## [1] &quot;labelled&quot;</code></pre>
 <p>This is the default behaviour for the client function <code>get_datasets</code> - it will download the datasets for you, and then by default save them in your client’s root directory and then unzip them and read them in for you, and save the resultant data.frame as a .rds object within the client’s root directory. You can control this behaviour using the <code>download_option</code> argument as such:</p>
 <ul>
@@ -330,10 +538,10 @@ cdpr &lt;-<span class="st"> </span><span class="kw">readRDS</span>(downloads<spa
 <li><code>client$get_datasets(download_option = &quot;both&quot;)</code> - The zip is downloaded and saved as well as the read in rds</li>
 </ul>
 <p>The other main reason for reading the dataset in straight away as the default option is that the created table of all the survey variables and their definitions is cached then and there, which then allows us to quickly query for particular search terms or survey variables:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rapid diagnostic test search</span>
-questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_questions</span>(datasets<span class="op">$</span>FileName, <span class="dt">search_terms =</span> <span class="st">&quot;malaria rapid test&quot;</span>)
-
-<span class="kw">table</span>(questions<span class="op">$</span>dataset_filename)</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># rapid diagnostic test search</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_questions</span>(datasets<span class="op">$</span>FileName, <span class="dt">search_terms =</span> <span class="st">&quot;malaria rapid test&quot;</span>)</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="kw">table</span>(questions<span class="op">$</span>dataset_filename)</a></code></pre></div>
 <pre><code>## 
 ## CDHR61FL CDPR61FL TZHR7AFL TZPR7AFL 
 ##       24        1       48        1</code></pre>
@@ -342,18 +550,18 @@ questions &lt;-<span class="st"> </span>client<span class="op">$</span><span cla
 <div id="extract-variables-and-combining-datasets-for-pooled-multi-survey-analyses." class="section level2">
 <h2>5. Extract variables and combining datasets for pooled multi-survey analyses.</h2>
 <p>To extract our data we pass our questions object to the client function <code>extract</code>, which will create a list with each dataset and its extracted data as a <code>data.frame</code>. We also have the option to add any geographic data available, which will download the geographic data files for you and add this data to you resultant extract:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let's just use the PR files thus</span>
-datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> survs<span class="op">$</span>SurveyId, <span class="dt">fileFormat =</span> <span class="st">&quot;FL&quot;</span>, <span class="dt">fileType =</span> <span class="st">&quot;PR&quot;</span>)
-downloads &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName)
-
-<span class="co"># and grab the questions from this again along with also questions detailing the province</span>
-questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_questions</span>(datasets<span class="op">$</span>FileName, <span class="dt">search_terms =</span> <span class="kw">c</span>(<span class="st">&quot;malaria rapid test&quot;</span>))
-
-<span class="co"># and now extract the data</span>
-extract &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)
-
-<span class="co"># what does our extract look like</span>
-<span class="kw">str</span>(extract)</code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># let's just use the PR files thus</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> survs<span class="op">$</span>SurveyId, <span class="dt">fileFormat =</span> <span class="st">&quot;FL&quot;</span>, <span class="dt">fileType =</span> <span class="st">&quot;PR&quot;</span>)</a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">downloads &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName)</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="co"># and grab the questions from this again along with also questions detailing the province</span></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_questions</span>(datasets<span class="op">$</span>FileName, <span class="dt">search_terms =</span> <span class="kw">c</span>(<span class="st">&quot;malaria rapid test&quot;</span>))</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb29-8" data-line-number="8"><span class="co"># and now extract the data</span></a>
+<a class="sourceLine" id="cb29-9" data-line-number="9">extract &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb29-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb29-11" data-line-number="11"><span class="co"># what does our extract look like</span></a>
+<a class="sourceLine" id="cb29-12" data-line-number="12"><span class="kw">str</span>(extract)</a></code></pre></div>
 <pre><code>## List of 2
 ##  $ CDPR61FL:Classes 'dhs_dataset' and 'data.frame':  95949 obs. of  2 variables:
 ##   ..$ hml35   : 'labelled' int [1:95949] NA NA NA NA NA NA NA 1 0 NA ...
@@ -369,14 +577,14 @@ extract &lt;-<span class="st"> </span>client<span class="op">$</span><span class
 ##   ..$ SurveyId: chr [1:64880] &quot;TZ2015DHS&quot; &quot;TZ2015DHS&quot; &quot;TZ2015DHS&quot; &quot;TZ2015DHS&quot; ...</code></pre>
 <p>The resultant extract is a list, with a new element for each different dataset that you have extracted. The responses from the dataset are by default stored as a <em>labelled</em> class from the <a href="https://github.com/tidyverse/haven">haven package</a>. This class preserves the original semantics and can easily be coerced to factors with <code>haven::as_factor()</code>. Special missing values are also preserved. For more info on the <em>labelled</em> class have a look at their github.</p>
 <p>We can also query our datasets for the survey question variables. In the example above the survey question was <em>Result of malaria rapid test</em> and the variable was <em>hml35</em>. So if you knew the survey variables that you wanted (either by looking at the Recode file or by looking through the <em>variable_names</em> included in the datasets) then we could search against these. So let’s grab the regions using <em>hv024</em> using the client function <code>survey_variables()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and grab the questions from this now utilising the survey variables</span>
-questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_variables</span>(datasets<span class="op">$</span>FileName, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv024&quot;</span>,<span class="st">&quot;hml35&quot;</span>))
-
-<span class="co"># and now extract the data</span>
-extract2 &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)
-
-<span class="co"># quick check </span>
-<span class="kw">head</span>(extract2<span class="op">$</span>CDPR61FL)</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># and grab the questions from this now utilising the survey variables</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_variables</span>(datasets<span class="op">$</span>FileName, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv024&quot;</span>,<span class="st">&quot;hml35&quot;</span>))</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co"># and now extract the data</span></a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">extract2 &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="co"># quick check </span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8"><span class="kw">head</span>(extract2<span class="op">$</span>CDPR61FL)</a></code></pre></div>
 <pre><code>##   hv024 hml35  SurveyId
 ## 1     4    NA CD2013DHS
 ## 2     4    NA CD2013DHS
@@ -384,18 +592,18 @@ extract2 &lt;-<span class="st"> </span>client<span class="op">$</span><span clas
 ## 4     4    NA CD2013DHS
 ## 5     4    NA CD2013DHS
 ## 6     4    NA CD2013DHS</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(extract2<span class="op">$</span>TZPR7HFL)</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">head</span>(extract2<span class="op">$</span>TZPR7HFL)</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># and just to prove that hml35 did actually read in okay (there are just lots of NA)</span>
-<span class="kw">table</span>(extract2<span class="op">$</span>CDPR61FL<span class="op">$</span>hml35,<span class="dt">useNA =</span> <span class="st">&quot;always&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># and just to prove that hml35 did actually read in okay (there are just lots of NA)</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">table</span>(extract2<span class="op">$</span>CDPR61FL<span class="op">$</span>hml35,<span class="dt">useNA =</span> <span class="st">&quot;always&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##     0     1     9  &lt;NA&gt; 
 ##  5260  2959     8 87722</code></pre>
 <p>We can now combine our two dataframes for further analysis using the <code>rdhs</code> package function <code>rbind_labelled()</code>. This function works specifically with our lists of labelled data.frames:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first let's bind our first extraction, without the hv024</span>
-extract_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract)
-
-<span class="kw">head</span>(extract_bound)</code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># first let's bind our first extraction, without the hv024</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">extract_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract)</a>
+<a class="sourceLine" id="cb37-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="kw">head</span>(extract_bound)</a></code></pre></div>
 <pre><code>##            hml35  SurveyId  DATASET
 ## CDPR61FL.1    NA CD2013DHS CDPR61FL
 ## CDPR61FL.2    NA CD2013DHS CDPR61FL
@@ -403,16 +611,16 @@ extract_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</spa
 ## CDPR61FL.4    NA CD2013DHS CDPR61FL
 ## CDPR61FL.5    NA CD2013DHS CDPR61FL
 ## CDPR61FL.6    NA CD2013DHS CDPR61FL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now let's try our second extraction</span>
-extract2_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2)</code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># now let's try our second extraction</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">extract2_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2)</a></code></pre></div>
 <pre><code>## Warning in rbind_labelled(extract2): Some variables have non-matching value labels: hv024.
 ## Inheriting labels from first data frame with labels.</code></pre>
 <p>This hasn’t quite done what we might want in the second instance. The <em>hv024</em> variable stores the regions for these 2 countries, which will not be the same and thus the labels will be different between the two of them. Without specifying any additional arguments <code>rbind_labelled()</code> will simply use the first data.frames labelling as the default, which will mean that some of the Tanzanian provinces will have been encoded as DRC provinces - not good! (This is a similar problem in nature to say trying to add new character strings to a factored data.frame).</p>
 <p>There are a few work arounds. Firstly, we can specify a <em>labels</em> argument to the function which will detail how we should handle different variables. <em>labels</em> is a names list that specifies how to handle each variable. If we simply want to keep all the labels then we us the string “concatenate”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lets try concatenating the hv024</span>
-better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2, <span class="dt">labels =</span> <span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>))
-
-<span class="kw">head</span>(better_bound<span class="op">$</span>hv024)</code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># lets try concatenating the hv024</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2, <span class="dt">labels =</span> <span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>))</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="kw">head</span>(better_bound<span class="op">$</span>hv024)</a></code></pre></div>
 <pre><code>## &lt;Labelled integer&gt;
 ## [1] 6 6 6 6 6 6
 ## 
@@ -460,13 +668,13 @@ better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span
 ##     40           tabora
 ##     41            tanga</code></pre>
 <p>We could also specify new labels for a variable. For example, imagine the two datasets encoded their RDT responses differently, with the first one as <code>c(&quot;No&quot;,&quot;Yes&quot;)</code> and the other as <code>c(&quot;Negative&quot;,&quot;Positive&quot;)</code>. These would be for our purposes the same response, and so we could either leave it and all our results would use the <code>c(&quot;No&quot;,&quot;Yes&quot;)</code> labelling. But we may want to use the latter as it’s more informative/correct, or we may want to be crystal clear and use <code>c(&quot;NegativeTest&quot;,&quot;PositiveTest&quot;)</code>. we can do that like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lets try concatenating the hv024 and providing new labels</span>
-better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2,
-                               <span class="dt">labels =</span> <span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>,
-                                             <span class="st">&quot;hml35&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;NegativeTest&quot;</span>=<span class="dv">0</span>, <span class="st">&quot;PositiveTest&quot;</span>=<span class="dv">1</span>)))
-
-<span class="co"># and our new label</span>
-<span class="kw">head</span>(better_bound<span class="op">$</span>hml35)</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># lets try concatenating the hv024 and providing new labels</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract2,</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">                               <span class="dt">labels =</span> <span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>,</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">                                             <span class="st">&quot;hml35&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;NegativeTest&quot;</span>=<span class="dv">0</span>, <span class="st">&quot;PositiveTest&quot;</span>=<span class="dv">1</span>)))</a>
+<a class="sourceLine" id="cb43-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb43-6" data-line-number="6"><span class="co"># and our new label</span></a>
+<a class="sourceLine" id="cb43-7" data-line-number="7"><span class="kw">head</span>(better_bound<span class="op">$</span>hml35)</a></code></pre></div>
 <pre><code>## &lt;Labelled integer&gt;
 ## [1] NA NA NA NA NA NA
 ## 
@@ -475,65 +683,65 @@ better_bound &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span
 ##      0 NegativeTest
 ##      1 PositiveTest</code></pre>
 <p>The other option is to not use the labelled class at all. We can control this when we download our datasets, using the argument <code>reformat=TRUE</code>. This will ensure that no factors or labels are used and it is just the raw data. When this option is set the object returned by <code>client$get_datasets()</code> no longer has any labelled classes or factors. However, we can still recover the variable table for a dataset using <code>get_variable_labels()</code>, which will take any dataset output by <code>get_datasets()</code> and return a data.frame describing the survey question variables and definitions.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># download the datasets with the reformat arguments</span>
-downloads &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName, <span class="dt">reformat=</span><span class="ot">TRUE</span>)
-
-<span class="co"># grab the questions but specifying the reformat argument</span>
-questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_variables</span>(datasets<span class="op">$</span>FileName, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv024&quot;</span>, <span class="st">&quot;hml35&quot;</span>),
-                                     <span class="dt">reformat=</span><span class="ot">TRUE</span>)
-
-<span class="co"># and now extract the data</span>
-extract3 &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)
-
-<span class="co"># group our results</span>
-bound_no_labels &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract3)
-
-<span class="co"># what does our hv024 look like now</span>
-<span class="kw">class</span>(bound_no_labels<span class="op">$</span>hv024[<span class="dv">1</span>])</code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co"># download the datasets with the reformat arguments</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">downloads &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName, <span class="dt">reformat=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb45-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb45-4" data-line-number="4"><span class="co"># grab the questions but specifying the reformat argument</span></a>
+<a class="sourceLine" id="cb45-5" data-line-number="5">questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_variables</span>(datasets<span class="op">$</span>FileName, <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv024&quot;</span>, <span class="st">&quot;hml35&quot;</span>),</a>
+<a class="sourceLine" id="cb45-6" data-line-number="6">                                     <span class="dt">reformat=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb45-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb45-8" data-line-number="8"><span class="co"># and now extract the data</span></a>
+<a class="sourceLine" id="cb45-9" data-line-number="9">extract3 &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions, <span class="dt">add_geo =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb45-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb45-11" data-line-number="11"><span class="co"># group our results</span></a>
+<a class="sourceLine" id="cb45-12" data-line-number="12">bound_no_labels &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extract3)</a>
+<a class="sourceLine" id="cb45-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb45-14" data-line-number="14"><span class="co"># what does our hv024 look like now</span></a>
+<a class="sourceLine" id="cb45-15" data-line-number="15"><span class="kw">class</span>(bound_no_labels<span class="op">$</span>hv024[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>The <em>hv024</em> column is now just characters, which is possibly the best option depending on your downstream analysis/preferences. It’s for this reason that the geographic data that is added is never turned into factors or labels.</p>
 <p>Lastly, we can now use our extract dataset to carry out some regression analysis, to investigate the relationship between malaria prevalence and the quality of wall materials. To do this we will need to first grab the sample weights and stratification from the surveys, along with the extra variables and we will then check the RDT prevalence calculated using the raw data versus the API:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># grab the additional variable hv023 and hv024 which have the strata and weights respectively</span>
-questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_variables</span>(datasets<span class="op">$</span>FileName,<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv005&quot;</span>,<span class="st">&quot;hv021&quot;</span>,<span class="st">&quot;hv022&quot;</span>,<span class="st">&quot;hv023&quot;</span>,<span class="st">&quot;hv024&quot;</span>,
-                                                              <span class="st">&quot;hv025&quot;</span>,<span class="st">&quot;hv214&quot;</span>,<span class="st">&quot;hml20&quot;</span>, <span class="st">&quot;hc1&quot;</span>,<span class="st">&quot;hml35&quot;</span>))
-extraction &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions,<span class="ot">TRUE</span>)
-
-<span class="co"># now concatenate the provinces as before and remove missing responses</span>
-dat &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extraction,<span class="dt">labels=</span><span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>,<span class="st">&quot;hv214&quot;</span>=<span class="st">&quot;concatenate&quot;</span>))
-dat &lt;-<span class="st"> </span>dat[<span class="op">-</span><span class="kw">which</span>(dat<span class="op">$</span>hml35<span class="op">==</span><span class="dv">9</span>),] <span class="co"># remove missing responses</span>
-
-<span class="co"># and we are going to compare our extract to the API malaria prevalence by RDT, which is for those between 6 and 59 months</span>
-dat &lt;-<span class="st"> </span>dat[<span class="op">-</span><span class="kw">which</span>(<span class="op">!</span>dat<span class="op">$</span>hc1<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>dat<span class="op">$</span>hc1<span class="op">&lt;=</span><span class="dv">60</span>),]
-
-<span class="co"># create a denominator response for hml35</span>
-dat<span class="op">$</span>hml35denom &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="op">!</span><span class="kw">is.na</span>(dat<span class="op">$</span>hml35))
-dat<span class="op">$</span>bricks &lt;-<span class="st"> </span>dat<span class="op">$</span>hv214 <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">18</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">10</span>)
-dat<span class="op">$</span>net &lt;-<span class="st"> </span><span class="kw">as.logical</span>(dat<span class="op">$</span>hml20)
-
-<span class="co"># specify the strata and sample weights</span>
-dat<span class="op">$</span>strata &lt;-<span class="st"> </span><span class="kw">paste0</span>(dat<span class="op">$</span>hv023,dat<span class="op">$</span>DATASET)
-dat<span class="op">$</span>hv005 &lt;-<span class="st"> </span>dat<span class="op">$</span>hv005<span class="op">/</span><span class="fl">1e6</span>
-
-<span class="co"># construct a survey design using the survey pacakge</span>
-<span class="kw">library</span>(survey)
-
-<span class="co"># construct the sample design and calculate the mean and totals </span>
-des &lt;-<span class="st">  </span>survey<span class="op">::</span><span class="kw">svydesign</span>(<span class="op">~</span>CLUSTER<span class="op">+</span>DATASET,<span class="dt">data=</span>dat,<span class="dt">weight=</span><span class="op">~</span>hv005)
-results &lt;-<span class="st"> </span><span class="kw">cbind</span>(survey<span class="op">::</span><span class="kw">svyby</span>(<span class="op">~</span>hml35,<span class="dt">by=</span><span class="op">~</span>DHSREGNA<span class="op">+</span>DATASET, des, survey<span class="op">::</span>svyciprop,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),
-                 survey<span class="op">::</span><span class="kw">svyby</span>(<span class="op">~</span>hml35denom,<span class="dt">by=</span><span class="op">~</span>DHSREGNA<span class="op">+</span>DATASET, des, survey<span class="op">::</span>svytotal,<span class="dt">na.rm=</span><span class="ot">TRUE</span>))
-results &lt;-<span class="st"> </span>results[<span class="kw">order</span>(results<span class="op">$</span>DATASET),]
-
-<span class="co"># grab the same data from the API </span>
-dhs_api_data &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">indicatorIds =</span> <span class="st">&quot;ML_PMAL_C_RDT&quot;</span>,<span class="dt">breakdown =</span> <span class="st">&quot;subnational&quot;</span>,<span class="dt">surveyYearStart =</span> <span class="dv">2013</span>, <span class="dt">surveyYearEnd =</span> <span class="dv">2016</span>)
-dhs_api_data &lt;-<span class="st"> </span><span class="kw">cbind</span>(dhs_api_data<span class="op">$</span>Value,dhs_api_data<span class="op">$</span>DenominatorWeighted,dhs_api_data<span class="op">$</span>CharacteristicLabel, dhs_api_data<span class="op">$</span>SurveyId)
-api &lt;-<span class="st"> </span>dhs_api_data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.</span><span class="ch">\\</span><span class="st">.&quot;</span>,dhs_api_data[,<span class="dv">3</span>]),] <span class="co"># remove subregions included in Tanzania</span>
-api &lt;-<span class="st"> </span>api[<span class="kw">order</span>(<span class="kw">apply</span>(api[,<span class="dv">4</span><span class="op">:</span><span class="dv">3</span>],<span class="dv">1</span>,paste,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>)),]
-
-<span class="co"># bind the results and remove duplicate Region Columns</span>
-comparison &lt;-<span class="st"> </span><span class="kw">cbind</span>(results[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>)],api[])
-<span class="kw">names</span>(comparison) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Region&quot;</span>,<span class="st">&quot;Survey_RDT_Prev&quot;</span>,<span class="st">&quot;Survey_RDT_Denom&quot;</span>,<span class="st">&quot;API_RDT_Prev&quot;</span>,<span class="st">&quot;API_RDT_Denom&quot;</span>,<span class="st">&quot;API_Regions&quot;</span>,<span class="st">&quot;SurveyID&quot;</span>)
-
-<span class="kw">head</span>(comparison[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>)])</code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co"># grab the additional variable hv023 and hv024 which have the strata and weights respectively</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">questions &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">survey_variables</span>(datasets<span class="op">$</span>FileName,<span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;hv005&quot;</span>,<span class="st">&quot;hv021&quot;</span>,<span class="st">&quot;hv022&quot;</span>,<span class="st">&quot;hv023&quot;</span>,<span class="st">&quot;hv024&quot;</span>,</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">                                                              <span class="st">&quot;hv025&quot;</span>,<span class="st">&quot;hv214&quot;</span>,<span class="st">&quot;hml20&quot;</span>, <span class="st">&quot;hc1&quot;</span>,<span class="st">&quot;hml35&quot;</span>))</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">extraction &lt;-<span class="st"> </span>client<span class="op">$</span><span class="kw">extract</span>(questions,<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb47-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb47-6" data-line-number="6"><span class="co"># now concatenate the provinces as before and remove missing responses</span></a>
+<a class="sourceLine" id="cb47-7" data-line-number="7">dat &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(extraction,<span class="dt">labels=</span><span class="kw">list</span>(<span class="st">&quot;hv024&quot;</span>=<span class="st">&quot;concatenate&quot;</span>,<span class="st">&quot;hv214&quot;</span>=<span class="st">&quot;concatenate&quot;</span>))</a>
+<a class="sourceLine" id="cb47-8" data-line-number="8">dat &lt;-<span class="st"> </span>dat[<span class="op">-</span><span class="kw">which</span>(dat<span class="op">$</span>hml35<span class="op">==</span><span class="dv">9</span>),] <span class="co"># remove missing responses</span></a>
+<a class="sourceLine" id="cb47-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb47-10" data-line-number="10"><span class="co"># and we are going to compare our extract to the API malaria prevalence by RDT, which is for those between 6 and 59 months</span></a>
+<a class="sourceLine" id="cb47-11" data-line-number="11">dat &lt;-<span class="st"> </span>dat[<span class="op">-</span><span class="kw">which</span>(<span class="op">!</span>dat<span class="op">$</span>hc1<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>dat<span class="op">$</span>hc1<span class="op">&lt;=</span><span class="dv">60</span>),]</a>
+<a class="sourceLine" id="cb47-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb47-13" data-line-number="13"><span class="co"># create a denominator response for hml35</span></a>
+<a class="sourceLine" id="cb47-14" data-line-number="14">dat<span class="op">$</span>hml35denom &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="op">!</span><span class="kw">is.na</span>(dat<span class="op">$</span>hml35))</a>
+<a class="sourceLine" id="cb47-15" data-line-number="15">dat<span class="op">$</span>bricks &lt;-<span class="st"> </span>dat<span class="op">$</span>hv214 <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">18</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb47-16" data-line-number="16">dat<span class="op">$</span>net &lt;-<span class="st"> </span><span class="kw">as.logical</span>(dat<span class="op">$</span>hml20)</a>
+<a class="sourceLine" id="cb47-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb47-18" data-line-number="18"><span class="co"># specify the strata and sample weights</span></a>
+<a class="sourceLine" id="cb47-19" data-line-number="19">dat<span class="op">$</span>strata &lt;-<span class="st"> </span><span class="kw">paste0</span>(dat<span class="op">$</span>hv023,dat<span class="op">$</span>DATASET)</a>
+<a class="sourceLine" id="cb47-20" data-line-number="20">dat<span class="op">$</span>hv005 &lt;-<span class="st"> </span>dat<span class="op">$</span>hv005<span class="op">/</span><span class="fl">1e6</span></a>
+<a class="sourceLine" id="cb47-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb47-22" data-line-number="22"><span class="co"># construct a survey design using the survey pacakge</span></a>
+<a class="sourceLine" id="cb47-23" data-line-number="23"><span class="kw">library</span>(survey)</a>
+<a class="sourceLine" id="cb47-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb47-25" data-line-number="25"><span class="co"># construct the sample design and calculate the mean and totals </span></a>
+<a class="sourceLine" id="cb47-26" data-line-number="26">des &lt;-<span class="st">  </span>survey<span class="op">::</span><span class="kw">svydesign</span>(<span class="op">~</span>CLUSTER<span class="op">+</span>DATASET,<span class="dt">data=</span>dat,<span class="dt">weight=</span><span class="op">~</span>hv005)</a>
+<a class="sourceLine" id="cb47-27" data-line-number="27">results &lt;-<span class="st"> </span><span class="kw">cbind</span>(survey<span class="op">::</span><span class="kw">svyby</span>(<span class="op">~</span>hml35,<span class="dt">by=</span><span class="op">~</span>DHSREGNA<span class="op">+</span>DATASET, des, survey<span class="op">::</span>svyciprop,<span class="dt">na.rm=</span><span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb47-28" data-line-number="28">                 survey<span class="op">::</span><span class="kw">svyby</span>(<span class="op">~</span>hml35denom,<span class="dt">by=</span><span class="op">~</span>DHSREGNA<span class="op">+</span>DATASET, des, survey<span class="op">::</span>svytotal,<span class="dt">na.rm=</span><span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb47-29" data-line-number="29">results &lt;-<span class="st"> </span>results[<span class="kw">order</span>(results<span class="op">$</span>DATASET),]</a>
+<a class="sourceLine" id="cb47-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb47-31" data-line-number="31"><span class="co"># grab the same data from the API </span></a>
+<a class="sourceLine" id="cb47-32" data-line-number="32">dhs_api_data &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">countryIds =</span> <span class="kw">c</span>(<span class="st">&quot;CD&quot;</span>,<span class="st">&quot;TZ&quot;</span>),<span class="dt">indicatorIds =</span> <span class="st">&quot;ML_PMAL_C_RDT&quot;</span>,<span class="dt">breakdown =</span> <span class="st">&quot;subnational&quot;</span>,<span class="dt">surveyYearStart =</span> <span class="dv">2013</span>, <span class="dt">surveyYearEnd =</span> <span class="dv">2016</span>)</a>
+<a class="sourceLine" id="cb47-33" data-line-number="33">dhs_api_data &lt;-<span class="st"> </span><span class="kw">cbind</span>(dhs_api_data<span class="op">$</span>Value,dhs_api_data<span class="op">$</span>DenominatorWeighted,dhs_api_data<span class="op">$</span>CharacteristicLabel, dhs_api_data<span class="op">$</span>SurveyId)</a>
+<a class="sourceLine" id="cb47-34" data-line-number="34">api &lt;-<span class="st"> </span>dhs_api_data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.</span><span class="ch">\\</span><span class="st">.&quot;</span>,dhs_api_data[,<span class="dv">3</span>]),] <span class="co"># remove subregions included in Tanzania</span></a>
+<a class="sourceLine" id="cb47-35" data-line-number="35">api &lt;-<span class="st"> </span>api[<span class="kw">order</span>(<span class="kw">apply</span>(api[,<span class="dv">4</span><span class="op">:</span><span class="dv">3</span>],<span class="dv">1</span>,paste,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>)),]</a>
+<a class="sourceLine" id="cb47-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb47-37" data-line-number="37"><span class="co"># bind the results and remove duplicate Region Columns</span></a>
+<a class="sourceLine" id="cb47-38" data-line-number="38">comparison &lt;-<span class="st"> </span><span class="kw">cbind</span>(results[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">7</span>)],api[])</a>
+<a class="sourceLine" id="cb47-39" data-line-number="39"><span class="kw">names</span>(comparison) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Region&quot;</span>,<span class="st">&quot;Survey_RDT_Prev&quot;</span>,<span class="st">&quot;Survey_RDT_Denom&quot;</span>,<span class="st">&quot;API_RDT_Prev&quot;</span>,<span class="st">&quot;API_RDT_Denom&quot;</span>,<span class="st">&quot;API_Regions&quot;</span>,<span class="st">&quot;SurveyID&quot;</span>)</a>
+<a class="sourceLine" id="cb47-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb47-41" data-line-number="41"><span class="kw">head</span>(comparison[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>)])</a></code></pre></div>
 <pre><code>##                                     Region Survey_RDT_Prev API_RDT_Prev
 ## Bandundu.CDPR61FL                 Bandundu       0.2038607         20.2
 ## Bas-Congo.CDPR61FL               Bas-Congo       0.4761599         47.1
@@ -550,8 +758,8 @@ comparison &lt;-<span class="st"> </span><span class="kw">cbind</span>(results[,
 ## Katanga.CDPR61FL                  861.2030           844 CD2013DHS</code></pre>
 <p>It’s a little off, which will be due to the specific stratification the DHS Program will have used, as well as potentially how they have grouped the primary sampling units. We are hoping to get this information from the DHS for each survey so we can make this process more streamline again.</p>
 <p>And lastly we will construct a logistic regression to investigate the relationship between a positive malaria RDT and whether the main walls of an individual’s house were made of bricks or similar, while adjusting for urban/rural (<code>v025</code>) and fixed effects for each survey.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># contsruct our glm using svyglm and specify quasibinomial to handle the na in hml35</span>
-<span class="kw">summary</span>(<span class="kw">svyglm</span>(hml35 <span class="op">~</span><span class="st"> </span>DATASET <span class="op">+</span><span class="st"> </span>hv025 <span class="op">+</span><span class="st"> </span>net <span class="op">+</span><span class="st"> </span>bricks, des, <span class="dt">family=</span><span class="st">&quot;quasibinomial&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># contsruct our glm using svyglm and specify quasibinomial to handle the na in hml35</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">summary</span>(<span class="kw">svyglm</span>(hml35 <span class="op">~</span><span class="st"> </span>DATASET <span class="op">+</span><span class="st"> </span>hv025 <span class="op">+</span><span class="st"> </span>net <span class="op">+</span><span class="st"> </span>bricks, des, <span class="dt">family=</span><span class="st">&quot;quasibinomial&quot;</span>))</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## svyglm(formula = hml35 ~ DATASET + hv025 + net + bricks, des, 
@@ -579,7 +787,7 @@ comparison &lt;-<span class="st"> </span><span class="kw">cbind</span>(results[,
 <div id="summary-and-further-thoughts" class="section level2">
 <h2>Summary and further thoughts</h2>
 <p>Hopefully the above tutorial has shown how the <code>rdhs</code> package can facilitate both querying the DHS API and hopefully make downloading and interacting with the raw datasets a smoother, more reproducible process. It is worth bearing in mind though, that creating a harmonised dataset is not always as easy as the example above - a lot of the time survey variables differ across years and surveys, which is hopefully when the <code>survey_questions</code> functionality will make it easier to first filter down to those that include the relevant questions before having to decide which survey questions are valid.</p>
-<p>Any suggestions or comments/corrections/errors/ideas please let me know either in the issues or send me an email at “<a href="mailto:o.watson15@imperial.ac.uk">o.watson15@imperial.ac.uk</a>”. And if there is any further functionality that you think you would be useful, then also let me know. :)</p>
+<p>Any suggestions or comments/corrections/errors/ideas please let me know either in the issues or send me an email at “<a href="mailto:o.watson15@imperial.ac.uk" class="email">o.watson15@imperial.ac.uk</a>”. And if there is any further functionality that you think you would be useful, then also let me know. :)</p>
 </div>
 
 

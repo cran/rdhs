@@ -1,0 +1,13 @@
+{
+  "email": "rdhs.tester@gmail.com",
+  "project": "Testing Malaria Investigations",
+  "password": "stupidcommit",
+  "cache_path": "C:\\Users\\Oliver\\AppData\\Local\\Oliver\\rdhs\\Cache",
+  "config_path": "rdhs.json",
+  "global": false,
+  "verbose_download": false,
+  "verbose_setup": true,
+  "timeout": 30,
+  "data_frame": "as.data.frame",
+  "project_choice": null
+}

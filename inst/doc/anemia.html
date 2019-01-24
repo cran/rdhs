@@ -20,41 +20,67 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
 </style>
 <script>
@@ -81,7 +107,189 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 </head>
 
@@ -100,22 +308,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="setup" class="section level1">
 <h1>Setup</h1>
 <p>Load the <code>rdhs</code> package and other useful packages for analysing data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## devtools::install_github(&quot;ropensci/rdhs&quot;)
-<span class="kw">library</span>(rdhs)
-<span class="kw">library</span>(data.table)
-<span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(survey)
-<span class="kw">library</span>(haven)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">## devtools::install_github(&quot;ropensci/rdhs&quot;)</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(rdhs)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(data.table)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">library</span>(survey)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">library</span>(haven)</a></code></pre></div>
 </div>
 <div id="using-calculated-indicators-from-statcompiler" class="section level1">
 <h1>Using calculated indicators from STATcompiler</h1>
 <p>Anemia prevalence among women is reported as a core indicator through the DHS STATcompiler (<a href="https://www.statcompiler.com/" class="uri">https://www.statcompiler.com/</a>). These indicators can be accessed directly from R via the DHS API with the function <code>dhs_data()</code>.</p>
 <p>Query the API for a list of all StatCompiler indicators, and then search the indicators for those that have <code>&quot;anemia&quot;</code> in the indicator name. API calls return <code>data.frame</code> objects, so if you prefer to use <code>data.table</code> objects then convert afterwards, or we can set this up within our config using <code>set_rdhs_config</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rdhs)
-<span class="kw">set_rdhs_config</span>(<span class="dt">data_frame =</span> <span class="st">&quot;data.table::as.data.table&quot;</span>)
-
-indicators &lt;-<span class="st"> </span><span class="kw">dhs_indicators</span>()
-<span class="kw">tail</span>(indicators[<span class="kw">grepl</span>(<span class="st">&quot;anemia&quot;</span>, Label), .(IndicatorId, ShortName, Label)])</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(rdhs)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">set_rdhs_config</span>(<span class="dt">data_frame =</span> <span class="st">&quot;data.table::as.data.table&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">indicators &lt;-<span class="st"> </span><span class="kw">dhs_indicators</span>()</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">tail</span>(indicators[<span class="kw">grepl</span>(<span class="st">&quot;anemia&quot;</span>, Label), .(IndicatorId, ShortName, Label)])</a></code></pre></div>
 <pre><code>##      IndicatorId                 ShortName                       Label
 ## 1: CN_ANMC_C_SEV Severe anemia (&lt;7.0 g/dl) Children with severe anemia
 ## 2: AN_ANEM_W_ANY                      Any        Women with any anemia
@@ -124,13 +332,13 @@ indicators &lt;-<span class="st"> </span><span class="kw">dhs_indicators</span>(
 ## 5: AN_ANEM_W_SEV                   Severe     Women with severe anemia
 ## 6: AN_ANEM_M_ANY                Any anemia         Men with any anemia</code></pre>
 <p>The indicator ID <code>&quot;AN_ANEM_W_ANY&quot;</code> reports the percentage of women with any anemia. The function <code>dhs_data()</code> will query the indicator dataset for the value of this indicator for our three countries of interest. First, use <code>dhs_countries()</code> to query the list of DHS countries to identify the DHS country code for each country.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">countries &lt;-<span class="st"> </span><span class="kw">dhs_countries</span>()
-dhscc &lt;-<span class="st"> </span>countries[CountryName <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Armenia&quot;</span>, <span class="st">&quot;Cambodia&quot;</span>, <span class="st">&quot;Lesotho&quot;</span>), DHS_CountryCode]
-dhscc</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">countries &lt;-<span class="st"> </span><span class="kw">dhs_countries</span>()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">dhscc &lt;-<span class="st"> </span>countries[CountryName <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Armenia&quot;</span>, <span class="st">&quot;Cambodia&quot;</span>, <span class="st">&quot;Lesotho&quot;</span>), DHS_CountryCode]</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">dhscc</a></code></pre></div>
 <pre><code>## [1] &quot;AM&quot; &quot;KH&quot; &quot;LS&quot;</code></pre>
 <p>Now query the indicators dataset for the women with any anemia indicator for these three countries.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">statcomp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds =</span> <span class="st">&quot;AN_ANEM_W_ANY&quot;</span>, <span class="dt">countryIds =</span> dhscc)
-statcomp[,.(Indicator, CountryName, SurveyYear, Value, DenominatorWeighted)]</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">statcomp &lt;-<span class="st"> </span><span class="kw">dhs_data</span>(<span class="dt">indicatorIds =</span> <span class="st">&quot;AN_ANEM_W_ANY&quot;</span>, <span class="dt">countryIds =</span> dhscc)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">statcomp[,.(Indicator, CountryName, SurveyYear, Value, DenominatorWeighted)]</a></code></pre></div>
 <pre><code>##                 Indicator CountryName SurveyYear Value DenominatorWeighted
 ##  1: Women with any anemia     Armenia       2000  12.4                6137
 ##  2: Women with any anemia     Armenia       2005  24.6                6080
@@ -142,8 +350,8 @@ statcomp[,.(Indicator, CountryName, SurveyYear, Value, DenominatorWeighted)]</co
 ##  8: Women with any anemia     Lesotho       2004  32.9                3008
 ##  9: Women with any anemia     Lesotho       2009  26.3                3839
 ## 10: Women with any anemia     Lesotho       2014  27.3                3297</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(statcomp, <span class="kw">aes</span>(SurveyYear, Value, <span class="dt">col=</span>CountryName)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(statcomp, <span class="kw">aes</span>(SurveyYear, Value, <span class="dt">col=</span>CountryName)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
 </div>
 <div id="analyse-dhs-microdata" class="section level1">
@@ -151,14 +359,14 @@ statcomp[,.(Indicator, CountryName, SurveyYear, Value, DenominatorWeighted)]</co
 <div id="identify-surveys-that-include-anemia-testing" class="section level2">
 <h2>Identify surveys that include anemia testing</h2>
 <p>The DHS API provides the facility to filter surveys according to particular characteristics. We first query the list of survey characteristics and identify the <code>SurveyCharacteristicID</code> that indicates the survey included anemia testing. The first command below queries the API for the full list of survey characteristics, and the second uses <code>grepl()</code> to search <code>SurveyCharacteristicName</code>s that include the word ‘anemia’.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveychar &lt;-<span class="st"> </span><span class="kw">dhs_survey_characteristics</span>()
-surveychar[<span class="kw">grepl</span>(<span class="st">&quot;anemia&quot;</span>, SurveyCharacteristicName, <span class="dt">ignore.case=</span><span class="ot">TRUE</span>)]</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">surveychar &lt;-<span class="st"> </span><span class="kw">dhs_survey_characteristics</span>()</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">surveychar[<span class="kw">grepl</span>(<span class="st">&quot;anemia&quot;</span>, SurveyCharacteristicName, <span class="dt">ignore.case=</span><span class="ot">TRUE</span>)]</a></code></pre></div>
 <pre><code>##    SurveyCharacteristicID SurveyCharacteristicName
 ## 1:                     15         Anemia questions
 ## 2:                     41           Anemia testing</code></pre>
 <p>The <code>SurveyCharacteristicID = 41</code> indicates that the survey included anemia testing. Next we query the API to identify the surveys that have this characteristic and were conducted in our countries of interest.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">surveys &lt;-<span class="st"> </span><span class="kw">dhs_surveys</span>(<span class="dt">surveyCharacteristicIds =</span> <span class="dv">41</span>, <span class="dt">countryIds =</span> dhscc)
-surveys[,.(SurveyId, CountryName, SurveyYear, NumberOfWomen, SurveyNum, FieldworkEnd)]</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">surveys &lt;-<span class="st"> </span><span class="kw">dhs_surveys</span>(<span class="dt">surveyCharacteristicIds =</span> <span class="dv">41</span>, <span class="dt">countryIds =</span> dhscc)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">surveys[,.(SurveyId, CountryName, SurveyYear, NumberOfWomen, SurveyNum, FieldworkEnd)]</a></code></pre></div>
 <pre><code>##      SurveyId CountryName SurveyYear NumberOfWomen SurveyNum FieldworkEnd
 ##  1: AM2000DHS     Armenia       2000          6430       203   2000-12-01
 ##  2: AM2005DHS     Armenia       2005          6566       262   2005-12-01
@@ -171,8 +379,8 @@ surveys[,.(SurveyId, CountryName, SurveyYear, NumberOfWomen, SurveyNum, Fieldwor
 ##  9: LS2009DHS     Lesotho       2009          7624       317   2010-01-01
 ## 10: LS2014DHS     Lesotho       2014          6621       462   2014-12-01</code></pre>
 <p>Finally, query the API identify the individual recode (IR) survey datasets for each of these surveys</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> surveys<span class="op">$</span>SurveyId, <span class="dt">fileType =</span> <span class="st">&quot;IR&quot;</span>, <span class="dt">fileFormat=</span><span class="st">&quot;flat&quot;</span>)
-datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">datasets &lt;-<span class="st"> </span><span class="kw">dhs_datasets</span>(<span class="dt">surveyIds =</span> surveys<span class="op">$</span>SurveyId, <span class="dt">fileType =</span> <span class="st">&quot;IR&quot;</span>, <span class="dt">fileFormat=</span><span class="st">&quot;flat&quot;</span>)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</a></code></pre></div>
 <pre><code>##      SurveyId SurveyNum        FileDateLastModified     FileName
 ##  1: AM2000DHS       203   October, 05 2006 14:22:40 AMIR42FL.ZIP
 ##  2: AM2005DHS       262  February, 02 2010 10:38:12 AMIR54FL.zip
@@ -188,18 +396,18 @@ datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</code></pre><
 <div id="download-datasets" class="section level2">
 <h2>Download datasets</h2>
 <p>To download datasets we need to first log in to our DHS account, by providing our credentials and setting up our configuration using <code>set_rdhs_config()</code>. This will require providing as arguments your <code>email</code> and <code>project</code> for which you want to download datasets from. You will then be prompted for your password. You can also specify a directory for datasets and API calls to be cached to using <code>cache_path</code>. In order to comply with CRAN, this function will also ask you for your permission to write to files outside your temporary directory, and you must type out the filename for the <code>config_path</code> - “rdhs.json”. (See <a href="https://ropensci.github.io/rdhs/articles/introduction.html">introduction vignette</a> for specific format for config, or <code>?set_rdhs_config</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## set up your credentials
-<span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;jeffrey.eaton@imperial.ac.uk&quot;</span>,
-                <span class="dt">project =</span> <span class="st">&quot;Joint estimation of HIV epidemic trends and adult mortality&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">## set up your credentials</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">set_rdhs_config</span>(<span class="dt">email =</span> <span class="st">&quot;jeffrey.eaton@imperial.ac.uk&quot;</span>,</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">                <span class="dt">project =</span> <span class="st">&quot;Joint estimation of HIV epidemic trends and adult mortality&quot;</span>)</a></code></pre></div>
 <p>After this the function <code>get_datasets()</code> returns a list of file paths where the desired datasets are saved in the cache. The first time a dataset is accessed, <code>rdhs</code> will download the dataset from the DHS program website using the supplied credentials. Subsequently, datasets will be simply be located in the cached repository.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datasets<span class="op">$</span>path &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName))</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">datasets<span class="op">$</span>path &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">get_datasets</span>(datasets<span class="op">$</span>FileName))</a></code></pre></div>
 <pre><code>## Logging into DHS website...</code></pre>
 <pre><code>## Creating Download url list from DHS website...</code></pre>
 </div>
 <div id="identify-survey-variables" class="section level2">
 <h2>Identify survey variables</h2>
-<p>Anemia is defined as having a hemoglobin (Hb) &lt;12.0 g/dL for non-pregnant women or Hb &lt;11.0 g/dL for currently pregnant women<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. To calculate anemia prevalence from DHS microdata, we must identify the DHS recode survey variables for hemoglobin measurement and pregnancy status. This could be done by consulting the DHS recode manual or the .MAP files accompanying survey datasets. It is convenient though to do this in R by loading the first individual recode dataset and searching the metadata for the variable names corresponding to the hemoglobin measurement and pregnancy status.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">search_variable_labels</span>(datasets<span class="op">$</span>FileName[<span class="dv">10</span>], <span class="st">&quot;hemoglobin&quot;</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
+<p>Anemia is defined as having a hemoglobin (Hb) &lt;12.0 g/dL for non-pregnant women or Hb &lt;11.0 g/dL for currently pregnant women<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. To calculate anemia prevalence from DHS microdata, we must identify the DHS recode survey variables for hemoglobin measurement and pregnancy status. This could be done by consulting the DHS recode manual or the .MAP files accompanying survey datasets. It is convenient though to do this in R by loading the first individual recode dataset and searching the metadata for the variable names corresponding to the hemoglobin measurement and pregnancy status.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">search_variable_labels</span>(datasets<span class="op">$</span>FileName[<span class="dv">10</span>], <span class="st">&quot;hemoglobin&quot;</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</a></code></pre></div>
 <pre><code>##   variable
 ## 1     v042
 ## 2    v452c
@@ -215,12 +423,12 @@ datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</code></pre><
 ## 5 Hemoglobin level adjusted for altitude and smoking (g/dl - 1 decimal)
 ## 6                                   Read consent statement - hemoglobin</code></pre>
 <p>Variable <code>v042</code> records the household selection for hemoglobin testing. Variable <code>v455</code> reports the outcome of hemoglobin measurement and <code>v456</code> the result of altitude adjusted hemoglobin levels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ir &lt;-<span class="st"> </span><span class="kw">readRDS</span>(datasets<span class="op">$</span>path[<span class="dv">10</span>])
-<span class="kw">table</span>(<span class="kw">as_factor</span>(ir<span class="op">$</span>v042))</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">ir &lt;-<span class="st"> </span><span class="kw">readRDS</span>(datasets<span class="op">$</span>path[<span class="dv">10</span>])</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">table</span>(<span class="kw">as_factor</span>(ir<span class="op">$</span>v042))</a></code></pre></div>
 <pre><code>## 
 ## not selected     selected 
 ##         3203         3418</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">as_factor</span>(ir<span class="op">$</span>v455))</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">table</span>(<span class="kw">as_factor</span>(ir<span class="op">$</span>v455))</a></code></pre></div>
 <pre><code>## 
 ##                          measured                       not present 
 ##                              3349                                 2 
@@ -228,40 +436,40 @@ datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</code></pre><
 ##                                35                                 8 
 ## no measurement found in household                           missing 
 ##                                 0                                24</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(ir<span class="op">$</span>v456)</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">summary</span>(ir<span class="op">$</span>v456)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 ##    24.0   118.0   130.0   145.6   141.0   999.0    3203</code></pre>
 <p>Variable <code>v454</code> reports the current pregnancy status used for determining the anemia threshold.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">search_variable_labels</span>(datasets<span class="op">$</span>FileName[<span class="dv">1</span>], <span class="st">&quot;currently.*pregnant&quot;</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">search_variable_labels</span>(datasets<span class="op">$</span>FileName[<span class="dv">1</span>], <span class="st">&quot;currently.*pregnant&quot;</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
 <pre><code>##   variable        description
 ## 1     v213 Currently pregnant
 ## 2     v454 Currently pregnant</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="kw">as_factor</span>(ir<span class="op">$</span>v454))</code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">table</span>(<span class="kw">as_factor</span>(ir<span class="op">$</span>v454))</a></code></pre></div>
 <pre><code>## 
 ## no/don't know           yes       missing 
 ##          3276           142             0</code></pre>
 <p>We also keep a number of other variables related to the survey design and potentially interesting covariates: country code and phase (<code>v000</code>), cluster number (<code>v001</code>), sample weight (<code>v005</code>), age (<code>v012</code>), region (<code>v024</code>), urban/rural residence (<code>v025</code>), and education level (<code>v106</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SurveyId&quot;</span>, <span class="st">&quot;CountryName&quot;</span>, <span class="st">&quot;SurveyYear&quot;</span>, <span class="st">&quot;v000&quot;</span>, <span class="st">&quot;v001&quot;</span>, <span class="st">&quot;v005&quot;</span>,
-          <span class="st">&quot;v012&quot;</span>, <span class="st">&quot;v024&quot;</span>, <span class="st">&quot;v025&quot;</span>, <span class="st">&quot;v106&quot;</span>, <span class="st">&quot;v042&quot;</span>, <span class="st">&quot;v454&quot;</span>, <span class="st">&quot;v455&quot;</span>, <span class="st">&quot;v456&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SurveyId&quot;</span>, <span class="st">&quot;CountryName&quot;</span>, <span class="st">&quot;SurveyYear&quot;</span>, <span class="st">&quot;v000&quot;</span>, <span class="st">&quot;v001&quot;</span>, <span class="st">&quot;v005&quot;</span>,</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">          <span class="st">&quot;v012&quot;</span>, <span class="st">&quot;v024&quot;</span>, <span class="st">&quot;v025&quot;</span>, <span class="st">&quot;v106&quot;</span>, <span class="st">&quot;v042&quot;</span>, <span class="st">&quot;v454&quot;</span>, <span class="st">&quot;v455&quot;</span>, <span class="st">&quot;v456&quot;</span>)</a></code></pre></div>
 </div>
 <div id="extract-survey-data" class="section level2">
 <h2>Extract survey data</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datlst &lt;-<span class="st"> </span><span class="kw">list</span>()
-
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(datasets)){
-
-  <span class="cf">if</span>(<span class="kw">file.exists</span>(datasets<span class="op">$</span>path[i])){
-  
-  <span class="kw">print</span>(<span class="kw">paste</span>(i, datasets<span class="op">$</span>SurveyId[i]))
-  ir &lt;-<span class="st"> </span><span class="kw">readRDS</span>(datasets<span class="op">$</span>path[i])
-
-  ir<span class="op">$</span>SurveyId &lt;-<span class="st"> </span>datasets<span class="op">$</span>SurveyId[i]
-  ir<span class="op">$</span>CountryName &lt;-<span class="st"> </span>datasets<span class="op">$</span>CountryName[i]
-  ir<span class="op">$</span>SurveyYear &lt;-<span class="st"> </span>datasets<span class="op">$</span>SurveyYear[i]
-
-  datlst[[datasets<span class="op">$</span>SurveyId[i]]] &lt;-<span class="st"> </span>ir[vars]
-  }
-}</code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">datlst &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(datasets)){</a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">  <span class="cf">if</span>(<span class="kw">file.exists</span>(datasets<span class="op">$</span>path[i])){</a>
+<a class="sourceLine" id="cb32-6" data-line-number="6">  </a>
+<a class="sourceLine" id="cb32-7" data-line-number="7">  <span class="kw">print</span>(<span class="kw">paste</span>(i, datasets<span class="op">$</span>SurveyId[i]))</a>
+<a class="sourceLine" id="cb32-8" data-line-number="8">  ir &lt;-<span class="st"> </span><span class="kw">readRDS</span>(datasets<span class="op">$</span>path[i])</a>
+<a class="sourceLine" id="cb32-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb32-10" data-line-number="10">  ir<span class="op">$</span>SurveyId &lt;-<span class="st"> </span>datasets<span class="op">$</span>SurveyId[i]</a>
+<a class="sourceLine" id="cb32-11" data-line-number="11">  ir<span class="op">$</span>CountryName &lt;-<span class="st"> </span>datasets<span class="op">$</span>CountryName[i]</a>
+<a class="sourceLine" id="cb32-12" data-line-number="12">  ir<span class="op">$</span>SurveyYear &lt;-<span class="st"> </span>datasets<span class="op">$</span>SurveyYear[i]</a>
+<a class="sourceLine" id="cb32-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb32-14" data-line-number="14">  datlst[[datasets<span class="op">$</span>SurveyId[i]]] &lt;-<span class="st"> </span>ir[vars]</a>
+<a class="sourceLine" id="cb32-15" data-line-number="15">  }</a>
+<a class="sourceLine" id="cb32-16" data-line-number="16">}</a></code></pre></div>
 <pre><code>## [1] &quot;1 AM2000DHS&quot;
 ## [1] &quot;2 AM2005DHS&quot;
 ## [1] &quot;3 AM2016DHS&quot;
@@ -273,26 +481,26 @@ datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</code></pre><
 ## [1] &quot;9 LS2009DHS&quot;
 ## [1] &quot;10 LS2014DHS&quot;</code></pre>
 <p>We use <code>rbind_labelled()</code> to combine datasets with labelled columns. The argument <code>labels</code> describes to combine variable levels for all datasets for <code>v024</code> (region) while providing a consistent set of value labels to be used for <code>v454</code> (currently pregnant) for all datasets.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(datlst,
-                      <span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">v024 =</span> <span class="st">&quot;concatenate&quot;</span>,
-                                    <span class="dt">v454 =</span> <span class="kw">c</span>(<span class="st">&quot;no/don't know&quot;</span> =<span class="st"> </span>0L,
-                                             <span class="st">&quot;yes&quot;</span> =<span class="st"> </span>1L, <span class="st">&quot;missing&quot;</span> =<span class="st"> </span>9L)))</code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">rbind_labelled</span>(datlst,</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">                      <span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">v024 =</span> <span class="st">&quot;concatenate&quot;</span>,</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">                                    <span class="dt">v454 =</span> <span class="kw">c</span>(<span class="st">&quot;no/don't know&quot;</span> =<span class="st"> </span>0L,</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">                                             <span class="st">&quot;yes&quot;</span> =<span class="st"> </span>1L, <span class="st">&quot;missing&quot;</span> =<span class="st"> </span>9L)))</a></code></pre></div>
 <pre><code>## Warning in rbind_labelled(datlst, labels = list(v024 = &quot;concatenate&quot;, v454 = c(`no/don't know` = 0L, : Some variables have non-matching value labels: v106, v455, v456.
 ## Inheriting labels from first data frame with labels.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(dat, is.labelled)</code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">sapply</span>(dat, is.labelled)</a></code></pre></div>
 <pre><code>##    SurveyId CountryName  SurveyYear        v000        v001        v005 
 ##       FALSE       FALSE       FALSE       FALSE       FALSE       FALSE 
 ##        v012        v024        v025        v106        v042        v454 
 ##       FALSE        TRUE        TRUE        TRUE        TRUE        TRUE 
 ##        v455        v456     DATASET 
 ##        TRUE        TRUE       FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>v456 &lt;-<span class="st"> </span><span class="kw">zap_labels</span>(dat<span class="op">$</span>v456)
-dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">dat<span class="op">$</span>v456 &lt;-<span class="st"> </span><span class="kw">zap_labels</span>(dat<span class="op">$</span>v456)</a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</a></code></pre></div>
 </div>
 <div id="data-tabulations" class="section level2">
 <h2>Data tabulations</h2>
 <p>It is a good idea to check basic tabulations of the data, especially by survey to identify and nuances Exploratory analysis of variables</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v025, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v025, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</a></code></pre></div>
 <pre><code>##            v025
 ## SurveyId    urban rural
 ##   AM2000DHS  3545  2885
@@ -305,7 +513,7 @@ dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code><
 ##   LS2004DHS  1945  5150
 ##   LS2009DHS  1977  5647
 ##   LS2014DHS  2202  4419</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v106, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v106, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</a></code></pre></div>
 <pre><code>##            v106
 ## SurveyId    no education primary secondary higher missing
 ##   AM2000DHS            5      24      5329   1072       0
@@ -318,7 +526,7 @@ dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code><
 ##   LS2004DHS          169    4309      2520     97       0
 ##   LS2009DHS          114    3865      3277    368       0
 ##   LS2014DHS           81    2665      3354    521       0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v454, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v454, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</a></code></pre></div>
 <pre><code>##            v454
 ## SurveyId    no/don't know   yes missing  &lt;NA&gt;
 ##   AM2000DHS          6231   199       0     0
@@ -331,7 +539,7 @@ dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code><
 ##   LS2004DHS          2857   203       0  4035
 ##   LS2009DHS          3740   173     103  3608
 ##   LS2014DHS          3276   142       0  3203</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v455, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">with</span>(dat, <span class="kw">table</span>(SurveyId, v455, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</a></code></pre></div>
 <pre><code>##            v455
 ## SurveyId    measured not present refused other no measurement found in hh
 ##   AM2000DHS     6137           5     264    24                          0
@@ -356,7 +564,7 @@ dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code><
 ##   LS2004DHS      29  3557
 ##   LS2009DHS      36  3608
 ##   LS2014DHS      24  3203</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(dat, <span class="kw">table</span>(v042, v454, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">with</span>(dat, <span class="kw">table</span>(v042, v454, <span class="dt">useNA=</span><span class="st">&quot;ifany&quot;</span>))</a></code></pre></div>
 <pre><code>##               v454
 ## v042           no/don't know   yes missing  &lt;NA&gt;
 ##   not selected             0     0       0 45778
@@ -365,8 +573,8 @@ dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code><
 <div id="calculate-anemia-prevalence" class="section level2">
 <h2>Calculate anemia prevalence</h2>
 <p>Create indicator variable for ‘any anemia’. The threshold depends on pregnancy status.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>v456[dat<span class="op">$</span>v456 <span class="op">==</span><span class="st"> </span><span class="dv">999</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
-<span class="kw">with</span>(dat, <span class="kw">table</span>(v455, <span class="kw">is.na</span>(v456)))</code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">dat<span class="op">$</span>v456[dat<span class="op">$</span>v456 <span class="op">==</span><span class="st"> </span><span class="dv">999</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">with</span>(dat, <span class="kw">table</span>(v455, <span class="kw">is.na</span>(v456)))</a></code></pre></div>
 <pre><code>##                             
 ## v455                         FALSE  TRUE
 ##   measured                   60847     0
@@ -375,24 +583,24 @@ dat &lt;-<span class="st"> </span><span class="kw">as_factor</span>(dat)</code><
 ##   other                          0   101
 ##   no measurement found in hh     0     0
 ##   missing                        0   422</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>anemia &lt;-<span class="st"> </span><span class="kw">as.integer</span>(dat<span class="op">$</span>v456  <span class="op">&lt;</span><span class="st"> </span><span class="kw">ifelse</span>(dat<span class="op">$</span>v454 <span class="op">==</span><span class="st"> &quot;yes&quot;</span>, <span class="dv">110</span>, <span class="dv">120</span>))
-dat<span class="op">$</span>anemia_denom &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="op">!</span><span class="kw">is.na</span>(dat<span class="op">$</span>anemia))</code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">dat<span class="op">$</span>anemia &lt;-<span class="st"> </span><span class="kw">as.integer</span>(dat<span class="op">$</span>v456  <span class="op">&lt;</span><span class="st"> </span><span class="kw">ifelse</span>(dat<span class="op">$</span>v454 <span class="op">==</span><span class="st"> &quot;yes&quot;</span>, <span class="dv">110</span>, <span class="dv">120</span>))</a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">dat<span class="op">$</span>anemia_denom &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="op">!</span><span class="kw">is.na</span>(dat<span class="op">$</span>anemia))</a></code></pre></div>
 <p>Specify survey design using the <code>survey</code> package.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>w &lt;-<span class="st"> </span>dat<span class="op">$</span>v005<span class="op">/</span><span class="fl">1e6</span>
-des &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="op">~</span>v001<span class="op">+</span>SurveyId, <span class="dt">data=</span>dat, <span class="dt">weights=</span><span class="op">~</span>w)
-
-anemia_prev &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>anemia, <span class="op">~</span>SurveyId, des, svyciprop, <span class="dt">na.rm=</span><span class="ot">TRUE</span>, <span class="dt">vartype=</span><span class="st">&quot;ci&quot;</span>)
-anemia_denom &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>anemia_denom, <span class="op">~</span>SurveyId, des, svytotal, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
-
-anemia_prev &lt;-<span class="st"> </span><span class="kw">merge</span>(anemia_prev, anemia_denom[<span class="kw">c</span>(<span class="st">&quot;SurveyId&quot;</span>, <span class="st">&quot;anemia_denom&quot;</span>)])
-res &lt;-<span class="st"> </span>statcomp[,.(SurveyId, CountryName, SurveyYear, Value, DenominatorUnweighted, DenominatorWeighted)][anemia_prev, on=<span class="st">&quot;SurveyId&quot;</span>]
-
-res<span class="op">$</span>anemia &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>res<span class="op">$</span>anemia
-res<span class="op">$</span>ci_l &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>res<span class="op">$</span>ci_l
-res<span class="op">$</span>ci_u &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>res<span class="op">$</span>ci_u
-res<span class="op">$</span>anemia_denom0 &lt;-<span class="st"> </span><span class="kw">round</span>(res<span class="op">$</span>anemia_denom)</code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">dat<span class="op">$</span>w &lt;-<span class="st"> </span>dat<span class="op">$</span>v005<span class="op">/</span><span class="fl">1e6</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">des &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="op">~</span>v001<span class="op">+</span>SurveyId, <span class="dt">data=</span>dat, <span class="dt">weights=</span><span class="op">~</span>w)</a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4">anemia_prev &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>anemia, <span class="op">~</span>SurveyId, des, svyciprop, <span class="dt">na.rm=</span><span class="ot">TRUE</span>, <span class="dt">vartype=</span><span class="st">&quot;ci&quot;</span>)</a>
+<a class="sourceLine" id="cb52-5" data-line-number="5">anemia_denom &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>anemia_denom, <span class="op">~</span>SurveyId, des, svytotal, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb52-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb52-7" data-line-number="7">anemia_prev &lt;-<span class="st"> </span><span class="kw">merge</span>(anemia_prev, anemia_denom[<span class="kw">c</span>(<span class="st">&quot;SurveyId&quot;</span>, <span class="st">&quot;anemia_denom&quot;</span>)])</a>
+<a class="sourceLine" id="cb52-8" data-line-number="8">res &lt;-<span class="st"> </span>statcomp[,.(SurveyId, CountryName, SurveyYear, Value, DenominatorUnweighted, DenominatorWeighted)][anemia_prev, on=<span class="st">&quot;SurveyId&quot;</span>]</a>
+<a class="sourceLine" id="cb52-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb52-10" data-line-number="10">res<span class="op">$</span>anemia &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>res<span class="op">$</span>anemia</a>
+<a class="sourceLine" id="cb52-11" data-line-number="11">res<span class="op">$</span>ci_l &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>res<span class="op">$</span>ci_l</a>
+<a class="sourceLine" id="cb52-12" data-line-number="12">res<span class="op">$</span>ci_u &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>res<span class="op">$</span>ci_u</a>
+<a class="sourceLine" id="cb52-13" data-line-number="13">res<span class="op">$</span>anemia_denom0 &lt;-<span class="st"> </span><span class="kw">round</span>(res<span class="op">$</span>anemia_denom)</a></code></pre></div>
 <p>The table below compares the prevalence of any anemia calculated from survey microdata with the estimates from DHS StatCompiler and the weighted denominators for each calculation. The estimates are identical for most cases. There are some small differences to be ironed out, which will require looking at the specific countries to check how their stratification was carried out. (We are hoping to bring this feature in once the DHS program has compiled how sample strata were constructed for all of their studies).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(res[,.(CountryName, SurveyYear, Value, anemia, ci_l, ci_u, DenominatorWeighted, anemia_denom0)], <span class="dt">digits=</span><span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(res[,.(CountryName, SurveyYear, Value, anemia, ci_l, ci_u, DenominatorWeighted, anemia_denom0)], <span class="dt">digits=</span><span class="dv">1</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -509,17 +717,17 @@ res<span class="op">$</span>anemia_denom0 &lt;-<span class="st"> </span><span cl
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(res, <span class="kw">aes</span>(<span class="dt">x=</span>SurveyYear, <span class="dt">y=</span>anemia, <span class="dt">ymin=</span>ci_l, <span class="dt">ymax=</span>ci_u,
-                <span class="dt">col=</span>CountryName, <span class="dt">fill=</span>CountryName)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_ribbon</span>(<span class="dt">alpha=</span><span class="fl">0.4</span>, <span class="dt">linetype=</span><span class="st">&quot;blank&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">ggplot</span>(res, <span class="kw">aes</span>(<span class="dt">x=</span>SurveyYear, <span class="dt">y=</span>anemia, <span class="dt">ymin=</span>ci_l, <span class="dt">ymax=</span>ci_u,</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">                <span class="dt">col=</span>CountryName, <span class="dt">fill=</span>CountryName)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_ribbon</span>(<span class="dt">alpha=</span><span class="fl">0.4</span>, <span class="dt">linetype=</span><span class="st">&quot;blank&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="regression-analysis-relationship-between-education-and-anemia" class="section level1">
 <h1>Regression analysis: relationship between education and anemia</h1>
 <p>A key use of the survey microdata are to conduct secondary analysis of pooled data from several surveys, such as regression analysis. Here we investigate the relationship between anemia prevalence and education level (<code>v106</code>) for women using logistic regression, adjusting for urban/rural (<code>v025</code>) and fixed effects for each survey.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">des &lt;-<span class="st"> </span><span class="kw">update</span>(des, <span class="dt">v106 =</span> <span class="kw">relevel</span>(v106, <span class="st">&quot;primary&quot;</span>))
-<span class="kw">summary</span>(<span class="kw">svyglm</span>(anemia <span class="op">~</span><span class="st"> </span>SurveyId <span class="op">+</span><span class="st"> </span>v025 <span class="op">+</span><span class="st"> </span>v106, des, <span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">des &lt;-<span class="st"> </span><span class="kw">update</span>(des, <span class="dt">v106 =</span> <span class="kw">relevel</span>(v106, <span class="st">&quot;primary&quot;</span>))</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="kw">summary</span>(<span class="kw">svyglm</span>(anemia <span class="op">~</span><span class="st"> </span>SurveyId <span class="op">+</span><span class="st"> </span>v025 <span class="op">+</span><span class="st"> </span>v106, des, <span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>))</a></code></pre></div>
 <pre><code>## Warning in eval(family$initialize): non-integer #successes in a binomial
 ## glm!</code></pre>
 <pre><code>## 
@@ -556,7 +764,7 @@ res<span class="op">$</span>anemia_denom0 &lt;-<span class="st"> </span><span cl
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://www.measureevaluation.org/prh/rh_indicators/womens-health/womens-nutrition/percent-of-women-of-reproductive-age-with-anemia" class="uri">https://www.measureevaluation.org/prh/rh_indicators/womens-health/womens-nutrition/percent-of-women-of-reproductive-age-with-anemia</a><a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p><a href="https://www.measureevaluation.org/prh/rh_indicators/womens-health/womens-nutrition/percent-of-women-of-reproductive-age-with-anemia" class="uri">https://www.measureevaluation.org/prh/rh_indicators/womens-health/womens-nutrition/percent-of-women-of-reproductive-age-with-anemia</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 
