@@ -1,7 +1,7 @@
-e970943358dac05bb750f8a75d3f7472 *DESCRIPTION
+f6d2c96765e7c76a25cbe04faf9455ae *DESCRIPTION
 afadaec5ed0ff207edcacceabf7fd437 *LICENSE
-57d27360cf0dbc774f014c3085a351bc *NAMESPACE
-65a2b02ad8f9c47c598d839b04693946 *NEWS.md
+351a1d44856641d61f48c33d0598b4d2 *NAMESPACE
+dd151186ad201980cd0d73d40e904a20 *NEWS.md
 9249eb72de3b87199a4af8dc5da5ded6 *R/API.R
 09ad5b2f273e6eed9555e74be7236fb6 *R/api_endpoints.R
 cea98eb8de30344ab931459c23efa5f0 *R/authentication.R
@@ -12,16 +12,16 @@ cea98eb8de30344ab931459c23efa5f0 *R/authentication.R
 e33e81e12327c15e3d845f2e68480a16 *R/deprecated.R
 4ace37cd794709ba4ed8cbc294be20a2 *R/extraction.R
 14b2f2901b92fc64464c79d410ea3996 *R/http.R
-3ed28901bcdb6d4096683a81163e5ea3 *R/rbind_labelled.R
+c2d0fac22cfb5086547225f0af0ffc4e *R/rbind_labelled.R
 b9c6014789a389f8a86b3a82c00c82fa *R/rdhs.R
 90bc51b339b9038f9cf5ca4d1b72ae0c *R/read_datasets.R
 2740b6a85bc887d8a5cd880423158141 *R/read_dhs_dta.R
 ef050a3df6eb5cf7034746897685b699 *R/read_dhs_flat.R
 d659a9a190eecab1961e53efb75f719a *R/sysdata.rda
 c4f986eb2f1558b6092d25041678b5b8 *R/ui.R
-e5dba82ef8ab0fd9407707c11f6130ca *R/utils.R
+109a2011beea5faffc4a2f3d7f12d667 *R/utils.R
 89241b04d075c8342d2ca20c668a9f92 *R/zzz.R
-24eec94f0189591103fbedd2419d1865 *README.md
+361f64544f85154f0cf9d6bb6a8ecde9 *README.md
 57bcdf2d9c006b1fb5b031612c73025c *build/vignette.rds
 5269e9cb2f7b204fce0dd5ecc3deae09 *data/model_datasets.rda
 e83c27a42a9e3aa242b8818344d3adcb *inst/doc/anemia.Rmd
@@ -45,6 +45,7 @@ f20b68536042859067abf6ab26a8792f *inst/doc/testing.Rmd
 20827bdd02889c65857820eb2e6c308b *man/client_dhs.Rd
 bdea3c9633008a3417ad49a8bcc8208b *man/collapse_api_responses.Rd
 d8dacd0132628829cf788b53056dd23d *man/data_and_labels.Rd
+e2063a7c51069d5fd4b8aa161b3c8fd3 *man/delabel_df.Rd
 1f96fd12688ceae5a9dc4507ab95db6d *man/dhs_countries.Rd
 7f43ade15673e1baeecddd76cf1a8db1 *man/dhs_data.Rd
 f8f77d39bf0eaab4f98fc68e29d756ba *man/dhs_data_updates.Rd
@@ -97,7 +98,7 @@ ef4a5fbf5437e13907bdc9d41f5758bf *tests/testthat/test_authentication.R
 00e37f2708a4f73d46d05379dce0b0ee *tests/testthat/test_client_set_up.R
 ddab99ff1fc8e2abf2b23d59e58d93f3 *tests/testthat/test_downloads.R
 34b32ddbfcbad9f77246ad82e7d1461a *tests/testthat/test_extraction.R
-b9899b770de028ade119f2da4a9a38dd *tests/testthat/test_miscellaneous.R
+f2197a0c232c4fa19f176a30ea867cf5 *tests/testthat/test_miscellaneous.R
 326eed68e419517be95946d96890da8d *tests/testthat/test_read_dhs_flat.R
 5bac13fddbde909dfe5fbfa7df21ede1 *tests/testthat/test_ui.R
 15d04da763a7b0ef1500ddef11bbc9b4 *tools/logo.png

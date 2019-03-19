@@ -2,7 +2,7 @@ Package: rdhs
 Type: Package
 Title: API Client and Dataset Management for the Demographic and Health
         Survey (DHS) Data
-Version: 0.6.2
+Version: 0.6.3
 Authors@R: 
     c(person(given = "OJ",
              family = "Watson",
@@ -40,10 +40,10 @@ VignetteBuilder: knitr
 Language: en-GB
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2019-02-28 15:17:34 UTC; oj
+Packaged: 2019-03-19 13:12:59 UTC; oj
 Author: OJ Watson [aut, cre] (<https://orcid.org/0000-0003-2374-0741>),
   Jeff Eaton [aut] (<https://orcid.org/0000-0001-7728-728X>),
   Lucy D'Agostino McGowan [rev] (<https://orcid.org/0000-0001-7297-9359>),
   Duncan Gillespie [rev]
 Repository: CRAN
-Date/Publication: 2019-02-28 15:40:04 UTC
+Date/Publication: 2019-03-19 14:20:03 UTC
