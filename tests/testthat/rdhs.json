@@ -1,8 +1,8 @@
 {
   "email": "rdhs.tester@gmail.com",
-  "project": "Testing Malaria Investigations",
+  "project": "rdhs R package development",
   "password": "stupidcommit",
-  "cache_path": "C:\\Users\\Oliver\\AppData\\Local\\Oliver\\rdhs\\Cache",
+  "cache_path": "demo",
   "config_path": "rdhs.json",
   "global": false,
   "verbose_download": false,

@@ -15,22 +15,22 @@ and combining datasets for pooled analysis.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://ropensci.github.io/rdhs/}
+  \item \url{https://docs.ropensci.org/rdhs/}
   \item Report bugs at \url{https://github.com/ropensci/rdhs/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: OJ Watson \email{oj.watson@hotmail.co.uk} (0000-0003-2374-0741)
+\strong{Maintainer}: OJ Watson \email{oj.watson@hotmail.co.uk} (\href{https://orcid.org/0000-0003-2374-0741}{ORCID})
 
 Authors:
 \itemize{
-  \item Jeff Eaton (0000-0001-7728-728X)
+  \item Jeff Eaton (\href{https://orcid.org/0000-0001-7728-728X}{ORCID})
 }
 
 Other contributors:
 \itemize{
-  \item Lucy D'Agostino McGowan (0000-0001-7297-9359) [reviewer]
+  \item Lucy D'Agostino McGowan (\href{https://orcid.org/0000-0001-7297-9359}{ORCID}) [reviewer]
   \item Duncan Gillespie [reviewer]
 }
 

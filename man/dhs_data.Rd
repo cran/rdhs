@@ -4,14 +4,29 @@
 \alias{dhs_data}
 \title{API request of DHS Indicator Data}
 \usage{
-dhs_data(countryIds = NULL, indicatorIds = NULL, surveyIds = NULL,
-  selectSurveys = NULL, surveyYear = NULL, surveyYearStart = NULL,
-  surveyYearEnd = NULL, surveyType = NULL,
-  surveyCharacteristicIds = NULL, characteristicCategory = NULL,
-  characteristicLabel = NULL, tagIds = NULL, breakdown = NULL,
-  returnGeometry = NULL, f = NULL, returnFields = NULL,
-  perPage = NULL, page = NULL, client = NULL, force = FALSE,
-  all_results = TRUE)
+dhs_data(
+  countryIds = NULL,
+  indicatorIds = NULL,
+  surveyIds = NULL,
+  selectSurveys = NULL,
+  surveyYear = NULL,
+  surveyYearStart = NULL,
+  surveyYearEnd = NULL,
+  surveyType = NULL,
+  surveyCharacteristicIds = NULL,
+  characteristicCategory = NULL,
+  characteristicLabel = NULL,
+  tagIds = NULL,
+  breakdown = NULL,
+  returnGeometry = NULL,
+  f = NULL,
+  returnFields = NULL,
+  perPage = NULL,
+  page = NULL,
+  client = NULL,
+  force = FALSE,
+  all_results = TRUE
+)
 }
 \arguments{
 \item{countryIds}{Specify a comma separated list of country ids to filter
@@ -34,7 +49,7 @@ To filter your API Indicator Data call to return the latest survey data in
 which a specific set of indicators is present, add
 `selectSurveys="byIndicator"` in conjunction with Indicator IDs, Country
 Code, and/or Survey Type instead
-of using `selectSurveys="latest"`.}
+of using `selectSurveys="latest"`}
 
 \item{surveyYear}{Specify a comma separated list of survey years to
 filter by.}

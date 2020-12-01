@@ -1,3 +1,30 @@
+## rdhs 0.7.1
+
+* Remove class `"dhs_dataset"` from downloaded micro data sets. This class is not 
+  anywhere and it creates an error for dplyr_v1.0. 
+  
+  Cached datasets will need to be re-downloaded after updating to clear the 
+  dhs_dataset clas.
+
+* Replace `readLines()` with `brio::read_lines()` to make parsers robust to 
+  Windows encoding issues (similar to https://stackoverflow.com/questions/18789330/r-on-windows-character-encoding-hell).
+
+* Use `"sf"` as default download method for `download_boundaries(..., method = "sf")`.
+  Add arguments `quiet_download` and `quiet_parse = TRUE` to 
+  `download_boundaries()`. `quiet_download` (default `FALSE`) controls `download.file()` 
+  messages. `quiet_parse` (default `TRUE`) controls messages from `sf::st_read()` when
+  `method = "sf"`.
+
+## rdhs 0.7.0
+
+* Add CITATION info.
+* New `download_boundaries` for downloading spatial boundaries using (#71)
+* New `dhs_gps_data_format` for DHS GPS Information (#74)
+* Tibbles can be specified correctly as data.frame format (#89)
+* Config creation on Windows 10 fixed (#91)
+* Typos and messaging fixed (#78, #84, #87, #92)
+* `unzip_special` correctly detects 4Gb files (#43)
+
 ## rdhs 0.6.3
 
 * Addresses CRAN fail on windows 
