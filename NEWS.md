@@ -1,3 +1,11 @@
+## rdhs 0.7.5
+
+* `download_boundaries` patch (#138) for pause when downloading survey boundaries. Set default sleep to 5 seconds to avoid timeout.
+
+## rdhs 0.7.4
+
+* `available_datasets` patch (#131) for new version of `qdapRegex` on CRAN
+
 ## rdhs 0.7.3
 
 * Reference internal access to `model_datasets` with `rdhs::model_datasets` to avoid errors if `rdhs` namespace is not loaded.

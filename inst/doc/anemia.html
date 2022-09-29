@@ -16,7 +16,19 @@
 
 <title>Anemia prevalence: an rdhs example</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -26,6 +38,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -127,7 +140,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -139,16 +332,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<h1 class="title toc-ignore">Anemia prevalence: an <code>rdhs</code> example</h1>
+<h1 class="title toc-ignore">Anemia prevalence: an <code>rdhs</code>
+example</h1>
 <h4 class="author">OJ Watson, Jeff Eaton</h4>
 <h4 class="date">2018-09-24</h4>
 
 
 
-<p>Anemia is a common cause of fatigue, and women of childbearing age are at particularly high risk for anemia. The package <code>rdhs</code> can be used to compare estimates of the prevalence of any anemia among women from Demographic and Health Surveys (DHS) conducted in Armenia, Cambodia, and Lesotho.</p>
+<p>Anemia is a common cause of fatigue, and women of childbearing age
+are at particularly high risk for anemia. The package <code>rdhs</code>
+can be used to compare estimates of the prevalence of any anemia among
+women from Demographic and Health Surveys (DHS) conducted in Armenia,
+Cambodia, and Lesotho.</p>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
-<p>Load the <code>rdhs</code> package and other useful packages for analysing data.</p>
+<p>Load the <code>rdhs</code> package and other useful packages for
+analysing data.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## devtools::install_github(&quot;ropensci/rdhs&quot;)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rdhs)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
@@ -158,8 +357,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-calculated-indicators-from-statcompiler" class="section level1">
 <h1>Using calculated indicators from STATcompiler</h1>
-<p>Anemia prevalence among women is reported as a core indicator through the DHS STATcompiler (<a href="https://www.statcompiler.com/" class="uri">https://www.statcompiler.com/</a>). These indicators can be accessed directly from R via the DHS API with the function <code>dhs_data()</code>.</p>
-<p>Query the API for a list of all StatCompiler indicators, and then search the indicators for those that have <code>&quot;anemia&quot;</code> in the indicator name. API calls return <code>data.frame</code> objects, so if you prefer to use <code>data.table</code> objects then convert afterwards, or we can set this up within our config using <code>set_rdhs_config</code>.</p>
+<p>Anemia prevalence among women is reported as a core indicator through
+the DHS STATcompiler (<a href="https://www.statcompiler.com/" class="uri">https://www.statcompiler.com/</a>). These indicators can be
+accessed directly from R via the DHS API with the function
+<code>dhs_data()</code>.</p>
+<p>Query the API for a list of all StatCompiler indicators, and then
+search the indicators for those that have <code>&quot;anemia&quot;</code> in the
+indicator name. API calls return <code>data.frame</code> objects, so if
+you prefer to use <code>data.table</code> objects then convert
+afterwards, or we can set this up within our config using
+<code>set_rdhs_config</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rdhs)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set_rdhs_config</span>(<span class="at">data_frame =</span> <span class="st">&quot;data.table::as.data.table&quot;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -172,12 +379,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4: AN_ANEM_W_MOD                 Moderate   Women with moderate anemia
 ## 5: AN_ANEM_W_SEV                   Severe     Women with severe anemia
 ## 6: AN_ANEM_M_ANY                Any anemia         Men with any anemia</code></pre>
-<p>The indicator ID <code>&quot;AN_ANEM_W_ANY&quot;</code> reports the percentage of women with any anemia. The function <code>dhs_data()</code> will query the indicator dataset for the value of this indicator for our three countries of interest. First, use <code>dhs_countries()</code> to query the list of DHS countries to identify the DHS country code for each country.</p>
+<p>The indicator ID <code>&quot;AN_ANEM_W_ANY&quot;</code> reports the percentage
+of women with any anemia. The function <code>dhs_data()</code> will
+query the indicator dataset for the value of this indicator for our
+three countries of interest. First, use <code>dhs_countries()</code> to
+query the list of DHS countries to identify the DHS country code for
+each country.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> <span class="fu">dhs_countries</span>()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dhscc <span class="ot">&lt;-</span> countries[CountryName <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Armenia&quot;</span>, <span class="st">&quot;Cambodia&quot;</span>, <span class="st">&quot;Lesotho&quot;</span>), DHS_CountryCode]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>dhscc</span></code></pre></div>
 <pre><code>## [1] &quot;AM&quot; &quot;KH&quot; &quot;LS&quot;</code></pre>
-<p>Now query the indicators dataset for the women with any anemia indicator for these three countries.</p>
+<p>Now query the indicators dataset for the women with any anemia
+indicator for these three countries.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>statcomp <span class="ot">&lt;-</span> <span class="fu">dhs_data</span>(<span class="at">indicatorIds =</span> <span class="st">&quot;AN_ANEM_W_ANY&quot;</span>, <span class="at">countryIds =</span> dhscc)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>statcomp[,.(Indicator, CountryName, SurveyYear, Value, DenominatorWeighted)]</span></code></pre></div>
 <pre><code>##                 Indicator CountryName SurveyYear Value DenominatorWeighted
@@ -199,13 +412,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Analyse DHS microdata</h1>
 <div id="identify-surveys-that-include-anemia-testing" class="section level2">
 <h2>Identify surveys that include anemia testing</h2>
-<p>The DHS API provides the facility to filter surveys according to particular characteristics. We first query the list of survey characteristics and identify the <code>SurveyCharacteristicID</code> that indicates the survey included anemia testing. The first command below queries the API for the full list of survey characteristics, and the second uses <code>grepl()</code> to search <code>SurveyCharacteristicName</code>s that include the word ‘anemia’.</p>
+<p>The DHS API provides the facility to filter surveys according to
+particular characteristics. We first query the list of survey
+characteristics and identify the <code>SurveyCharacteristicID</code>
+that indicates the survey included anemia testing. The first command
+below queries the API for the full list of survey characteristics, and
+the second uses <code>grepl()</code> to search
+<code>SurveyCharacteristicName</code>s that include the word
+‘anemia’.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>surveychar <span class="ot">&lt;-</span> <span class="fu">dhs_survey_characteristics</span>()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>surveychar[<span class="fu">grepl</span>(<span class="st">&quot;anemia&quot;</span>, SurveyCharacteristicName, <span class="at">ignore.case=</span><span class="cn">TRUE</span>)]</span></code></pre></div>
 <pre><code>##    SurveyCharacteristicID SurveyCharacteristicName
 ## 1:                     15         Anemia questions
 ## 2:                     41           Anemia testing</code></pre>
-<p>The <code>SurveyCharacteristicID = 41</code> indicates that the survey included anemia testing. Next we query the API to identify the surveys that have this characteristic and were conducted in our countries of interest.</p>
+<p>The <code>SurveyCharacteristicID = 41</code> indicates that the
+survey included anemia testing. Next we query the API to identify the
+surveys that have this characteristic and were conducted in our
+countries of interest.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">dhs_surveys</span>(<span class="at">surveyCharacteristicIds =</span> <span class="dv">41</span>, <span class="at">countryIds =</span> dhscc)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>surveys[,.(SurveyId, CountryName, SurveyYear, NumberOfWomen, SurveyNum, FieldworkEnd)]</span></code></pre></div>
 <pre><code>##      SurveyId CountryName SurveyYear NumberOfWomen SurveyNum FieldworkEnd
@@ -219,7 +442,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8: LS2004DHS     Lesotho       2004          7095       256   2005-01-01
 ##  9: LS2009DHS     Lesotho       2009          7624       317   2010-01-01
 ## 10: LS2014DHS     Lesotho       2014          6621       462   2014-12-01</code></pre>
-<p>Finally, query the API identify the individual recode (IR) survey datasets for each of these surveys</p>
+<p>Finally, query the API identify the individual recode (IR) survey
+datasets for each of these surveys</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>datasets <span class="ot">&lt;-</span> <span class="fu">dhs_datasets</span>(<span class="at">surveyIds =</span> surveys<span class="sc">$</span>SurveyId, <span class="at">fileType =</span> <span class="st">&quot;IR&quot;</span>, <span class="at">fileFormat=</span><span class="st">&quot;flat&quot;</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>datasets[, .(SurveyId, SurveyNum, FileDateLastModified, FileName)]</span></code></pre></div>
 <pre><code>##      SurveyId SurveyNum        FileDateLastModified     FileName
@@ -236,18 +460,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="download-datasets" class="section level2">
 <h2>Download datasets</h2>
-<p>To download datasets we need to first log in to our DHS account, by providing our credentials and setting up our configuration using <code>set_rdhs_config()</code>. This will require providing as arguments your <code>email</code> and <code>project</code> for which you want to download datasets from. You will then be prompted for your password. You can also specify a directory for datasets and API calls to be cached to using <code>cache_path</code>. In order to comply with CRAN, this function will also ask you for your permission to write to files outside your temporary directory, and you must type out the filename for the <code>config_path</code> - “rdhs.json”. (See <a href="https://docs.ropensci.org/rdhs/articles/introduction.html">introduction vignette</a> for specific format for config, or <code>?set_rdhs_config</code>).</p>
+<p>To download datasets we need to first log in to our DHS account, by
+providing our credentials and setting up our configuration using
+<code>set_rdhs_config()</code>. This will require providing as arguments
+your <code>email</code> and <code>project</code> for which you want to
+download datasets from. You will then be prompted for your password. You
+can also specify a directory for datasets and API calls to be cached to
+using <code>cache_path</code>. In order to comply with CRAN, this
+function will also ask you for your permission to write to files outside
+your temporary directory, and you must type out the filename for the
+<code>config_path</code> - “rdhs.json”. (See <a href="https://docs.ropensci.org/rdhs/articles/introduction.html">introduction
+vignette</a> for specific format for config, or
+<code>?set_rdhs_config</code>).</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set up your credentials</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set_rdhs_config</span>(<span class="at">email =</span> <span class="st">&quot;jeffrey.eaton@imperial.ac.uk&quot;</span>,</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">project =</span> <span class="st">&quot;Joint estimation of HIV epidemic trends and adult mortality&quot;</span>)</span></code></pre></div>
-<p>After this the function <code>get_datasets()</code> returns a list of file paths where the desired datasets are saved in the cache. The first time a dataset is accessed, <code>rdhs</code> will download the dataset from the DHS program website using the supplied credentials. Subsequently, datasets will be simply be located in the cached repository.</p>
+<p>After this the function <code>get_datasets()</code> returns a list of
+file paths where the desired datasets are saved in the cache. The first
+time a dataset is accessed, <code>rdhs</code> will download the dataset
+from the DHS program website using the supplied credentials.
+Subsequently, datasets will be simply be located in the cached
+repository.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>datasets<span class="sc">$</span>path <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">get_datasets</span>(datasets<span class="sc">$</span>FileName))</span></code></pre></div>
 <pre><code>## Logging into DHS website...</code></pre>
 <pre><code>## Creating Download url list from DHS website...</code></pre>
 </div>
 <div id="identify-survey-variables" class="section level2">
 <h2>Identify survey variables</h2>
-<p>Anemia is defined as having a hemoglobin (Hb) &lt;12.0 g/dL for non-pregnant women or Hb &lt;11.0 g/dL for currently pregnant women<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. To calculate anemia prevalence from DHS microdata, we must identify the DHS recode survey variables for hemoglobin measurement and pregnancy status. This could be done by consulting the DHS recode manual or the .MAP files accompanying survey datasets. It is convenient though to do this in R by loading the first individual recode dataset and searching the metadata for the variable names corresponding to the hemoglobin measurement and pregnancy status.</p>
+<p>Anemia is defined as having a hemoglobin (Hb) &lt;12.0 g/dL for
+non-pregnant women or Hb &lt;11.0 g/dL for currently pregnant women<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. To
+calculate anemia prevalence from DHS microdata, we must identify the DHS
+recode survey variables for hemoglobin measurement and pregnancy status.
+This could be done by consulting the DHS recode manual or the .MAP files
+accompanying survey datasets. It is convenient though to do this in R by
+loading the first individual recode dataset and searching the metadata
+for the variable names corresponding to the hemoglobin measurement and
+pregnancy status.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">search_variable_labels</span>(datasets<span class="sc">$</span>FileName[<span class="dv">10</span>], <span class="st">&quot;hemoglobin&quot;</span>)[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
 <pre><code>##   variable
 ## 1     v042
@@ -263,7 +511,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4                                    Result of measurement - hemoglobin
 ## 5 Hemoglobin level adjusted for altitude and smoking (g/dl - 1 decimal)
 ## 6                                   Read consent statement - hemoglobin</code></pre>
-<p>Variable <code>v042</code> records the household selection for hemoglobin testing. Variable <code>v455</code> reports the outcome of hemoglobin measurement and <code>v456</code> the result of altitude adjusted hemoglobin levels.</p>
+<p>Variable <code>v042</code> records the household selection for
+hemoglobin testing. Variable <code>v455</code> reports the outcome of
+hemoglobin measurement and <code>v456</code> the result of altitude
+adjusted hemoglobin levels.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(datasets<span class="sc">$</span>path[<span class="dv">10</span>])</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">as_factor</span>(ir<span class="sc">$</span>v042))</span></code></pre></div>
 <pre><code>## 
@@ -280,7 +531,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ir<span class="sc">$</span>v456)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##    24.0   118.0   130.0   145.6   141.0   999.0    3203</code></pre>
-<p>Variable <code>v454</code> reports the current pregnancy status used for determining the anemia threshold.</p>
+<p>Variable <code>v454</code> reports the current pregnancy status used
+for determining the anemia threshold.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_variable_labels</span>(datasets<span class="sc">$</span>FileName[<span class="dv">1</span>], <span class="st">&quot;currently.*pregnant&quot;</span>)[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##   variable        description
 ## 1     v213 Currently pregnant
@@ -289,7 +541,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## 
 ## no/don&#39;t know           yes       missing 
 ##          3276           142             0</code></pre>
-<p>We also keep a number of other variables related to the survey design and potentially interesting covariates: country code and phase (<code>v000</code>), cluster number (<code>v001</code>), sample weight (<code>v005</code>), age (<code>v012</code>), region (<code>v024</code>), urban/rural residence (<code>v025</code>), and education level (<code>v106</code>).</p>
+<p>We also keep a number of other variables related to the survey design
+and potentially interesting covariates: country code and phase
+(<code>v000</code>), cluster number (<code>v001</code>), sample weight
+(<code>v005</code>), age (<code>v012</code>), region
+(<code>v024</code>), urban/rural residence (<code>v025</code>), and
+education level (<code>v106</code>).</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SurveyId&quot;</span>, <span class="st">&quot;CountryName&quot;</span>, <span class="st">&quot;SurveyYear&quot;</span>, <span class="st">&quot;v000&quot;</span>, <span class="st">&quot;v001&quot;</span>, <span class="st">&quot;v005&quot;</span>,</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;v012&quot;</span>, <span class="st">&quot;v024&quot;</span>, <span class="st">&quot;v025&quot;</span>, <span class="st">&quot;v106&quot;</span>, <span class="st">&quot;v042&quot;</span>, <span class="st">&quot;v454&quot;</span>, <span class="st">&quot;v455&quot;</span>, <span class="st">&quot;v456&quot;</span>)</span></code></pre></div>
 </div>
@@ -321,7 +578,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] &quot;8 LS2004DHS&quot;
 ## [1] &quot;9 LS2009DHS&quot;
 ## [1] &quot;10 LS2014DHS&quot;</code></pre>
-<p>We use <code>rbind_labelled()</code> to combine datasets with labelled columns. The argument <code>labels</code> describes to combine variable levels for all datasets for <code>v024</code> (region) while providing a consistent set of value labels to be used for <code>v454</code> (currently pregnant) for all datasets.</p>
+<p>We use <code>rbind_labelled()</code> to combine datasets with
+labelled columns. The argument <code>labels</code> describes to combine
+variable levels for all datasets for <code>v024</code> (region) while
+providing a consistent set of value labels to be used for
+<code>v454</code> (currently pregnant) for all datasets.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">rbind_labelled</span>(datlst,</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">list</span>(<span class="at">v024 =</span> <span class="st">&quot;concatenate&quot;</span>,</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">v454 =</span> <span class="fu">c</span>(<span class="st">&quot;no/don&#39;t know&quot;</span> <span class="ot">=</span> 0L,</span>
@@ -340,7 +601,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="data-tabulations" class="section level2">
 <h2>Data tabulations</h2>
-<p>It is a good idea to check basic tabulations of the data, especially by survey to identify and nuances Exploratory analysis of variables</p>
+<p>It is a good idea to check basic tabulations of the data, especially
+by survey to identify and nuances Exploratory analysis of variables</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(dat, <span class="fu">table</span>(SurveyId, v025, <span class="at">useNA=</span><span class="st">&quot;ifany&quot;</span>))</span></code></pre></div>
 <pre><code>##            v025
 ## SurveyId    urban rural
@@ -413,7 +675,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="calculate-anemia-prevalence" class="section level2">
 <h2>Calculate anemia prevalence</h2>
-<p>Create indicator variable for ‘any anemia’. The threshold depends on pregnancy status.</p>
+<p>Create indicator variable for ‘any anemia’. The threshold depends on
+pregnancy status.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>v456[dat<span class="sc">$</span>v456 <span class="sc">==</span> <span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(dat, <span class="fu">table</span>(v455, <span class="fu">is.na</span>(v456)))</span></code></pre></div>
 <pre><code>##                             
@@ -440,7 +703,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>ci_l <span class="ot">&lt;-</span> <span class="dv">100</span><span class="sc">*</span>res<span class="sc">$</span>ci_l</span>
 <span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>ci_u <span class="ot">&lt;-</span> <span class="dv">100</span><span class="sc">*</span>res<span class="sc">$</span>ci_u</span>
 <span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>anemia_denom0 <span class="ot">&lt;-</span> <span class="fu">round</span>(res<span class="sc">$</span>anemia_denom)</span></code></pre></div>
-<p>The table below compares the prevalence of any anemia calculated from survey microdata with the estimates from DHS StatCompiler and the weighted denominators for each calculation. The estimates are identical for most cases. There are some small differences to be ironed out, which will require looking at the specific countries to check how their stratification was carried out. (We are hoping to bring this feature in once the DHS program has compiled how sample strata were constructed for all of their studies).</p>
+<p>The table below compares the prevalence of any anemia calculated from
+survey microdata with the estimates from DHS StatCompiler and the
+weighted denominators for each calculation. The estimates are identical
+for most cases. There are some small differences to be ironed out, which
+will require looking at the specific countries to check how their
+stratification was carried out. (We are hoping to bring this feature in
+once the DHS program has compiled how sample strata were constructed for
+all of their studies).</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(res[,.(CountryName, SurveyYear, Value, anemia, ci_l, ci_u, DenominatorWeighted, anemia_denom0)], <span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
@@ -566,7 +836,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="regression-analysis-relationship-between-education-and-anemia" class="section level1">
 <h1>Regression analysis: relationship between education and anemia</h1>
-<p>A key use of the survey microdata are to conduct secondary analysis of pooled data from several surveys, such as regression analysis. Here we investigate the relationship between anemia prevalence and education level (<code>v106</code>) for women using logistic regression, adjusting for urban/rural (<code>v025</code>) and fixed effects for each survey.</p>
+<p>A key use of the survey microdata are to conduct secondary analysis
+of pooled data from several surveys, such as regression analysis. Here
+we investigate the relationship between anemia prevalence and education
+level (<code>v106</code>) for women using logistic regression, adjusting
+for urban/rural (<code>v025</code>) and fixed effects for each
+survey.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>des <span class="ot">&lt;-</span> <span class="fu">update</span>(des, <span class="at">v106 =</span> <span class="fu">relevel</span>(v106, <span class="st">&quot;primary&quot;</span>))</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">svyglm</span>(anemia <span class="sc">~</span> SurveyId <span class="sc">+</span> v025 <span class="sc">+</span> v106, des, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning in eval(family$initialize): non-integer #successes in a binomial
@@ -600,9 +875,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## (Dispersion parameter for binomial family taken to be 0.99451)
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<p>The results suggest that anemia prevalence is lower among women with higher education.</p>
+<p>The results suggest that anemia prevalence is lower among women with
+higher education.</p>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p><a href="https://www.measureevaluation.org/prh/rh_indicators/womens-health/womens-nutrition/percent-of-women-of-reproductive-age-with-anemia" class="uri">https://www.measureevaluation.org/prh/rh_indicators/womens-health/womens-nutrition/percent-of-women-of-reproductive-age-with-anemia</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
