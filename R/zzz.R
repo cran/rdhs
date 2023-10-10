@@ -42,6 +42,19 @@ rdhs_setup <- function() {
 
 }
 
+startup_msg <- function() {
+  str <- "Thank you for using rdhs. If you are using rdhs regularly
+or for automated tasks, please register for your own API key by
+emailing api@dhsprogram.com. \n
+More info at {.url https://api.dhsprogram.com/#/introdevelop.html}"
+  rlang::inform(cli::format_inline(str), class = "packageStartupMessage")
+}
+
+
+.onAttach <- function(libname, pkgname) {
+  startup_msg()
+}
+
 # ask for user permission to write to Renviron
 #' @noRd
 ask_user_permission <- function(){
