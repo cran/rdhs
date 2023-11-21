@@ -1,10 +1,10 @@
-732f88877176e87fca7b5c88d60ebcf1 *DESCRIPTION
+5afd82dda21fa85671117f81136f9330 *DESCRIPTION
 afadaec5ed0ff207edcacceabf7fd437 *LICENSE
 697fecf44a79ab1e33b4656a2ff67959 *NAMESPACE
-7639cc017128a5ac94f8f82ea1c5c654 *NEWS.md
+7d174b3a687798849c8a75ac91b47df2 *NEWS.md
 9249eb72de3b87199a4af8dc5da5ded6 *R/API.R
 a756abce58b3b4401c148acc961be9bf *R/api_endpoints.R
-14b9fac1320fd703df447fc85ebf84e1 *R/authentication.R
+f8a99be740b464e2112eea32e3f49326 *R/authentication.R
 9e9f5aa5b9667a3dda2983276d529b5c *R/cache.R
 76b538467c09e2131771274f0804f1ce *R/client.R
 082b8e1bf345dc37793466d0afe7f7ec *R/config.R
@@ -16,10 +16,10 @@ e33e81e12327c15e3d845f2e68480a16 *R/deprecated.R
 cae634658976ca2e9a2b467703007f8b *R/rdhs.R
 ca4b8a44bce253f4bdcf73b6f81560a6 *R/read_datasets.R
 4c27c629e81c6833894a83e485319b94 *R/read_dhs_dta.R
-b111eb1082ff1c335af5f379063064d7 *R/read_dhs_flat.R
+252286ff94057f2d7fed6932c8a72a49 *R/read_dhs_flat.R
 246f9b2f0555e648ef85b05d752f95e6 *R/shapes.R
 9038905afe442b6b91f13fd30e5b7e26 *R/sysdata.rda
-195af22c9221fab2616d170343f99714 *R/ui.R
+7cd1b59dfab977506804f41804be2276 *R/ui.R
 0e6a777c1ccc9def7b87528506c8475b *R/utils.R
 c62eb7a706072fe374064c6eec3da90f *R/zzz.R
 3ec1c1e50c23a936c7c6eb9ab9a17396 *README.md
@@ -44,7 +44,7 @@ a3a77fd9046f8a85ba4482080686ad6c *inst/doc/testing.html
 4de88a51cbad7caca20e18b3af16ddc4 *inst/doc/toolkit.Rmd
 00317ef6e15ddc83817a58a1ba899fa2 *inst/doc/toolkit.html
 d2bdb18ffa91f2428fe671d6b971d606 *man/as_factor.labelled.Rd
-3f3ee4704b27a90894fa7b515f622d51 *man/authenticate_dhs.Rd
+14c87f7c91f9badd80bdbe0a2516cec2 *man/authenticate_dhs.Rd
 d85f1b9f90db786d0cd977f417dcfbe5 *man/available_datasets.Rd
 132ab82fce2b33fa52a74ff7002b1b74 *man/client_cache_date.Rd
 20827bdd02889c65857820eb2e6c308b *man/client_dhs.Rd
@@ -71,7 +71,7 @@ fb69dcdfe0ba11f130916e496944a19d *man/extraction.Rd
 cb9bfca1d3e0ce23089e13265b066456 *man/factor_format.Rd
 b6f0efdbfde2104fc3235bcdc0b4c161 *man/file_dataset_format.Rd
 01cd3646a9695065d50090678c159f84 *man/get_available_datasets.Rd
-917973d02b00001ae6b1f3cab9c73f02 *man/get_datasets.Rd
+7cb343033001bc5bbc8e6d76e9be9c86 *man/get_datasets.Rd
 efbee8eb642a979429aaa4dd351b60c8 *man/get_downloaded_datasets.Rd
 81cd16eced9b7d88d264299c7ca4b87a *man/get_labels_from_dataset.Rd
 11f02b5da8aa08ea0bfcbb5caa2ad715 *man/get_rdhs_config.Rd
@@ -86,7 +86,7 @@ eb3aef07e0f76da5213f1873fcff9c20 *man/rbind_list_base.Rd
 0460a471d9fbcb3d10fa39c0d9cf1ff7 *man/rdhs.Rd
 77a67b083c3b2e39e7cc29265ddb00e4 *man/read_dhs_dataset.Rd
 2f8fa0d16d23659ae65efc83253f5a9e *man/read_dhs_dta.Rd
-f11e2b2a6455a79cb26ae59c37d1a9a6 *man/read_dhs_flat.Rd
+824814ec2676642e6142b603ed4810dd *man/read_dhs_flat.Rd
 f0e0ea0856e84014c07db0d6b1131c2a *man/read_zipdata.Rd
 e902795f32e0e61d7cb29786906df29c *man/response_is_json.Rd
 0ef7affae0df4b16024a52a42429e419 *man/response_to_json.Rd
@@ -103,7 +103,7 @@ aefeefe901a24bde09ed4b7516f7c53c *tests/testthat/test_api_calls.R
 59da2d6d8ca3e4446bbe0e430ecf3fde *tests/testthat/test_api_endpoints.R
 d09526822da6ccbeaf2fc32aff7df9cd *tests/testthat/test_authentication.R
 00e37f2708a4f73d46d05379dce0b0ee *tests/testthat/test_client_set_up.R
-e18ec4fa2504c5f22ef07a7f0a499f75 *tests/testthat/test_downloads.R
+4854eb0740c2ac0a0c2142d406b5257c *tests/testthat/test_downloads.R
 8d8a7aaf1dfac9816deb021c007b5fe3 *tests/testthat/test_extraction.R
 a575033f7e014d65a582c0c19b907d50 *tests/testthat/test_miscellaneous.R
 c45a01dfa32c1924849f601c613dfe7e *tests/testthat/test_read_dhs_flat.R

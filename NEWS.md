@@ -1,3 +1,12 @@
+# rdhs (development version)
+
+## rdhs 0.8.1
+
+* Convert DHS dataset flat file data dictionaries to UTF-8. This addresses parsing 
+  parsing issue that arose following R 4.3.0 (#146). 
+  
+  In doing so, it addresses issue of accents in variable and value labels not being parsed correctly.
+  
 ## rdhs 0.8.0
 
 * Update for deprecation of spatial infrastructure (#145).

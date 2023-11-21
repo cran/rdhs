@@ -18,7 +18,7 @@ get_datasets(
 \item{dataset_filenames}{The desired filenames to be downloaded. These can be
 found as one of the returned fields from \code{\link{dhs_datasets}}.
 Alternatively you can also pass the desired rows from
-code{\link{dhs_datasets}}.}
+\code{\link{dhs_datasets}}.}
 
 \item{download_option}{Character specifying whether the dataset should be
 just downloaded ("zip"), imported and saved as an .rds object ("rds"), or
@@ -50,12 +50,12 @@ Downloads datasets you have access to from the DHS website
 }
 \details{
 Gets datasets from your cache or downloads from the DHS website.
-  By providing the filenames, as specified in one of the returned fields from
-  \code{\link{dhs_datasets}}, the client will log in for you and download all
-  the files you have requested. If any of the requested files are unavailable
-  for your log in, these will be flagged up first as a message so you can
-  make a note and request them through the DHS website. You also have the
-  option to control whether the downloaded zip file is then extracted and
+  By providing the filenames, as specified in one of the returned fields
+  from \code{\link{dhs_datasets}}, the client will log in for you and download
+  all the files you have requested. If any of the requested files are
+  unavailable for your log in, these will be flagged up first as a message so
+  you can make a note and request them through the DHS website. You also have
+  the option to control whether the downloaded zip file is then extracted and
   converted into a more convenient R \code{data.frame}. This converted object
   will then be subsequently saved as a ".rds" object within the client root
   directory datasets folder, which can then be more quickly loaded when
